@@ -17,6 +17,8 @@ public class LokiControls : MonoBehaviour
 
     public float fastfallspeed;
 
+    public bool canfastfall = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,14 +40,15 @@ public class LokiControls : MonoBehaviour
         if(rb.velocity.y == 0)
         {
             rb.velocity = new Vector2(0, jumpHeight);
+            canfastfall = false;
         }
        
     }
 
     void FastFall()
     {
-        if(rb.velocity.y != 0)
-        {
+        if(rb.velocity.y != 0 && canfastfall == true)
+        { 
             rb.velocity -= new Vector2(0, fastfallspeed);
         }
     }
@@ -54,6 +57,10 @@ public class LokiControls : MonoBehaviour
     {
         Vector2 m = new Vector2(move.x, 0f) * Time.deltaTime * speed;
         transform.Translate(m, Space.World);
+        if(rb.velocity.y == 0)
+        {
+            canfastfall = true;
+        }
     }
 
     void OnEnable()
