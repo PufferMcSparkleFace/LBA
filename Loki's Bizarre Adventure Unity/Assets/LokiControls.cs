@@ -57,7 +57,7 @@ public class LokiControls : MonoBehaviour
     {
         Vector2 m = new Vector2(move.x, 0f) * Time.deltaTime * speed;
         transform.Translate(m, Space.World);
-        if(rb.velocity.y < 0.5)
+        if(rb.velocity.y < 1.5)
         {
             canfastfall = true;
         }
