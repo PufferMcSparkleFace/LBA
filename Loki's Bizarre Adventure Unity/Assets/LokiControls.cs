@@ -11,8 +11,6 @@ public class LokiControls : MonoBehaviour
 
     public float speed;
 
-    public bool canJump = true;
-
     public float jumpHeight;
 
     public Rigidbody2D rb;
@@ -34,7 +32,7 @@ public class LokiControls : MonoBehaviour
 
     void Jump()
     {
-        if(canJump == true)
+        if(rb.velocity.y == 0)
         {
             rb.velocity = new Vector2(0, jumpHeight);
         }
@@ -45,22 +43,6 @@ public class LokiControls : MonoBehaviour
     {
         Vector2 m = new Vector2(move.x, 0f) * Time.deltaTime * speed;
         transform.Translate(m, Space.World);
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Ground")
-        {
-            canJump = true;
-        }
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if(collision.gameObject.tag == "Ground")
-        {
-            canJump = false;
-        }
     }
 
     void OnEnable()
