@@ -9,6 +9,8 @@ public class LokiControls : MonoBehaviour
 
     Vector2 move;
 
+    public float speed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +26,7 @@ public class LokiControls : MonoBehaviour
 
     void Update()
     {
-        Vector2 m = new Vector2(move.x, 0f) * Time.deltaTime;
+        Vector2 m = new Vector2(move.x, 0f) * Time.deltaTime * speed;
         transform.Translate(m, Space.World);
     }
 
