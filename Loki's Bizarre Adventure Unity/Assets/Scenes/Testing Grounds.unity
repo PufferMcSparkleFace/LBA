@@ -6240,7 +6240,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!60 &493697541
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -6295,7 +6295,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 1.75
   m_Material: {fileID: 6200000, guid: 1eb1018137c96cb4bb72901fe43a833e, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -6377,8 +6377,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd23ab74f6e840544a9e4ccf9a6bd0cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  jumpHeight: 4
+  speed: 6
+  jumpHeight: 10.5
   rb: {fileID: 493697542}
   fastfallspeed: 2
   canfastfall: 0
@@ -7678,7 +7678,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7.5
-  jumpHeight: 13.5
+  jumpHeight: 14
   rb: {fileID: 1640241011}
   fastfallspeed: 2
   canfastfall: 0
