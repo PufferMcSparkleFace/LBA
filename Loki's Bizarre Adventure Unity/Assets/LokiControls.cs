@@ -11,6 +11,8 @@ public class LokiControls : MonoBehaviour
 
     public float speed;
 
+    public bool canJump = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +30,22 @@ public class LokiControls : MonoBehaviour
     {
         Vector2 m = new Vector2(move.x, 0f) * Time.deltaTime * speed;
         transform.Translate(m, Space.World);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            canJump = true;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if(collision.gameObject.tag == "Ground")
+        {
+            canJump = false;
+        }
     }
 
     void OnEnable()
