@@ -6233,6 +6233,7 @@ GameObject:
   - component: {fileID: 493697543}
   - component: {fileID: 493697542}
   - component: {fileID: 493697541}
+  - component: {fileID: 493697545}
   m_Layer: 0
   m_Name: Baldr
   m_TagString: Untagged
@@ -6364,6 +6365,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &493697545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493697540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd23ab74f6e840544a9e4ccf9a6bd0cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  jumpHeight: 4
+  rb: {fileID: 493697542}
+  fastfallspeed: 2
+  canfastfall: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -7662,5 +7680,5 @@ MonoBehaviour:
   speed: 7.5
   jumpHeight: 5
   rb: {fileID: 1640241011}
-  fastfallspeed: 5
+  fastfallspeed: 3
   canfastfall: 0
