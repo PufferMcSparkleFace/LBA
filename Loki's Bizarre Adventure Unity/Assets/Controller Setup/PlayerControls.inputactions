@@ -92,6 +92,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Fast Fall",
+                    "type": "Button",
+                    "id": "e8f2297f-db0c-4319-a1c9-8f6ff9d91d6b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -215,6 +223,17 @@
                     "action": "Summon Clone",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "79c4b197-f4b8-4b8e-8c55-95d240af12a2",
+                    "path": "<DualShockGamepad>/leftStick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Fast Fall",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -283,6 +302,14 @@
                     "type": "Value",
                     "id": "66e16191-742d-4e30-8e62-6de5e7278998",
                     "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Fast Fall",
+                    "type": "Button",
+                    "id": "7ce093af-a591-46ab-a961-f75b60dd3964",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
                 }
@@ -373,6 +400,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Angle Shield",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "89fe432a-dbdf-4551-99b0-5bfdb7849c57",
+                    "path": "<DualShockGamepad>/leftStick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Fast Fall",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

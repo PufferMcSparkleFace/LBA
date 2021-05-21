@@ -15,6 +15,8 @@ public class LokiControls : MonoBehaviour
 
     public Rigidbody2D rb;
 
+    public float fastfallspeed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +30,7 @@ public class LokiControls : MonoBehaviour
         controls.Loki.Move.canceled += ctx => move = Vector2.zero;
         controls.Loki.Jump.performed += ctx => Jump();
         controls.Loki.Jump2.performed += ctx => Jump();
+        controls.Loki.FastFall.performed += ctx => FastFall();
     }
 
     void Jump()
@@ -37,6 +40,14 @@ public class LokiControls : MonoBehaviour
             rb.velocity = new Vector2(0, jumpHeight);
         }
        
+    }
+
+    void FastFall()
+    {
+        if(rb.velocity.y != 0)
+        {
+            rb.velocity -= new Vector2(0, fastfallspeed);
+        }
     }
 
     void Update()

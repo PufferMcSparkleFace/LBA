@@ -105,6 +105,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Fast Fall"",
+                    ""type"": ""Button"",
+                    ""id"": ""e8f2297f-db0c-4319-a1c9-8f6ff9d91d6b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -228,6 +236,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""Summon Clone"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""79c4b197-f4b8-4b8e-8c55-95d240af12a2"",
+                    ""path"": ""<DualShockGamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Fast Fall"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -296,6 +315,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""66e16191-742d-4e30-8e62-6de5e7278998"",
                     ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Fast Fall"",
+                    ""type"": ""Button"",
+                    ""id"": ""7ce093af-a591-46ab-a961-f75b60dd3964"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
                 }
@@ -388,6 +415,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""Angle Shield"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""89fe432a-dbdf-4551-99b0-5bfdb7849c57"",
+                    ""path"": ""<DualShockGamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Fast Fall"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -407,6 +445,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Loki_Move = m_Loki.FindAction("Move", throwIfNotFound: true);
         m_Loki_Jump2 = m_Loki.FindAction("Jump 2", throwIfNotFound: true);
         m_Loki_SummonClone = m_Loki.FindAction("Summon Clone", throwIfNotFound: true);
+        m_Loki_FastFall = m_Loki.FindAction("Fast Fall", throwIfNotFound: true);
         // Baldr
         m_Baldr = asset.FindActionMap("Baldr", throwIfNotFound: true);
         m_Baldr_Move = m_Baldr.FindAction("Move", throwIfNotFound: true);
@@ -417,6 +456,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Baldr_Pause = m_Baldr.FindAction("Pause", throwIfNotFound: true);
         m_Baldr_Jump2 = m_Baldr.FindAction("Jump 2", throwIfNotFound: true);
         m_Baldr_AngleShield = m_Baldr.FindAction("Angle Shield", throwIfNotFound: true);
+        m_Baldr_FastFall = m_Baldr.FindAction("Fast Fall", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -477,6 +517,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Loki_Move;
     private readonly InputAction m_Loki_Jump2;
     private readonly InputAction m_Loki_SummonClone;
+    private readonly InputAction m_Loki_FastFall;
     public struct LokiActions
     {
         private @PlayerControls m_Wrapper;
@@ -492,6 +533,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @Move => m_Wrapper.m_Loki_Move;
         public InputAction @Jump2 => m_Wrapper.m_Loki_Jump2;
         public InputAction @SummonClone => m_Wrapper.m_Loki_SummonClone;
+        public InputAction @FastFall => m_Wrapper.m_Loki_FastFall;
         public InputActionMap Get() { return m_Wrapper.m_Loki; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -534,6 +576,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @SummonClone.started -= m_Wrapper.m_LokiActionsCallbackInterface.OnSummonClone;
                 @SummonClone.performed -= m_Wrapper.m_LokiActionsCallbackInterface.OnSummonClone;
                 @SummonClone.canceled -= m_Wrapper.m_LokiActionsCallbackInterface.OnSummonClone;
+                @FastFall.started -= m_Wrapper.m_LokiActionsCallbackInterface.OnFastFall;
+                @FastFall.performed -= m_Wrapper.m_LokiActionsCallbackInterface.OnFastFall;
+                @FastFall.canceled -= m_Wrapper.m_LokiActionsCallbackInterface.OnFastFall;
             }
             m_Wrapper.m_LokiActionsCallbackInterface = instance;
             if (instance != null)
@@ -571,6 +616,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @SummonClone.started += instance.OnSummonClone;
                 @SummonClone.performed += instance.OnSummonClone;
                 @SummonClone.canceled += instance.OnSummonClone;
+                @FastFall.started += instance.OnFastFall;
+                @FastFall.performed += instance.OnFastFall;
+                @FastFall.canceled += instance.OnFastFall;
             }
         }
     }
@@ -587,6 +635,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Baldr_Pause;
     private readonly InputAction m_Baldr_Jump2;
     private readonly InputAction m_Baldr_AngleShield;
+    private readonly InputAction m_Baldr_FastFall;
     public struct BaldrActions
     {
         private @PlayerControls m_Wrapper;
@@ -599,6 +648,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @Pause => m_Wrapper.m_Baldr_Pause;
         public InputAction @Jump2 => m_Wrapper.m_Baldr_Jump2;
         public InputAction @AngleShield => m_Wrapper.m_Baldr_AngleShield;
+        public InputAction @FastFall => m_Wrapper.m_Baldr_FastFall;
         public InputActionMap Get() { return m_Wrapper.m_Baldr; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -632,6 +682,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @AngleShield.started -= m_Wrapper.m_BaldrActionsCallbackInterface.OnAngleShield;
                 @AngleShield.performed -= m_Wrapper.m_BaldrActionsCallbackInterface.OnAngleShield;
                 @AngleShield.canceled -= m_Wrapper.m_BaldrActionsCallbackInterface.OnAngleShield;
+                @FastFall.started -= m_Wrapper.m_BaldrActionsCallbackInterface.OnFastFall;
+                @FastFall.performed -= m_Wrapper.m_BaldrActionsCallbackInterface.OnFastFall;
+                @FastFall.canceled -= m_Wrapper.m_BaldrActionsCallbackInterface.OnFastFall;
             }
             m_Wrapper.m_BaldrActionsCallbackInterface = instance;
             if (instance != null)
@@ -660,6 +713,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @AngleShield.started += instance.OnAngleShield;
                 @AngleShield.performed += instance.OnAngleShield;
                 @AngleShield.canceled += instance.OnAngleShield;
+                @FastFall.started += instance.OnFastFall;
+                @FastFall.performed += instance.OnFastFall;
+                @FastFall.canceled += instance.OnFastFall;
             }
         }
     }
@@ -677,6 +733,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnJump2(InputAction.CallbackContext context);
         void OnSummonClone(InputAction.CallbackContext context);
+        void OnFastFall(InputAction.CallbackContext context);
     }
     public interface IBaldrActions
     {
@@ -688,5 +745,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnPause(InputAction.CallbackContext context);
         void OnJump2(InputAction.CallbackContext context);
         void OnAngleShield(InputAction.CallbackContext context);
+        void OnFastFall(InputAction.CallbackContext context);
     }
 }
