@@ -13,6 +13,10 @@ public class LokiControls : MonoBehaviour
 
     public bool canJump = true;
 
+    public float jumpHeight;
+
+    public Rigidbody2D rb;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +28,17 @@ public class LokiControls : MonoBehaviour
         controls = new PlayerControls();
         controls.Loki.Move.performed += ctx => move = ctx.ReadValue<Vector2>();
         controls.Loki.Move.canceled += ctx => move = Vector2.zero;
+        controls.Loki.Jump.performed += ctx => Jump();
+        controls.Loki.Jump2.performed += ctx => Jump();
+    }
+
+    void Jump()
+    {
+        if(canJump == true)
+        {
+            rb.velocity = new Vector2(0, jumpHeight);
+        }
+       
     }
 
     void Update()
