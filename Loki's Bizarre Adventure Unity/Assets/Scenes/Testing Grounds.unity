@@ -6515,14 +6515,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd23ab74f6e840544a9e4ccf9a6bd0cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move: {x: 0, y: 0}
   speed: 6
   jumpHeight: 12
   rb: {fileID: 493697542}
   fastfallspeed: 2
-  lokiControls: {fileID: 1640241014}
-  LokiCam: {fileID: 1358102681}
-  BaldrCam: {fileID: 596104078}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -6577,7 +6573,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  m_CustomBlends: {fileID: 11400000, guid: 375d09cdc1b38b847aeac4b0cc3b7008, type: 2}
+  m_CustomBlends: {fileID: 0}
   m_CameraCutEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -6689,7 +6685,7 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 0
+  m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 493697544}
@@ -7826,7 +7822,7 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 1
+  m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 1640241013}
@@ -8011,11 +8007,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b22bd39ba879f7a4d89a434a05b1edf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move: {x: 0, y: 0}
   speed: 7.5
   jumpHeight: 18
   rb: {fileID: 1640241011}
   fastfallspeed: 2
-  baldrControls: {fileID: 493697545}
-  LokiCam: {fileID: 1358102681}
-  BaldrCam: {fileID: 596104078}
