@@ -22,7 +22,8 @@ public class BaldrControls : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        GameObject loki = GameObject.FindGameObjectWithTag("Loki");
+        Physics2D.IgnoreCollision(loki.GetComponent<Collider2D>(), GetComponent<Collider2D>());
     }
 
     void Awake()
