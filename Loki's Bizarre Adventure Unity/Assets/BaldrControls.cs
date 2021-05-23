@@ -17,6 +17,8 @@ public class BaldrControls : MonoBehaviour
 
     public float fastfallspeed;
 
+    public LokiControls lokiControls;
+
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +35,14 @@ public class BaldrControls : MonoBehaviour
         controls.Baldr.Move.canceled += ctx => move = Vector2.zero;
         controls.Baldr.Jump.performed += ctx => Jump();
         controls.Baldr.Jump2.performed += ctx => Jump();
+        controls.Baldr.SwitchPlayerLeft.performed += ctx => SwitchPlayer();
+        controls.Baldr.SwitchPlayerRight.performed += ctx => SwitchPlayer();
+    }
+
+    void SwitchPlayer()
+    {
+        OnDisable();
+        lokiControls.OnEnable();
     }
 
     void Jump()
@@ -51,12 +61,12 @@ public class BaldrControls : MonoBehaviour
         transform.Translate(m, Space.World);
     }
 
-    void OnEnable()
+    public void OnEnable()
     {
         controls.Baldr.Enable();
     }
 
-    void OnDisable()
+    public void OnDisable()
     {
         controls.Baldr.Disable();
     }
