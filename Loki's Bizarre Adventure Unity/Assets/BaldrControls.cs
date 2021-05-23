@@ -23,6 +23,7 @@ public class BaldrControls : MonoBehaviour
     {
         GameObject loki = GameObject.FindGameObjectWithTag("Loki");
         Physics2D.IgnoreCollision(loki.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        OnDisable();
     }
 
     void Awake()

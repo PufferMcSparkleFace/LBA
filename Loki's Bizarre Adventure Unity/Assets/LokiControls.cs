@@ -32,8 +32,14 @@ public class LokiControls : MonoBehaviour
         controls.Loki.Move.canceled += ctx => move = Vector2.zero;
         controls.Loki.Jump.performed += ctx => Jump();
         controls.Loki.Jump2.performed += ctx => Jump();
+        //when switch is pressed
     
     }
+
+    //void switch 
+    //disable these controls
+    //enable baldr's controls
+    //switch camera
 
     void Jump()
     {
