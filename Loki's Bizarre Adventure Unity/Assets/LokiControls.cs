@@ -2,20 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Cinemachine;
 
 public class LokiControls : MonoBehaviour
 {
+    [SerializeField]
     PlayerControls controls;
-
+    [SerializeField]
     Vector2 move;
+    [SerializeField]
+    private float speed;
+    [SerializeField]
+    private float jumpHeight;
+    [SerializeField]
+    private Rigidbody2D rb;
+    [SerializeField]
+    private float fastfallspeed;
+    [SerializeField]
+    private BaldrControls baldrControls;
+    [SerializeField]
+    private CinemachineVirtualCamera LokiCam;
+    [SerializeField]
+    private CinemachineVirtualCamera BaldrCam;
 
-    public float speed;
-
-    public float jumpHeight;
-
-    public Rigidbody2D rb;
-
-    public float fastfallspeed;
 
 
     // Start is called before the first frame update
@@ -32,8 +41,20 @@ public class LokiControls : MonoBehaviour
         controls.Loki.Move.canceled += ctx => move = Vector2.zero;
         controls.Loki.Jump.performed += ctx => Jump();
         controls.Loki.Jump2.performed += ctx => Jump();
+        controls.Loki.SwitchPlayerLeft.performed += ctx => SwitchPlayer();
+        controls.Loki.SwitchPlayerRight.performed += ctx => SwitchPlayer();
     
     }
+
+    void SwitchPlayer()
+    {
+        OnDisable();
+        baldrControls.OnEnable();
+        LokiCam.Priority = 0;
+        BaldrCam.Priority = 1;
+    }
+    
+    //switch camera
 
     void Jump()
     {
@@ -50,12 +71,12 @@ public class LokiControls : MonoBehaviour
         transform.Translate(m, Space.World);
     }
 
-    void OnEnable()
+    public void OnEnable()
     {
         controls.Loki.Enable();
     }
 
-    void OnDisable()
+    public void OnDisable()
     {
         controls.Loki.Disable();
     }

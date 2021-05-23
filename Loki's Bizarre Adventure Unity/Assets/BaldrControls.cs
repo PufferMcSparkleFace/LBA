@@ -2,20 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Cinemachine;
 
 public class BaldrControls : MonoBehaviour
 {
+    [SerializeField]
     PlayerControls controls;
-
+    [SerializeField]
     Vector2 move;
-
-    public float speed;
-
-    public float jumpHeight;
-
-    public Rigidbody2D rb;
-
-    public float fastfallspeed;
+    [SerializeField]
+    private float speed;
+    [SerializeField]
+    private float jumpHeight;
+    [SerializeField]
+    private Rigidbody2D rb;
+    [SerializeField]
+    private float fastfallspeed;
+    [SerializeField]
+    private LokiControls lokiControls;
+    [SerializeField]
+    private CinemachineVirtualCamera LokiCam;
+    [SerializeField]
+    private CinemachineVirtualCamera BaldrCam;
 
 
     // Start is called before the first frame update
@@ -23,6 +31,7 @@ public class BaldrControls : MonoBehaviour
     {
         GameObject loki = GameObject.FindGameObjectWithTag("Loki");
         Physics2D.IgnoreCollision(loki.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        OnDisable();
     }
 
     void Awake()
@@ -32,6 +41,16 @@ public class BaldrControls : MonoBehaviour
         controls.Baldr.Move.canceled += ctx => move = Vector2.zero;
         controls.Baldr.Jump.performed += ctx => Jump();
         controls.Baldr.Jump2.performed += ctx => Jump();
+        controls.Baldr.SwitchPlayerLeft.performed += ctx => SwitchPlayer();
+        controls.Baldr.SwitchPlayerRight.performed += ctx => SwitchPlayer();
+    }
+
+    void SwitchPlayer()
+    {
+        OnDisable();
+        lokiControls.OnEnable();
+        BaldrCam.Priority = 0;
+        LokiCam.Priority = 1;
     }
 
     void Jump()
@@ -50,12 +69,12 @@ public class BaldrControls : MonoBehaviour
         transform.Translate(m, Space.World);
     }
 
-    void OnEnable()
+    public void OnEnable()
     {
         controls.Baldr.Enable();
     }
 
-    void OnDisable()
+    public void OnDisable()
     {
         controls.Baldr.Disable();
     }
