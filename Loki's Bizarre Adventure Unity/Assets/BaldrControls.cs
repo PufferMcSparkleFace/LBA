@@ -24,6 +24,8 @@ public class BaldrControls : MonoBehaviour
     private CinemachineVirtualCamera LokiCam;
     [SerializeField]
     private CinemachineVirtualCamera BaldrCam;
+    [SerializeField]
+    private bool canSwitch = true;
 
 
     // Start is called before the first frame update
@@ -47,11 +49,25 @@ public class BaldrControls : MonoBehaviour
 
     void SwitchPlayer()
     {
-        OnDisable();
-        lokiControls.OnEnable();
-        BaldrCam.Priority = 0;
-        LokiCam.Priority = 1;
+        if(canSwitch == true)
+        {
+            OnDisable();
+            lokiControls.OnEnable();
+            BaldrCam.Priority = 0;
+            LokiCam.Priority = 1;
+            StartCoroutine(SwitchPlayerStall());
+        }
     }
+
+    IEnumerator SwitchPlayerStall()
+    {
+        yield return new WaitForSeconds(1.5f);
+        canSwitch = false;
+        yield return new WaitForSeconds(1);
+        canSwitch = true;
+    }
+
+
 
     void Jump()
     {
