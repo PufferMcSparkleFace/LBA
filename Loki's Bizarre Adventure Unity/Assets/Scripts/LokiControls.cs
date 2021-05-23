@@ -43,9 +43,13 @@ public class LokiControls : MonoBehaviour
         controls.Loki.Jump2.performed += ctx => Jump();
         controls.Loki.SwitchPlayerLeft.performed += ctx => SwitchPlayer();
         controls.Loki.SwitchPlayerRight.performed += ctx => SwitchPlayer();
+        
+        
     
     }
 
+    //in the clone, clonebounce, and switch player function, call the detether function
+    
     void SwitchPlayer()
     {
         OnDisable();
@@ -53,8 +57,6 @@ public class LokiControls : MonoBehaviour
         LokiCam.Priority = 0;
         BaldrCam.Priority = 1;
     }
-    
-    //switch camera
 
     void Jump()
     {
