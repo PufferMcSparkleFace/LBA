@@ -240,7 +240,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""79c4b197-f4b8-4b8e-8c55-95d240af12a2"",
-                    ""path"": ""<DualShockGamepad>/leftStickPress"",
+                    ""path"": ""<DualShockGamepad>/leftStick/down"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -419,7 +419,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""89fe432a-dbdf-4551-99b0-5bfdb7849c57"",
-                    ""path"": ""<DualShockGamepad>/leftStickPress"",
+                    ""path"": ""<DualShockGamepad>/leftStick/down"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
