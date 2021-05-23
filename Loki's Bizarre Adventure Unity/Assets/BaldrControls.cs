@@ -53,9 +53,6 @@ public class BaldrControls : MonoBehaviour
         LokiCam.Priority = 1;
     }
 
-    //tethering function
-    //move baldr to loki
-
     void Jump()
     {
         if (rb.velocity.y == 0)

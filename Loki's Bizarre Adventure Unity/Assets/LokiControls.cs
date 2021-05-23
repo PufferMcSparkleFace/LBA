@@ -43,21 +43,10 @@ public class LokiControls : MonoBehaviour
         controls.Loki.Jump2.performed += ctx => Jump();
         controls.Loki.SwitchPlayerLeft.performed += ctx => SwitchPlayer();
         controls.Loki.SwitchPlayerRight.performed += ctx => SwitchPlayer();
-        //when press tether button activate start coroutine
+        
         
     
     }
-
-    //tether coroutine
-    //if baldr is close to loki
-    //tell baldr to move to loki's position
-    //wait
-    //deactivate baldr sprite renderer
-    //parent baldr to loki
-
-    //void detether
-    //activate baldr sprite render
-    //deparent baldr to loki
 
     //in the clone, clonebounce, and switch player function, call the detether function
     
