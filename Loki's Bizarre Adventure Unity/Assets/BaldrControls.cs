@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Cinemachine;
 
 public class BaldrControls : MonoBehaviour
 {
+    [SerializeField]
     PlayerControls controls;
-
+    [SerializeField]
     Vector2 move;
-<<<<<<< HEAD
     [SerializeField]
     private float speed;
     [SerializeField]
@@ -25,18 +26,6 @@ public class BaldrControls : MonoBehaviour
     private CinemachineVirtualCamera BaldrCam;
     [SerializeField]
     private bool canSwitch = true;
-=======
-
-    public float speed;
-
-    public float jumpHeight;
-
-    public Rigidbody2D rb;
-
-    public float fastfallspeed;
-
-    public LokiControls lokiControls;
->>>>>>> parent of 5138e91 (Camera Switching)
 
 
     // Start is called before the first frame update
@@ -60,7 +49,6 @@ public class BaldrControls : MonoBehaviour
 
     void SwitchPlayer()
     {
-<<<<<<< HEAD
         if(canSwitch == true)
         {
             OnDisable();
@@ -69,10 +57,6 @@ public class BaldrControls : MonoBehaviour
             LokiCam.Priority = 1;
             StartCoroutine(SwitchPlayerStall());
         }
-=======
-        OnDisable();
-        lokiControls.OnEnable();
->>>>>>> parent of 5138e91 (Camera Switching)
     }
 
     IEnumerator SwitchPlayerStall()
