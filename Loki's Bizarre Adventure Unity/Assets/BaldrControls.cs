@@ -2,22 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Cinemachine;
 
 public class BaldrControls : MonoBehaviour
 {
+    [SerializeField]
     PlayerControls controls;
-
+    [SerializeField]
     Vector2 move;
-
-    public float speed;
-
-    public float jumpHeight;
-
-    public Rigidbody2D rb;
-
-    public float fastfallspeed;
-
-    public LokiControls lokiControls;
+    [SerializeField]
+    private float speed;
+    [SerializeField]
+    private float jumpHeight;
+    [SerializeField]
+    private Rigidbody2D rb;
+    [SerializeField]
+    private float fastfallspeed;
+    [SerializeField]
+    private LokiControls lokiControls;
+    [SerializeField]
+    private CinemachineVirtualCamera LokiCam;
+    [SerializeField]
+    private CinemachineVirtualCamera BaldrCam;
 
 
     // Start is called before the first frame update
@@ -43,6 +49,8 @@ public class BaldrControls : MonoBehaviour
     {
         OnDisable();
         lokiControls.OnEnable();
+        BaldrCam.Priority = 0;
+        LokiCam.Priority = 1;
     }
 
     void Jump()
