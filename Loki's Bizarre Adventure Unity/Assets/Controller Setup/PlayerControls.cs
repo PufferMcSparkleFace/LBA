@@ -108,7 +108,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""Fast Fall"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""e8f2297f-db0c-4319-a1c9-8f6ff9d91d6b"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",

@@ -72,4 +72,12 @@ public class LokiControls : MonoBehaviour
     {
         controls.Loki.Disable();
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Baldr")
+        {
+            Physics2D.IgnoreCollision(collision.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        }
+    }
 }
