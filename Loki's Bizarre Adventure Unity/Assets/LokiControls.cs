@@ -24,8 +24,6 @@ public class LokiControls : MonoBehaviour
     private CinemachineVirtualCamera LokiCam;
     [SerializeField]
     private CinemachineVirtualCamera BaldrCam;
-    [SerializeField]
-    private bool canSwitch = true;
 
 
 
@@ -50,24 +48,13 @@ public class LokiControls : MonoBehaviour
 
     void SwitchPlayer()
     {
-        if(canSwitch == true)
-        {
-            OnDisable();
-            baldrControls.OnEnable();
-            LokiCam.Priority = 0;
-            BaldrCam.Priority = 1;
-            StartCoroutine(SwitchPlayerStall());
-        }
-     
+        OnDisable();
+        baldrControls.OnEnable();
+        LokiCam.Priority = 0;
+        BaldrCam.Priority = 1;
     }
-    IEnumerator SwitchPlayerStall()
-    {
-        yield return new WaitForSeconds(1.5f);
-        canSwitch = false;
-        yield return new WaitForSeconds(1);
-        canSwitch = true;
-    }
-
+    
+    //switch camera
 
     void Jump()
     {
