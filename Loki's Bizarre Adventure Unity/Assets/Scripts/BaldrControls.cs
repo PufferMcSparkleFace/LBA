@@ -78,8 +78,12 @@ public class BaldrControls : MonoBehaviour
 
     void Update()
     {
-        Vector2 m = new Vector2(move.x, 0f) * Time.deltaTime * speed;
-        transform.Translate(m, Space.World);
+        if(isTethered == false)
+        {
+            Vector2 m = new Vector2(move.x, 0f) * Time.deltaTime * speed;
+            transform.Translate(m, Space.World);
+        }
+       
         if(Vector2.Distance(transform.position, LokiFollow.position) > distancetoloki && isTethered == true)
         {
             transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), new Vector2 (LokiFollow.position.x, transform.position.y), speed * Time.deltaTime);
@@ -106,6 +110,15 @@ public class BaldrControls : MonoBehaviour
         }
         
         BaldrAnimator.SetFloat("Speed", Mathf.Abs(move.x));
+
+        if (LokiFollow.position.x > transform.position.x)
+        {
+            move.x = 1;
+        }
+        else if(LokiFollow.position.x < transform.position.x)
+        {
+            move.x = -1;
+        }
         
 
         if (move.x > 0 && BaldrSpriteRenderer.flipX == true)
@@ -116,6 +129,7 @@ public class BaldrControls : MonoBehaviour
         {
             BaldrSpriteRenderer.flipX = true;
         }
+
 
     }
 
