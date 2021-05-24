@@ -17,8 +17,6 @@ public class LokiControls : MonoBehaviour
     [SerializeField]
     private Rigidbody2D rb;
     [SerializeField]
-    private float fastfallspeed;
-    [SerializeField]
     private BaldrControls baldrControls;
     [SerializeField]
     private CinemachineVirtualCamera LokiCam;
