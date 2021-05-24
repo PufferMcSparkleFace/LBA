@@ -91,6 +91,7 @@ public class LokiControls : MonoBehaviour
         {
             isTethered = false;
             baldrControls.isTethered = false;
+            return;
         }
 
         if (isTethered == false && Vector2.Distance(transform.position, BaldrFollow.position) < 5)
