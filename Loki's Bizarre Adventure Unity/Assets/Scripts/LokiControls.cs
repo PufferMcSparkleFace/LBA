@@ -35,6 +35,7 @@ public class LokiControls : MonoBehaviour
     public bool active = false;
     public CinemachineVirtualCamera CloneCam;
     public bool cloneisfocus = false;
+    public GameObject clone;
 
 
 
@@ -56,6 +57,7 @@ public class LokiControls : MonoBehaviour
         controls.Loki.SwitchPlayerLeft.performed += ctx => SwitchPlayerLeft();
         controls.Loki.SwitchPlayerRight.performed += ctx => SwitchPlayerRight();
         controls.Loki.TetherBaldr.performed += ctx => tetherManagement();
+        controls.Loki.SummonClone.performed += ctx => SummonClone();
         //when press clone button, trigger clone function
         
     
@@ -68,6 +70,27 @@ public class LokiControls : MonoBehaviour
 
     //in the clone, clonebounce, and switch player function, call the detether function
     
+    void SummonClone()
+    {
+        if(clonescript.active == false)
+        {
+            clone.GetComponent<SpriteRenderer>().enabled = true;
+            clonescript.active = true;
+            clonescript.tethered = true;
+            baldrControls.isTethered = false;
+            isTethered = false;
+            baldrControls.move.x = 0;
+        }
+        else if (clonescript.active == true && clonescript.tethered == true)
+        {
+            clonescript.tethered = false;
+        }
+        else if (clonescript.active == true && clonescript.tethered == false)
+        {
+            clone.GetComponent<SpriteRenderer>().enabled = false;
+            clonescript.active = false;
+        }
+    }
 
     void SwitchPlayerLeft()
     {
@@ -79,6 +102,7 @@ public class LokiControls : MonoBehaviour
             BaldrCam.Priority = 1;
             isTethered = false;
             baldrControls.isTethered = false;
+            baldrControls.move.x = 0;
             cloneisfocus = false;
         }
         if(cloneisfocus == true)
@@ -108,6 +132,7 @@ public class LokiControls : MonoBehaviour
             isTethered = false;
             baldrControls.isTethered = false;
             cloneisfocus = false;
+            baldrControls.move.x = 0;
         }
     }
 
@@ -120,7 +145,11 @@ public class LokiControls : MonoBehaviour
             {
                 StartCoroutine(tetheredJump());
             }
-            //if clone active, call jump function
+            if(clonescript.tethered == true)
+            {
+                clonescript.Jump();
+            }
+     
         }
        
     }
@@ -161,6 +190,7 @@ public class LokiControls : MonoBehaviour
         {
             isTethered = false;
             baldrControls.isTethered = false;
+            baldrControls.move.x = 0;
             return;
         }
 

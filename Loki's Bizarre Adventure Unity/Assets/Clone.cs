@@ -12,21 +12,47 @@ public class Clone : MonoBehaviour
     public SpriteRenderer cloneSprite;
     public bool tethered = false;
     public bool active = false;
+    public bool jumpbuffer = false;
+    public LokiControls lokicontrols;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (jumpbuffer == true && rb.velocity.y == 0)
+        {
+            rb.velocity = new Vector2(0, jumpheight);
+            jumpbuffer = false;
+        }
+        if(tethered == true)
+        {
+            move.x = lokicontrols.move.x;
+            Vector2 m = new Vector2(move.x, 0f) * Time.deltaTime * speed;
+            transform.Translate(m, Space.World);
+        }
     }
 
-    //jump function
+    public void Jump()
+    {
+
+        if (rb.velocity.y != 0 && tethered == true)
+        {
+            jumpbuffer = true;
+        }
+        if (rb.velocity.y == 0)
+        {
+            rb.velocity = new Vector2(0, jumpheight);
+            jumpbuffer = false;
+        }
+
+    }
+
     //move = loki's move
     //animator controls
-    //onstart deactivate
 }
+    
