@@ -58,7 +58,7 @@ public class BaldrControls : MonoBehaviour
 
    public void Jump()
     {
-        if (rb.velocity.y == 0)
+        if (rb.velocity.y == 0 || isTethered == true)
         {
             rb.velocity = new Vector2(0, jumpHeight);
         }
@@ -74,6 +74,7 @@ public class BaldrControls : MonoBehaviour
         {
             transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), new Vector2 (LokiFollow.position.x, transform.position.y), speed * Time.deltaTime);
         }
+
     }
 
     public void OnEnable()
