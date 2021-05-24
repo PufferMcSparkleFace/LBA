@@ -106,6 +106,7 @@ public class BaldrControls : MonoBehaviour
         }
         
         BaldrAnimator.SetFloat("Speed", Mathf.Abs(move.x));
+        
 
         if (move.x > 0 && BaldrSpriteRenderer.flipX == true)
         {
