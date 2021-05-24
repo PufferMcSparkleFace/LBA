@@ -6297,7 +6297,7 @@ MonoBehaviour:
   active: 0
   jumpbuffer: 0
   lokicontrols: {fileID: 1640241014}
-  DashForce: 10
+  DashForce: 15
   DashTime: 0.2
   CurrentDashTime: 0
   isDashing: 0
@@ -8655,7 +8655,7 @@ PrefabInstance:
     - target: {fileID: 7855434974119868134, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
         type: 3}
       propertyPath: DashForce
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7855434974119868134, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
         type: 3}
