@@ -26,8 +26,7 @@ public class LokiControls : MonoBehaviour
     private bool isTethered = true;
     [SerializeField]
     private float delay = 1;
-    [SerializeField]
-    private GameObject baldr;
+    
 
 
 
@@ -91,7 +90,7 @@ public class LokiControls : MonoBehaviour
         if(isTethered == true)
         {
             isTethered = false;
-            baldrRB.velocity = new Vector2(0, 0);
+            baldrControls.move = Vector2.zero;
         }
         else
         {
@@ -103,6 +102,10 @@ public class LokiControls : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         baldrControls.move = move;
+        if(isTethered == false)
+        {
+            baldrControls.move = Vector2.zero;
+        }
     }
 
     IEnumerator tetheredJump()
