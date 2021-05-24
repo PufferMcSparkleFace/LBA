@@ -9,7 +9,7 @@ public class LokiControls : MonoBehaviour
     [SerializeField]
     PlayerControls controls;
     [SerializeField]
-    Vector2 move;
+    public Vector2 move;
     [SerializeField]
     private float speed;
     [SerializeField]
