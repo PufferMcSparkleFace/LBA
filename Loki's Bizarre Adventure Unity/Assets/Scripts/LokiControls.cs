@@ -73,6 +73,7 @@ public class LokiControls : MonoBehaviour
     {
         if(clonescript.active == false)
         {
+            clone.transform.position = this.gameObject.transform.position;
             clone.GetComponent<SpriteRenderer>().enabled = true;
             clonescript.active = true;
             clonescript.tethered = true;
