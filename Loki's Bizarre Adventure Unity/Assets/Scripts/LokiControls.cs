@@ -27,7 +27,7 @@ public class LokiControls : MonoBehaviour
     [SerializeField]
     private float delay = 1;
     [SerializeField]
-    private Rigidbody2D baldrRB;
+    private GameObject baldr;
 
 
 
