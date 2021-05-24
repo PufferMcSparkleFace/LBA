@@ -34,6 +34,7 @@ public class LokiControls : MonoBehaviour
     public bool tethered = false;
     public bool active = false;
     public CinemachineVirtualCamera CloneCam;
+    public bool cloneisfocus = false;
 
 
 
@@ -52,8 +53,8 @@ public class LokiControls : MonoBehaviour
         controls.Loki.Move.canceled += ctx => move = Vector2.zero;
         controls.Loki.Jump.performed += ctx => Jump();
         controls.Loki.Jump2.performed += ctx => Jump();
-        controls.Loki.SwitchPlayerLeft.performed += ctx => SwitchPlayer();
-        controls.Loki.SwitchPlayerRight.performed += ctx => SwitchPlayer();
+        controls.Loki.SwitchPlayerLeft.performed += ctx => SwitchPlayerLeft();
+        controls.Loki.SwitchPlayerRight.performed += ctx => SwitchPlayerRight();
         controls.Loki.TetherBaldr.performed += ctx => tetherManagement();
         //when press clone button, trigger clone function
         
@@ -68,16 +69,46 @@ public class LokiControls : MonoBehaviour
     //in the clone, clonebounce, and switch player function, call the detether function
     
 
-    //change switchplayer functions to right = clone, left = baldr
-
-    void SwitchPlayer()
+    void SwitchPlayerLeft()
     {
-        OnDisable();
-        baldrControls.OnEnable();
-        LokiCam.Priority = 0;
-        BaldrCam.Priority = 1;
-        isTethered = false;
-        baldrControls.isTethered = false;
+        if(cloneisfocus == false)
+        {
+            OnDisable();
+            baldrControls.OnEnable();
+            LokiCam.Priority = 0;
+            BaldrCam.Priority = 1;
+            isTethered = false;
+            baldrControls.isTethered = false;
+            cloneisfocus = false;
+        }
+        if(cloneisfocus == true)
+        {
+            CloneCam.Priority = 0;
+            LokiCam.Priority = 1;
+            cloneisfocus = false;
+        }
+        
+    }
+
+    void SwitchPlayerRight()
+    {
+        if(clonescript.active == true && cloneisfocus == false)
+        {
+            LokiCam.Priority = 0;
+            BaldrCam.Priority = 0;
+            CloneCam.Priority = 1;
+            cloneisfocus = true;
+        }
+        if(clonescript.active == false || cloneisfocus == true)
+        {
+            OnDisable();
+            baldrControls.OnEnable();
+            LokiCam.Priority = 0;
+            BaldrCam.Priority = 1;
+            isTethered = false;
+            baldrControls.isTethered = false;
+            cloneisfocus = false;
+        }
     }
 
     void Jump()
@@ -114,6 +145,12 @@ public class LokiControls : MonoBehaviour
         if(move.x<0 && LokiSpriteRenderer == true)
         {
             LokiSpriteRenderer.flipX = false;
+        }
+        if(cloneisfocus == true && clonescript.active == false)
+        {
+            CloneCam.Priority = 0;
+            LokiCam.Priority = 1;
+            cloneisfocus = false;
         }
         
     }

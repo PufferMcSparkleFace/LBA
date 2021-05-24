@@ -6257,7 +6257,7 @@ GameObject:
   - component: {fileID: 366193130}
   m_Layer: 0
   m_Name: Clone
-  m_TagString: Untagged
+  m_TagString: Clone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6295,6 +6295,7 @@ MonoBehaviour:
   cloneAnimator: {fileID: 366193127}
   cloneSprite: {fileID: 366193126}
   tethered: 1
+  active: 0
 --- !u!212 &366193126
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8480,6 +8481,11 @@ PrefabInstance:
       propertyPath: CloneCam
       value: 
       objectReference: {fileID: 676456114}
+    - target: {fileID: 4059596429737676872, guid: 08bbef220a509b640b073c02da272c9b,
+        type: 3}
+      propertyPath: clonescript
+      value: 
+      objectReference: {fileID: 366193125}
     - target: {fileID: 4059596429737676872, guid: 08bbef220a509b640b073c02da272c9b,
         type: 3}
       propertyPath: lokiControls

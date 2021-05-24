@@ -10,7 +10,9 @@ public class Clone : MonoBehaviour
     public Rigidbody2D rb;
     public Animator cloneAnimator;
     public SpriteRenderer cloneSprite;
-    public bool tethered = true;
+    public bool tethered = false;
+    public bool active = false;
+
     // Start is called before the first frame update
     void Start()
     {
