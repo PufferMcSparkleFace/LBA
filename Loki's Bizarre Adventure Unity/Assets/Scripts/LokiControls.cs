@@ -79,10 +79,6 @@ public class LokiControls : MonoBehaviour
     {
         Vector2 m = new Vector2(move.x, 0f) * Time.deltaTime * speed;
         transform.Translate(m, Space.World);
-        if(isTethered == true)
-        {
-            StartCoroutine(tetheredMovement());
-        }
     }
 
     void tetherManagement()
@@ -90,7 +86,6 @@ public class LokiControls : MonoBehaviour
         if(isTethered == true)
         {
             isTethered = false;
-            baldrControls.move = Vector2.zero;
         }
         else
         {
@@ -98,15 +93,7 @@ public class LokiControls : MonoBehaviour
         }
     }
 
-    IEnumerator tetheredMovement()
-    {
-        yield return new WaitForSeconds(delay);
-        baldrControls.move = move;
-        if(isTethered == false)
-        {
-            baldrControls.move = Vector2.zero;
-        }
-    }
+    
 
     IEnumerator tetheredJump()
     {
