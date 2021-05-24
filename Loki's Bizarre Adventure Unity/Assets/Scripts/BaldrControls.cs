@@ -30,6 +30,9 @@ public class BaldrControls : MonoBehaviour
     private bool jumpbuffer = false;
     public Animator BaldrAnimator;
     public SpriteRenderer BaldrSpriteRenderer;
+    [SerializeField]
+    private CinemachineVirtualCamera CloneCam;
+    public Clone clonescript;
 
 
     // Start is called before the first frame update
@@ -39,6 +42,8 @@ public class BaldrControls : MonoBehaviour
         Physics2D.IgnoreCollision(loki.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         OnDisable();
         LokiFollow = GameObject.FindGameObjectWithTag("Loki").GetComponent<Transform>();
+        GameObject clone = GameObject.FindGameObjectWithTag("Clone");
+        Physics2D.IgnoreCollision(clone.GetComponent<Collider2D>(), GetComponent<Collider2D>());
     }
 
     void Awake()
@@ -48,16 +53,37 @@ public class BaldrControls : MonoBehaviour
         controls.Baldr.Move.canceled += ctx => move = Vector2.zero;
         controls.Baldr.Jump.performed += ctx => Jump();
         controls.Baldr.Jump2.performed += ctx => Jump();
-        controls.Baldr.SwitchPlayerLeft.performed += ctx => SwitchPlayer();
-        controls.Baldr.SwitchPlayerRight.performed += ctx => SwitchPlayer();
+        controls.Baldr.SwitchPlayerLeft.performed += ctx => SwitchPlayerLeft();
+        controls.Baldr.SwitchPlayerRight.performed += ctx => SwitchPlayerRight();
     }
 
-    void SwitchPlayer()
+    void SwitchPlayerRight()
     {
         OnDisable();
         lokiControls.OnEnable();
         BaldrCam.Priority = 0;
         LokiCam.Priority = 1;
+        CloneCam.Priority = 0;
+        lokiControls.cloneisfocus = false;
+    }
+
+    void SwitchPlayerLeft()
+    {
+        OnDisable();
+        lokiControls.OnEnable();
+        BaldrCam.Priority = 0;
+        if (clonescript.active == true)
+        {
+            LokiCam.Priority = 0;
+            CloneCam.Priority = 1;
+            lokiControls.cloneisfocus = true;
+        }
+        else if(clonescript.active == false)
+        {
+            LokiCam.Priority = 1;
+            CloneCam.Priority = 0;
+            lokiControls.cloneisfocus = false;
+        }
     }
 
    public void Jump()

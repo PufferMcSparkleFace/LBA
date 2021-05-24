@@ -29,7 +29,18 @@ public class LokiControls : MonoBehaviour
     private Transform BaldrFollow;
     public Animator LokiAnimator;
     public SpriteRenderer LokiSpriteRenderer;
-    
+    public Clone clonescript;
+    public Rigidbody2D clonerb;
+    public bool tethered = false;
+    public bool active = false;
+    public CinemachineVirtualCamera CloneCam;
+    public bool cloneisfocus = false;
+    public GameObject clone;
+    public float DashForce;
+    public float DashTime;
+    public float CurrentDashTime;
+    public bool isDashing = false;
+    public Vector2 DashDirection;
 
 
 
@@ -39,6 +50,8 @@ public class LokiControls : MonoBehaviour
         GameObject baldr = GameObject.FindGameObjectWithTag("Baldr");
         Physics2D.IgnoreCollision(baldr.GetComponent < Collider2D > (), GetComponent < Collider2D > ());
         BaldrFollow = GameObject.FindGameObjectWithTag("Baldr").GetComponent<Transform>();
+        GameObject clone = GameObject.FindGameObjectWithTag("Clone");
+        Physics2D.IgnoreCollision(clone.GetComponent<Collider2D>(), GetComponent<Collider2D>());
     }
 
     void Awake()
@@ -48,24 +61,94 @@ public class LokiControls : MonoBehaviour
         controls.Loki.Move.canceled += ctx => move = Vector2.zero;
         controls.Loki.Jump.performed += ctx => Jump();
         controls.Loki.Jump2.performed += ctx => Jump();
-        controls.Loki.SwitchPlayerLeft.performed += ctx => SwitchPlayer();
-        controls.Loki.SwitchPlayerRight.performed += ctx => SwitchPlayer();
+        controls.Loki.SwitchPlayerLeft.performed += ctx => SwitchPlayerLeft();
+        controls.Loki.SwitchPlayerRight.performed += ctx => SwitchPlayerRight();
         controls.Loki.TetherBaldr.performed += ctx => tetherManagement();
-        
+        controls.Loki.SummonClone.performed += ctx => SummonClone();
         
     
     }
 
+    //void clone
+    //if inactive = true, set clone active, set clone's position to yours, give force with opposite direction to yours, and detether baldr
+
     //in the clone, clonebounce, and switch player function, call the detether function
     
-    void SwitchPlayer()
+    void SummonClone()
     {
-        OnDisable();
-        baldrControls.OnEnable();
-        LokiCam.Priority = 0;
-        BaldrCam.Priority = 1;
-        isTethered = false;
-        baldrControls.isTethered = false;
+        if(clonescript.active == false)
+        {
+            clone.transform.position = this.gameObject.transform.position;
+            clone.GetComponent<SpriteRenderer>().enabled = true;
+            clonescript.active = true;
+            clonescript.tethered = true;
+            baldrControls.isTethered = false;
+            isTethered = false;
+            baldrControls.move.x = 0;
+            isDashing = true;
+            clonescript.isDashing = true;
+            CurrentDashTime = DashTime;
+            DashDirection = new Vector2(move.x, move.y);
+            clonescript.DashDirection = new Vector2(-move.x, -move.y);
+            clonescript.CurrentDashTime = clonescript.DashTime;
+            rb.gravityScale = 0.0f;
+            clonerb.gravityScale = 0.0f;
+            OnDisable();
+        }
+        else if (clonescript.active == true && clonescript.tethered == true)
+        {
+            clonescript.tethered = false;
+            clonescript.move.x = 0;
+        }
+        else if (clonescript.active == true && clonescript.tethered == false)
+        {
+            clone.GetComponent<SpriteRenderer>().enabled = false;
+            clonescript.active = false;
+        }
+    }
+
+    void SwitchPlayerLeft()
+    {
+        if(cloneisfocus == false)
+        {
+            OnDisable();
+            baldrControls.OnEnable();
+            LokiCam.Priority = 0;
+            BaldrCam.Priority = 1;
+            isTethered = false;
+            baldrControls.isTethered = false;
+            baldrControls.move.x = 0;
+            cloneisfocus = false;
+        }
+        if(cloneisfocus == true)
+        {
+            CloneCam.Priority = 0;
+            LokiCam.Priority = 1;
+            cloneisfocus = false;
+        }
+        
+    }
+
+    void SwitchPlayerRight()
+    {
+        if(clonescript.active == true && cloneisfocus == false)
+        {
+            LokiCam.Priority = 0;
+            BaldrCam.Priority = 0;
+            CloneCam.Priority = 1;
+            cloneisfocus = true;
+        }
+        else if(clonescript.active == false || cloneisfocus == true)
+        {
+            OnDisable();
+            baldrControls.OnEnable();
+            LokiCam.Priority = 0;
+            BaldrCam.Priority = 1;
+            isTethered = false;
+            baldrControls.isTethered = false;
+            cloneisfocus = false;
+            baldrControls.move.x = 0;
+        }
     }
 
     void Jump()
@@ -77,6 +160,11 @@ public class LokiControls : MonoBehaviour
             {
                 StartCoroutine(tetheredJump());
             }
+            if(clonescript.tethered == true)
+            {
+                clonescript.Jump();
+            }
+     
         }
        
     }
@@ -102,6 +190,25 @@ public class LokiControls : MonoBehaviour
         {
             LokiSpriteRenderer.flipX = false;
         }
+        if(cloneisfocus == true && clonescript.active == false)
+        {
+            CloneCam.Priority = 0;
+            LokiCam.Priority = 1;
+            cloneisfocus = false;
+        }
+        if(isDashing == true)
+        {
+            rb.velocity = DashDirection * DashForce;
+            CurrentDashTime -= Time.deltaTime;
+            if(CurrentDashTime <= 0)
+            {
+                isDashing = false;
+                rb.gravityScale = 5;
+                clonerb.gravityScale = 5;
+                OnEnable();
+            }
+
+        }
         
     }
 
@@ -111,6 +218,7 @@ public class LokiControls : MonoBehaviour
         {
             isTethered = false;
             baldrControls.isTethered = false;
+            baldrControls.move.x = 0;
             return;
         }
 
