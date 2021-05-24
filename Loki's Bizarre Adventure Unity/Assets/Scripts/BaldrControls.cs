@@ -26,6 +26,8 @@ public class BaldrControls : MonoBehaviour
     private Transform LokiFollow;
     [SerializeField]
     public float distancetoloki;
+    [SerializeField]
+    private bool jumpbuffer = false;
 
 
     // Start is called before the first frame update
@@ -58,9 +60,15 @@ public class BaldrControls : MonoBehaviour
 
    public void Jump()
     {
-        if (rb.velocity.y == 0 || isTethered == true)
+        
+        if (rb.velocity.y != 0 && isTethered == true)
+        {
+            jumpbuffer = true;
+        }
+        if (rb.velocity.y == 0)
         {
             rb.velocity = new Vector2(0, jumpHeight);
+            jumpbuffer = false;
         }
 
     }
@@ -73,6 +81,11 @@ public class BaldrControls : MonoBehaviour
         if(Vector2.Distance(transform.position, LokiFollow.position) > distancetoloki && isTethered == true)
         {
             transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), new Vector2 (LokiFollow.position.x, transform.position.y), speed * Time.deltaTime);
+        }
+        if(jumpbuffer == true && rb.velocity.y == 0)
+        {
+            rb.velocity = new Vector2(0, jumpHeight);
+            jumpbuffer = false;
         }
 
     }

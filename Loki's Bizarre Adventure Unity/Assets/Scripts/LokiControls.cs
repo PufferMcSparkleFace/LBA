@@ -83,11 +83,6 @@ public class LokiControls : MonoBehaviour
     {
         Vector2 m = new Vector2(move.x, 0f) * Time.deltaTime * speed;
         transform.Translate(m, Space.World);
-        if(Vector2.Distance(transform.position, BaldrFollow.position) > 10)
-        {
-            isTethered = false;
-            baldrControls.isTethered = false;
-        }
     }
 
     void tetherManagement()
