@@ -99,7 +99,7 @@ public class LokiControls : MonoBehaviour
             CloneCam.Priority = 1;
             cloneisfocus = true;
         }
-        if(clonescript.active == false || cloneisfocus == true)
+        else if(clonescript.active == false || cloneisfocus == true)
         {
             OnDisable();
             baldrControls.OnEnable();
