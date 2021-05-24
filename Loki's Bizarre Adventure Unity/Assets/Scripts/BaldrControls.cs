@@ -72,7 +72,7 @@ public class BaldrControls : MonoBehaviour
         transform.Translate(m, Space.World);
         if(Vector2.Distance(transform.position, LokiFollow.position) > distancetoloki && isTethered == true)
         {
-            transform.position = Vector2.MoveTowards(transform.position, LokiFollow.position, speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), new Vector2 (LokiFollow.position.x, transform.position.y), speed * Time.deltaTime);
         }
     }
 
