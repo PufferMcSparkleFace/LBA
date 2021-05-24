@@ -45,6 +45,7 @@ public class LokiControls : MonoBehaviour
         controls.Loki.Jump2.performed += ctx => Jump();
         controls.Loki.SwitchPlayerLeft.performed += ctx => SwitchPlayer();
         controls.Loki.SwitchPlayerRight.performed += ctx => SwitchPlayer();
+        controls.Loki.TetherBaldr.performed += ctx => tetherManagement();
         
         
     
@@ -80,6 +81,18 @@ public class LokiControls : MonoBehaviour
         if(isTethered == true)
         {
             StartCoroutine(tetheredMovement());
+        }
+    }
+
+    void tetherManagement()
+    {
+        if(isTethered == true)
+        {
+            isTethered = false;
+        }
+        else
+        {
+            isTethered = true;
         }
     }
 
