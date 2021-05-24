@@ -111,18 +111,28 @@ public class BaldrControls : MonoBehaviour
         
         BaldrAnimator.SetFloat("Speed", Mathf.Abs(move.x));
 
-        if(isTethered == true)
-        {
-            move.x = lokiControls.move.x;
-        }
 
         if (move.x > 0 && BaldrSpriteRenderer.flipX == true)
         {
             BaldrSpriteRenderer.flipX = false;
         }
-        if(move.x < 0 && BaldrSpriteRenderer.flipX == false)
+        if (move.x < 0 && BaldrSpriteRenderer.flipX == false)
         {
             BaldrSpriteRenderer.flipX = true;
+        }
+
+
+        if (isTethered == true)
+        {
+            move.x = lokiControls.move.x;
+            if(LokiFollow.position.x > transform.position.x)
+            {
+                BaldrSpriteRenderer.flipX = false;
+            }
+            else if(LokiFollow.position.x < transform.position.x)
+            {
+                BaldrSpriteRenderer.flipX = true;
+            }
         }
 
 
