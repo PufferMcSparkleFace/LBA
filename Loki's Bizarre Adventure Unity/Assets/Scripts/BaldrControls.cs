@@ -9,7 +9,7 @@ public class BaldrControls : MonoBehaviour
     [SerializeField]
     PlayerControls controls;
     [SerializeField]
-    Vector2 move;
+    public Vector2 move;
     [SerializeField]
     private float speed;
     [SerializeField]
@@ -51,7 +51,7 @@ public class BaldrControls : MonoBehaviour
         LokiCam.Priority = 1;
     }
 
-    void Jump()
+   public void Jump()
     {
         if (rb.velocity.y == 0)
         {

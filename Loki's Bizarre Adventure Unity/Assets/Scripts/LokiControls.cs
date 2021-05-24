@@ -22,10 +22,10 @@ public class LokiControls : MonoBehaviour
     private CinemachineVirtualCamera LokiCam;
     [SerializeField]
     private CinemachineVirtualCamera BaldrCam;
-    //[SerializeField]
-    //private bool isTethered = true;
-    //[SerializeField]
-    //private float delay = 1
+    [SerializeField]
+    private bool isTethered = true;
+    [SerializeField]
+    private float delay = 1;
 
 
 
@@ -73,16 +73,24 @@ public class LokiControls : MonoBehaviour
     {
         Vector2 m = new Vector2(move.x, 0f) * Time.deltaTime * speed;
         transform.Translate(m, Space.World);
-        //if(isTethered == true){start tether coroutine}
+        if(isTethered == true)
+        {
+            StartCoroutine(tetheredMovement());
+        }
     }
 
-    //ienumerator tethered movement
-    //yield return new waitforseconds delay
-    //baldrcontrols.move = move
+    IEnumerator tetheredMovement()
+    {
+        yield return new WaitForSeconds(delay);
+        baldrControls.move = move;
+    }
 
-    //ienumerator baldr jump
-    //yield return new waitforseconds delay
-    //baldrcontrols.jump()
+    IEnumerator tetheredJump()
+    {
+        yield return new WaitForSeconds(delay);
+        baldrControls.Jump();
+    }
+
 
     public void OnEnable()
     {
