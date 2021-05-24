@@ -26,6 +26,8 @@ public class LokiControls : MonoBehaviour
     private bool isTethered = true;
     [SerializeField]
     private float delay = 1;
+    [SerializeField]
+    private Rigidbody2D baldrRB;
 
 
 
@@ -89,6 +91,7 @@ public class LokiControls : MonoBehaviour
         if(isTethered == true)
         {
             isTethered = false;
+            baldrRB.velocity = new Vector2(0, 0);
         }
         else
         {
