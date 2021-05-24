@@ -45,6 +45,8 @@ public class LokiControls : MonoBehaviour
         GameObject baldr = GameObject.FindGameObjectWithTag("Baldr");
         Physics2D.IgnoreCollision(baldr.GetComponent < Collider2D > (), GetComponent < Collider2D > ());
         BaldrFollow = GameObject.FindGameObjectWithTag("Baldr").GetComponent<Transform>();
+        GameObject clone = GameObject.FindGameObjectWithTag("Clone");
+        Physics2D.IgnoreCollision(clone.GetComponent<Collider2D>(), GetComponent<Collider2D>());
     }
 
     void Awake()
@@ -58,15 +60,12 @@ public class LokiControls : MonoBehaviour
         controls.Loki.SwitchPlayerRight.performed += ctx => SwitchPlayerRight();
         controls.Loki.TetherBaldr.performed += ctx => tetherManagement();
         controls.Loki.SummonClone.performed += ctx => SummonClone();
-        //when press clone button, trigger clone function
         
     
     }
 
     //void clone
     //if inactive = true, set clone active, set clone's position to yours, give force with opposite direction to yours, and detether baldr
-    //if tethered, disable clone movement
-    //if untethered, set inactive
 
     //in the clone, clonebounce, and switch player function, call the detether function
     
@@ -84,6 +83,7 @@ public class LokiControls : MonoBehaviour
         else if (clonescript.active == true && clonescript.tethered == true)
         {
             clonescript.tethered = false;
+            clonescript.move.x = 0;
         }
         else if (clonescript.active == true && clonescript.tethered == false)
         {

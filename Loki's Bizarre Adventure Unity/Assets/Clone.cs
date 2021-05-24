@@ -35,6 +35,23 @@ public class Clone : MonoBehaviour
             Vector2 m = new Vector2(move.x, 0f) * Time.deltaTime * speed;
             transform.Translate(m, Space.World);
         }
+        cloneAnimator.SetFloat("Speed", Mathf.Abs(move.x));
+        if (rb.velocity.y == 0)
+        {
+            cloneAnimator.SetBool("IsJumping", false);
+        }
+        else
+        {
+            cloneAnimator.SetBool("IsJumping", true);
+        }
+        if (move.x > 0 && cloneSprite.flipX == false)
+        {
+            cloneSprite.flipX = true;
+        }
+        if (move.x < 0 && cloneSprite == true)
+        {
+            cloneSprite.flipX = false;
+        }
     }
 
     public void Jump()
