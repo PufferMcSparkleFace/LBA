@@ -26,6 +26,7 @@ public class LokiControls : MonoBehaviour
     private bool isTethered = true;
     [SerializeField]
     private float delay = 1;
+    private Transform BaldrFollow;
     
 
 
@@ -35,6 +36,7 @@ public class LokiControls : MonoBehaviour
     {
         GameObject baldr = GameObject.FindGameObjectWithTag("Baldr");
         Physics2D.IgnoreCollision(baldr.GetComponent < Collider2D > (), GetComponent < Collider2D > ());
+        BaldrFollow = GameObject.FindGameObjectWithTag("Baldr").GetComponent<Transform>();
     }
 
     void Awake()
@@ -60,6 +62,8 @@ public class LokiControls : MonoBehaviour
         baldrControls.OnEnable();
         LokiCam.Priority = 0;
         BaldrCam.Priority = 1;
+        isTethered = false;
+        baldrControls.isTethered = false;
     }
 
     void Jump()
@@ -88,7 +92,8 @@ public class LokiControls : MonoBehaviour
             isTethered = false;
             baldrControls.isTethered = false;
         }
-        else
+
+        if (isTethered == false && Vector2.Distance(transform.position, BaldrFollow.position) < 5)
         {
             isTethered = true;
             baldrControls.isTethered = true;

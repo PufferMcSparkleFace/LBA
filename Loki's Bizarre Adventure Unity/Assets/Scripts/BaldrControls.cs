@@ -25,7 +25,7 @@ public class BaldrControls : MonoBehaviour
     public bool isTethered = true;
     private Transform LokiFollow;
     [SerializeField]
-    private float distancetoloki;
+    public float distancetoloki;
 
 
     // Start is called before the first frame update
