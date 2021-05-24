@@ -28,6 +28,7 @@ public class LokiControls : MonoBehaviour
     private float delay = 1;
     private Transform BaldrFollow;
     public Animator LokiAnimator;
+    public SpriteRenderer LokiSpriteRenderer;
     
 
 
@@ -93,6 +94,15 @@ public class LokiControls : MonoBehaviour
         {
             LokiAnimator.SetBool("IsJumping", true);
         }
+        if(move.x > 0 && LokiSpriteRenderer.flipX == false)
+        {
+            LokiSpriteRenderer.flipX = true;
+        }
+        if(move.x<0 && LokiSpriteRenderer == true)
+        {
+            LokiSpriteRenderer.flipX = false;
+        }
+        
     }
 
     void tetherManagement()

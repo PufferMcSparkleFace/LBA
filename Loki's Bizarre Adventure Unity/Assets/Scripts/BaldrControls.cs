@@ -29,6 +29,7 @@ public class BaldrControls : MonoBehaviour
     [SerializeField]
     private bool jumpbuffer = false;
     public Animator BaldrAnimator;
+    public SpriteRenderer BaldrSpriteRenderer;
 
 
     // Start is called before the first frame update
@@ -103,7 +104,17 @@ public class BaldrControls : MonoBehaviour
             BaldrAnimator.SetBool("IsJumping", false);
             BaldrAnimator.SetBool("IsFalling", false);
         }
+        
         BaldrAnimator.SetFloat("Speed", Mathf.Abs(move.x));
+
+        if (move.x > 0 && BaldrSpriteRenderer.flipX == true)
+        {
+            BaldrSpriteRenderer.flipX = false;
+        }
+        if(move.x < 0 && BaldrSpriteRenderer.flipX == false)
+        {
+            BaldrSpriteRenderer.flipX = true;
+        }
 
     }
 
