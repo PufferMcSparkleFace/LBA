@@ -8236,6 +8236,11 @@ PrefabInstance:
       objectReference: {fileID: 596104078}
     - target: {fileID: 7855434974119868134, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
         type: 3}
+      propertyPath: LokiAnimator
+      value: 
+      objectReference: {fileID: 1614024957}
+    - target: {fileID: 7855434974119868134, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
+        type: 3}
       propertyPath: baldrControls
       value: 
       objectReference: {fileID: 493697545}

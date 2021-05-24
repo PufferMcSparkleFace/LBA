@@ -27,6 +27,7 @@ public class LokiControls : MonoBehaviour
     [SerializeField]
     private float delay = 1;
     private Transform BaldrFollow;
+    public Animator LokiAnimator;
     
 
 
@@ -83,6 +84,15 @@ public class LokiControls : MonoBehaviour
     {
         Vector2 m = new Vector2(move.x, 0f) * Time.deltaTime * speed;
         transform.Translate(m, Space.World);
+        LokiAnimator.SetFloat("Speed", Mathf.Abs(move.x));
+        if(rb.velocity.y == 0)
+        {
+            LokiAnimator.SetBool("IsJumping", false);
+        }
+        else
+        {
+            LokiAnimator.SetBool("IsJumping", true);
+        }
     }
 
     void tetherManagement()

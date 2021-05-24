@@ -28,6 +28,7 @@ public class BaldrControls : MonoBehaviour
     public float distancetoloki;
     [SerializeField]
     private bool jumpbuffer = false;
+    public Animator BaldrAnimator;
 
 
     // Start is called before the first frame update
@@ -87,6 +88,22 @@ public class BaldrControls : MonoBehaviour
             rb.velocity = new Vector2(0, jumpHeight);
             jumpbuffer = false;
         }
+
+        if(rb.velocity.y > 0)
+        {
+            BaldrAnimator.SetBool("IsJumping", true);
+        }
+        if (rb.velocity.y <0)
+        {
+            BaldrAnimator.SetBool("IsJumping", false);
+            BaldrAnimator.SetBool("IsFalling", true);
+        }
+        if(rb.velocity.y == 0)
+        {
+            BaldrAnimator.SetBool("IsJumping", false);
+            BaldrAnimator.SetBool("IsFalling", false);
+        }
+        BaldrAnimator.SetFloat("Speed", Mathf.Abs(move.x));
 
     }
 
