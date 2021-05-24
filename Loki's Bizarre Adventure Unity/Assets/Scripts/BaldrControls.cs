@@ -22,6 +22,10 @@ public class BaldrControls : MonoBehaviour
     private CinemachineVirtualCamera LokiCam;
     [SerializeField]
     private CinemachineVirtualCamera BaldrCam;
+    public bool isTethered = true;
+    private Transform LokiFollow;
+    [SerializeField]
+    private float distancetoloki;
 
 
     // Start is called before the first frame update
@@ -30,6 +34,7 @@ public class BaldrControls : MonoBehaviour
         GameObject loki = GameObject.FindGameObjectWithTag("Loki");
         Physics2D.IgnoreCollision(loki.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         OnDisable();
+        LokiFollow = GameObject.FindGameObjectWithTag("Loki").GetComponent<Transform>();
     }
 
     void Awake()
@@ -65,6 +70,10 @@ public class BaldrControls : MonoBehaviour
     {
         Vector2 m = new Vector2(move.x, 0f) * Time.deltaTime * speed;
         transform.Translate(m, Space.World);
+        if(Vector2.Distance(transform.position, LokiFollow.position) > distancetoloki && isTethered == true)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, LokiFollow.position, speed * Time.deltaTime);
+        }
     }
 
     public void OnEnable()

@@ -86,10 +86,12 @@ public class LokiControls : MonoBehaviour
         if(isTethered == true)
         {
             isTethered = false;
+            baldrControls.isTethered = false;
         }
         else
         {
             isTethered = true;
+            baldrControls.isTethered = true;
         }
     }
 

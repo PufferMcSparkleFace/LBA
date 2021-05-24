@@ -7771,6 +7771,11 @@ PrefabInstance:
       propertyPath: lokiControls
       value: 
       objectReference: {fileID: 1640241014}
+    - target: {fileID: 4059596429737676872, guid: 08bbef220a509b640b073c02da272c9b,
+        type: 3}
+      propertyPath: distancetoloki
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4059596429737676873, guid: 08bbef220a509b640b073c02da272c9b,
         type: 3}
       propertyPath: m_RootOrder
@@ -7903,7 +7908,7 @@ PrefabInstance:
     - target: {fileID: 7855434974119868134, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
         type: 3}
       propertyPath: delay
-      value: 0.5
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7855434974119868134, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
         type: 3}
