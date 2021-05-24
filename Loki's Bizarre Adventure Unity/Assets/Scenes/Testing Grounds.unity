@@ -6373,7 +6373,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 4059596429513484865}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 671192710}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd23ab74f6e840544a9e4ccf9a6bd0cb, type: 3}
@@ -6582,6 +6582,31 @@ MonoBehaviour:
   m_BoundingShape2D: {fileID: 724863197}
   m_ConfineScreenEdges: 1
   m_Damping: 0
+--- !u!1 &671192710 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4059596429737676869, guid: 08bbef220a509b640b073c02da272c9b,
+    type: 3}
+  m_PrefabInstance: {fileID: 4059596429513484865}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &671192714
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 671192710}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3c2a5b7097b0fe44394328c0bdb9252e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &724863195
 GameObject:
   m_ObjectHideFlags: 0
@@ -7995,6 +8020,31 @@ MonoBehaviour:
   m_BoundingShape2D: {fileID: 724863197}
   m_ConfineScreenEdges: 1
   m_Damping: 0
+--- !u!1 &1614024956 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7855434974119868129, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
+    type: 3}
+  m_PrefabInstance: {fileID: 7855434974669578640}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1614024957
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614024956}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b95265f99b6d90e438df1308a89c8bab, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &1640241013 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7855434974119868133, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
@@ -8007,7 +8057,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 7855434974669578640}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1614024956}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b22bd39ba879f7a4d89a434a05b1edf0, type: 3}
@@ -8025,6 +8075,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Baldr
       objectReference: {fileID: 0}
+    - target: {fileID: 4059596429737676870, guid: 08bbef220a509b640b073c02da272c9b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b58354c186d9bde42ad2a4ab0545dde9, type: 2}
     - target: {fileID: 4059596429737676872, guid: 08bbef220a509b640b073c02da272c9b,
         type: 3}
       propertyPath: LokiCam
@@ -8109,6 +8164,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Loki
       objectReference: {fileID: 0}
+    - target: {fileID: 7855434974119868132, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b58354c186d9bde42ad2a4ab0545dde9, type: 2}
     - target: {fileID: 7855434974119868133, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
         type: 3}
       propertyPath: m_RootOrder
