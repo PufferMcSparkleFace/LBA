@@ -29,6 +29,12 @@ public class LokiControls : MonoBehaviour
     private Transform BaldrFollow;
     public Animator LokiAnimator;
     public SpriteRenderer LokiSpriteRenderer;
+    //reference to clone code
+    //reference to clone rigidbody
+    //clone tethered
+    //clone untethered
+    //clone inactive
+    //reference to clone camera
     
 
 
@@ -51,13 +57,21 @@ public class LokiControls : MonoBehaviour
         controls.Loki.SwitchPlayerLeft.performed += ctx => SwitchPlayer();
         controls.Loki.SwitchPlayerRight.performed += ctx => SwitchPlayer();
         controls.Loki.TetherBaldr.performed += ctx => tetherManagement();
-        
+        //when press clone button, trigger clone function
         
     
     }
 
+    //void clone
+    //if inactive = true, set clone active, set clone's position to yours, give force with opposite direction to yours, and detether baldr
+    //if tethered, disable clone movement
+    //if untethered, set inactive
+
     //in the clone, clonebounce, and switch player function, call the detether function
     
+
+    //change switchplayer functions to right = clone, left = baldr
+
     void SwitchPlayer()
     {
         OnDisable();
@@ -77,6 +91,7 @@ public class LokiControls : MonoBehaviour
             {
                 StartCoroutine(tetheredJump());
             }
+            //if clone active, call jump function
         }
        
     }

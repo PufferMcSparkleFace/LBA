@@ -30,6 +30,7 @@ public class BaldrControls : MonoBehaviour
     private bool jumpbuffer = false;
     public Animator BaldrAnimator;
     public SpriteRenderer BaldrSpriteRenderer;
+    //reference to clone camera
 
 
     // Start is called before the first frame update
@@ -39,6 +40,7 @@ public class BaldrControls : MonoBehaviour
         Physics2D.IgnoreCollision(loki.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         OnDisable();
         LokiFollow = GameObject.FindGameObjectWithTag("Loki").GetComponent<Transform>();
+        //ignore collisions with clone
     }
 
     void Awake()
@@ -52,6 +54,7 @@ public class BaldrControls : MonoBehaviour
         controls.Baldr.SwitchPlayerRight.performed += ctx => SwitchPlayer();
     }
 
+    //change switch player function to left is clone, right is loki
     void SwitchPlayer()
     {
         OnDisable();
