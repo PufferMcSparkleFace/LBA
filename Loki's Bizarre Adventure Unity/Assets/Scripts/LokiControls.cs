@@ -36,6 +36,11 @@ public class LokiControls : MonoBehaviour
     public CinemachineVirtualCamera CloneCam;
     public bool cloneisfocus = false;
     public GameObject clone;
+    public float DashForce;
+    public float DashTime;
+    public float CurrentDashTime;
+    public bool isDashing = false;
+    public Vector2 DashDirection;
 
 
 
@@ -80,6 +85,14 @@ public class LokiControls : MonoBehaviour
             baldrControls.isTethered = false;
             isTethered = false;
             baldrControls.move.x = 0;
+            isDashing = true;
+            clonescript.isDashing = true;
+            CurrentDashTime = DashTime;
+            DashDirection = new Vector2(move.x, move.y);
+            clonescript.DashDirection = new Vector2(-move.x, -move.y);
+            clonescript.CurrentDashTime = clonescript.DashTime;
+            rb.gravityScale = 0.0f;
+            clonerb.gravityScale = 0.0f;
         }
         else if (clonescript.active == true && clonescript.tethered == true)
         {
@@ -181,6 +194,18 @@ public class LokiControls : MonoBehaviour
             CloneCam.Priority = 0;
             LokiCam.Priority = 1;
             cloneisfocus = false;
+        }
+        if(isDashing == true)
+        {
+            rb.velocity = DashDirection * DashForce;
+            CurrentDashTime -= Time.deltaTime;
+            if(CurrentDashTime <= 0)
+            {
+                isDashing = false;
+                rb.gravityScale = 5;
+                clonerb.gravityScale = 5;
+            }
+
         }
         
     }

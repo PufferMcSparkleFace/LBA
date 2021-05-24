@@ -6297,6 +6297,11 @@ MonoBehaviour:
   active: 0
   jumpbuffer: 0
   lokicontrols: {fileID: 1640241014}
+  DashForce: 10
+  DashTime: 0.2
+  CurrentDashTime: 0
+  isDashing: 0
+  DashDirection: {x: 0, y: 0}
 --- !u!212 &366193126
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6674,7 +6679,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.7362127, y: -1.0426232, z: -9.919142}
+  m_LocalPosition: {x: 1.7398171, y: -1.0426537, z: -9.919142}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 384016118}
@@ -8642,6 +8647,16 @@ PrefabInstance:
       propertyPath: CloneCam
       value: 
       objectReference: {fileID: 676456114}
+    - target: {fileID: 7855434974119868134, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
+        type: 3}
+      propertyPath: DashTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7855434974119868134, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
+        type: 3}
+      propertyPath: DashForce
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7855434974119868134, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
         type: 3}
       propertyPath: clonescript

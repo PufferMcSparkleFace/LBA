@@ -14,6 +14,11 @@ public class Clone : MonoBehaviour
     public bool active = false;
     public bool jumpbuffer = false;
     public LokiControls lokicontrols;
+    public float DashForce;
+    public float DashTime;
+    public float CurrentDashTime;
+    public bool isDashing = false;
+    public Vector2 DashDirection;
 
     // Start is called before the first frame update
     void Start()
@@ -51,6 +56,17 @@ public class Clone : MonoBehaviour
         if (move.x < 0 && cloneSprite == true)
         {
             cloneSprite.flipX = false;
+        }
+        
+        if (isDashing == true)
+        {
+            rb.velocity = DashDirection * DashForce;
+            CurrentDashTime -= Time.deltaTime;
+            if (CurrentDashTime <= 0)
+            {
+                isDashing = false;
+            }
+
         }
     }
 
