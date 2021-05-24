@@ -78,6 +78,18 @@ public class BaldrControls : MonoBehaviour
 
     void Update()
     {
+        if(isTethered == true)
+        {
+            if (Vector2.Dot(transform.right, transform.position) > 0)
+            {
+                BaldrSpriteRenderer.flipX = false;
+            }
+            else if (Vector2.Dot(transform.right, transform.position) < 0)
+            {
+                BaldrSpriteRenderer.flipX = true;
+            }
+        }
+
         Vector2 m = new Vector2(move.x, 0f) * Time.deltaTime * speed;
         transform.Translate(m, Space.World);
         if(Vector2.Distance(transform.position, LokiFollow.position) > distancetoloki && isTethered == true)
