@@ -29,13 +29,11 @@ public class LokiControls : MonoBehaviour
     private Transform BaldrFollow;
     public Animator LokiAnimator;
     public SpriteRenderer LokiSpriteRenderer;
-    //reference to clone code
-    //reference to clone rigidbody
-    //clone tethered
-    //clone untethered
-    //clone inactive
-    //reference to clone camera
-    
+    public Clone clonescript;
+    public Rigidbody2D clonerb;
+    public bool tethered = false;
+    public bool active = false;
+    public CinemachineVirtualCamera CloneCam;
 
 
 

@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Clone : MonoBehaviour
 {
-    //jumpheight
-    //speed
-    //move
-    //rb
-    //animator
-    //spriterenderer
+    public float speed;
+    public float jumpheight;
+    public Vector2 move;
+    public Rigidbody2D rb;
+    public Animator cloneAnimator;
+    public SpriteRenderer cloneSprite;
+    public bool tethered = true;
     // Start is called before the first frame update
     void Start()
     {

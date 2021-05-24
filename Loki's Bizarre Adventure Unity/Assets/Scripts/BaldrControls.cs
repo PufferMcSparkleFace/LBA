@@ -30,7 +30,8 @@ public class BaldrControls : MonoBehaviour
     private bool jumpbuffer = false;
     public Animator BaldrAnimator;
     public SpriteRenderer BaldrSpriteRenderer;
-    //reference to clone camera
+    [SerializeField]
+    private CinemachineVirtualCamera CloneCam;
 
 
     // Start is called before the first frame update

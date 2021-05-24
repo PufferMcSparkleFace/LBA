@@ -6288,6 +6288,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89c46483b84d3464ba5f10613a0b3302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 7.5
+  jumpheight: 21
+  move: {x: 0, y: 0}
+  rb: {fileID: 366193128}
+  cloneAnimator: {fileID: 366193127}
+  cloneSprite: {fileID: 366193126}
+  tethered: 1
 --- !u!212 &366193126
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6684,7 +6691,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.7398171, y: -1.0426537, z: -9.919142}
+  m_LocalPosition: {x: 1.7362127, y: -1.0426232, z: -9.919142}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 384016118}
@@ -8470,6 +8477,11 @@ PrefabInstance:
       objectReference: {fileID: 596104078}
     - target: {fileID: 4059596429737676872, guid: 08bbef220a509b640b073c02da272c9b,
         type: 3}
+      propertyPath: CloneCam
+      value: 
+      objectReference: {fileID: 676456114}
+    - target: {fileID: 4059596429737676872, guid: 08bbef220a509b640b073c02da272c9b,
+        type: 3}
       propertyPath: lokiControls
       value: 
       objectReference: {fileID: 1640241014}
@@ -8624,9 +8636,24 @@ PrefabInstance:
       objectReference: {fileID: 1358102681}
     - target: {fileID: 7855434974119868134, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
         type: 3}
+      propertyPath: clonerb
+      value: 
+      objectReference: {fileID: 366193128}
+    - target: {fileID: 7855434974119868134, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
+        type: 3}
       propertyPath: BaldrCam
       value: 
       objectReference: {fileID: 596104078}
+    - target: {fileID: 7855434974119868134, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
+        type: 3}
+      propertyPath: CloneCam
+      value: 
+      objectReference: {fileID: 676456114}
+    - target: {fileID: 7855434974119868134, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
+        type: 3}
+      propertyPath: clonescript
+      value: 
+      objectReference: {fileID: 366193125}
     - target: {fileID: 7855434974119868134, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
         type: 3}
       propertyPath: LokiAnimator
