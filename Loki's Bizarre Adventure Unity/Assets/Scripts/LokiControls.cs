@@ -65,6 +65,10 @@ public class LokiControls : MonoBehaviour
         if(rb.velocity.y == 0)
         {
             rb.velocity = new Vector2(0, jumpHeight);
+            if (isTethered == true)
+            {
+                StartCoroutine(tetheredJump());
+            }
         }
        
     }
