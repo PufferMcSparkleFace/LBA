@@ -6269,6 +6269,7 @@ Transform:
   - {fileID: 519420032}
   - {fileID: 1358102682}
   - {fileID: 596104077}
+  - {fileID: 724863196}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6489,7 +6490,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.5011988, y: -2.7283573, z: -9.919142}
+  m_LocalPosition: {x: 1.7398171, y: -1.0426537, z: -9.919142}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 384016118}
@@ -6505,6 +6506,7 @@ GameObject:
   m_Component:
   - component: {fileID: 596104077}
   - component: {fileID: 596104078}
+  - component: {fileID: 596104079}
   m_Layer: 0
   m_Name: CM vcam Baldr
   m_TagString: Untagged
@@ -6562,6 +6564,84 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 431138119}
+--- !u!114 &596104079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 596104076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2fba25a5cd15594e8f050a11e386c80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ConfineMode: 0
+  m_BoundingVolume: {fileID: 0}
+  m_BoundingShape2D: {fileID: 724863197}
+  m_ConfineScreenEdges: 1
+  m_Damping: 0
+--- !u!1 &724863195
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 724863196}
+  - component: {fileID: 724863197}
+  m_Layer: 0
+  m_Name: CameraConfiner
+  m_TagString: CameraConfiner
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &724863196
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 724863195}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 384016118}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &724863197
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 724863195}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.51177835, y: 10.979721}
+      - {x: -14.427946, y: 10.885817}
+      - {x: -14.305882, y: -6.0124335}
+      - {x: 10.6267, y: -6.117552}
+      - {x: 10.674889, y: 10.80052}
 --- !u!1 &749494823
 GameObject:
   m_ObjectHideFlags: 3
@@ -7669,6 +7749,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1358102682}
   - component: {fileID: 1358102681}
+  - component: {fileID: 1358102683}
   m_Layer: 0
   m_Name: CM vcam Loki
   m_TagString: Untagged
@@ -7726,6 +7807,23 @@ Transform:
   m_Father: {fileID: 384016118}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1358102683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358102680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2fba25a5cd15594e8f050a11e386c80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ConfineMode: 0
+  m_BoundingVolume: {fileID: 0}
+  m_BoundingShape2D: {fileID: 724863197}
+  m_ConfineScreenEdges: 1
+  m_Damping: 0
 --- !u!4 &1640241013 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7855434974119868133, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
