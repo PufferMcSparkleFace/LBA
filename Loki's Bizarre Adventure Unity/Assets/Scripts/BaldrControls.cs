@@ -33,6 +33,10 @@ public class BaldrControls : MonoBehaviour
     [SerializeField]
     private CinemachineVirtualCamera CloneCam;
     public Clone clonescript;
+    public float currentslidetime;
+    public bool issliding = false;
+    public float momentum = 1;
+    public float momentumincrease;
 
 
     // Start is called before the first frame update
@@ -55,6 +59,7 @@ public class BaldrControls : MonoBehaviour
         controls.Baldr.Jump2.performed += ctx => Jump();
         controls.Baldr.SwitchPlayerLeft.performed += ctx => SwitchPlayerLeft();
         controls.Baldr.SwitchPlayerRight.performed += ctx => SwitchPlayerRight();
+        controls.Baldr.Slide.performed += ctx => Slide();
     }
 
     void SwitchPlayerRight()
@@ -86,7 +91,18 @@ public class BaldrControls : MonoBehaviour
         }
     }
 
-   public void Jump()
+    public void Slide()
+    {
+        //if movement.y = 0
+        //is sliding =  true
+        //current slide time = 1
+        //momentum *= momentum increase
+        //else if on wall
+        //make jump opposite direction
+        //set currentslide time to 3 seconds
+    }
+
+    public void Jump()
     {
         
         if (rb.velocity.y != 0 && isTethered == true)
@@ -97,16 +113,23 @@ public class BaldrControls : MonoBehaviour
         {
             rb.velocity = new Vector2(0, jumpHeight);
             jumpbuffer = false;
+            //if issliding is true, set currentslidetimeto 2 seconds
         }
 
     }
 
 
+
     void Update()
     {
-        if(isTethered == false)
+
+        //if is sliding is true, subtract time.delta time from currentslidetime and set the animator and whe it = 0 sliding is false
+        //if issliding = false, momentum = 1 and set the animator.
+
+        if (isTethered == false)
         {
             Vector2 m = new Vector2(move.x, 0f) * Time.deltaTime * speed;
+            //^ * momentum
             transform.Translate(m, Space.World);
         }
        
@@ -138,6 +161,7 @@ public class BaldrControls : MonoBehaviour
         BaldrAnimator.SetFloat("Speed", Mathf.Abs(move.x));
 
 
+
         if (move.x > 0 && BaldrSpriteRenderer.flipX == true)
         {
             BaldrSpriteRenderer.flipX = false;
@@ -151,15 +175,18 @@ public class BaldrControls : MonoBehaviour
         if (isTethered == true)
         {
             move.x = lokiControls.move.x;
-            if(LokiFollow.position.x > transform.position.x)
+            if (LokiFollow.position.x > transform.position.x)
             {
                 BaldrSpriteRenderer.flipX = false;
             }
-            else if(LokiFollow.position.x < transform.position.x)
+            else if (LokiFollow.position.x < transform.position.x)
             {
                 BaldrSpriteRenderer.flipX = true;
             }
         }
+
+        //if touching wall set anim
+        //if not set anim
 
 
     }
@@ -173,4 +200,5 @@ public class BaldrControls : MonoBehaviour
     {
         controls.Baldr.Disable();
     }
+
 }

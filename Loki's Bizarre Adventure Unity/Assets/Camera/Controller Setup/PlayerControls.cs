@@ -298,6 +298,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Slide"",
+                    ""type"": ""Button"",
+                    ""id"": ""379d01c2-199d-41e6-94cd-3097e057ffbd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -388,6 +396,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""Angle Shield"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8acddeee-6900-4c6a-b145-1f71bd07b41f"",
+                    ""path"": ""<DualShockGamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Slide"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -417,6 +436,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Baldr_Pause = m_Baldr.FindAction("Pause", throwIfNotFound: true);
         m_Baldr_Jump2 = m_Baldr.FindAction("Jump 2", throwIfNotFound: true);
         m_Baldr_AngleShield = m_Baldr.FindAction("Angle Shield", throwIfNotFound: true);
+        m_Baldr_Slide = m_Baldr.FindAction("Slide", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -587,6 +607,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Baldr_Pause;
     private readonly InputAction m_Baldr_Jump2;
     private readonly InputAction m_Baldr_AngleShield;
+    private readonly InputAction m_Baldr_Slide;
     public struct BaldrActions
     {
         private @PlayerControls m_Wrapper;
@@ -599,6 +620,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @Pause => m_Wrapper.m_Baldr_Pause;
         public InputAction @Jump2 => m_Wrapper.m_Baldr_Jump2;
         public InputAction @AngleShield => m_Wrapper.m_Baldr_AngleShield;
+        public InputAction @Slide => m_Wrapper.m_Baldr_Slide;
         public InputActionMap Get() { return m_Wrapper.m_Baldr; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -632,6 +654,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @AngleShield.started -= m_Wrapper.m_BaldrActionsCallbackInterface.OnAngleShield;
                 @AngleShield.performed -= m_Wrapper.m_BaldrActionsCallbackInterface.OnAngleShield;
                 @AngleShield.canceled -= m_Wrapper.m_BaldrActionsCallbackInterface.OnAngleShield;
+                @Slide.started -= m_Wrapper.m_BaldrActionsCallbackInterface.OnSlide;
+                @Slide.performed -= m_Wrapper.m_BaldrActionsCallbackInterface.OnSlide;
+                @Slide.canceled -= m_Wrapper.m_BaldrActionsCallbackInterface.OnSlide;
             }
             m_Wrapper.m_BaldrActionsCallbackInterface = instance;
             if (instance != null)
@@ -660,6 +685,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @AngleShield.started += instance.OnAngleShield;
                 @AngleShield.performed += instance.OnAngleShield;
                 @AngleShield.canceled += instance.OnAngleShield;
+                @Slide.started += instance.OnSlide;
+                @Slide.performed += instance.OnSlide;
+                @Slide.canceled += instance.OnSlide;
             }
         }
     }
@@ -688,5 +716,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnPause(InputAction.CallbackContext context);
         void OnJump2(InputAction.CallbackContext context);
         void OnAngleShield(InputAction.CallbackContext context);
+        void OnSlide(InputAction.CallbackContext context);
     }
 }
