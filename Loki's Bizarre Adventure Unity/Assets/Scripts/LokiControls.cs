@@ -43,7 +43,7 @@ public class LokiControls : MonoBehaviour
     public Vector2 DashDirection;
     public bool canbounce = false;
     public float canbouncetimer;
-    public float startingcanbouncetimer = 1;
+    public float startingcanbouncetimer = 1.5f;
     public bool candash = true;
     public float clonebounceheight;
     public Clonebounce cbscript;
