@@ -38,6 +38,7 @@ public class BaldrControls : MonoBehaviour
     public float momentum = 1;
     public float momentumincrease;
     public bool canslide = true;
+    public bool isslowingdown = false;
 
 
     // Start is called before the first frame update
@@ -143,12 +144,17 @@ public class BaldrControls : MonoBehaviour
             if(currentslidetime <= 0)
             {
                 issliding = false;
-                canslide = true;
+                isslowingdown = true;
             }
         }
-        if(issliding == false)
+        if(isslowingdown == true)
         {
-            momentum = 1;
+            momentum -= Time.deltaTime;
+        }
+        if(momentum == 1)
+        {
+            canslide = true;
+            isslowingdown = false;
             BaldrAnimator.SetBool("IsSliding", false);
         }
 
