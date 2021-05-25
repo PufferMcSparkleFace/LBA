@@ -37,6 +37,7 @@ public class BaldrControls : MonoBehaviour
     public bool issliding = false;
     public float momentum = 1;
     public float momentumincrease;
+    public bool canslide = true;
 
 
     // Start is called before the first frame update
@@ -96,13 +97,17 @@ public class BaldrControls : MonoBehaviour
         //else if on wall
         //make jump opposite direction
         //set currentslide time to 3 seconds
-
-        if(rb.velocity.y == 0)
+        if(canslide == true)
         {
-            issliding = true;
-            currentslidetime = 1;
-            momentum *= momentumincrease;
+            if (rb.velocity.y == 0)
+            {
+                issliding = true;
+                currentslidetime = 1;
+                momentum *= momentumincrease;
+            }
+            canslide = false;
         }
+ 
     }
 
     public void Jump()
@@ -119,6 +124,7 @@ public class BaldrControls : MonoBehaviour
             if(issliding == true)
             {
                 currentslidetime = 2;
+                canslide = true;
             }
  
         }
@@ -137,12 +143,18 @@ public class BaldrControls : MonoBehaviour
             if(currentslidetime <= 0)
             {
                 issliding = false;
+                canslide = true;
             }
         }
         if(issliding == false)
         {
             momentum = 1;
             BaldrAnimator.SetBool("IsSliding", false);
+        }
+
+        if(momentum > 3)
+        {
+            momentum = 3;
         }
 
         if (isTethered == false)
