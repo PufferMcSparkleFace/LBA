@@ -81,70 +81,11 @@ public class LokiControls : MonoBehaviour
     
     }
 
-    void Update()
-    {
-        Vector2 m = new Vector2(move.x, 0f) * Time.deltaTime * speed;
-        rb.velocity = m;
-        LokiAnimator.SetFloat("Speed", Mathf.Abs(move.x));
-        if (rb.velocity.y == 0)
-        {
-            LokiAnimator.SetBool("IsJumping", false);
-            canclonebounce = false;
-        }
-        else
-        {
-            LokiAnimator.SetBool("IsJumping", true);
-        }
-        if (move.x > 0 && LokiSpriteRenderer.flipX == false)
-        {
-            LokiSpriteRenderer.flipX = true;
-        }
-        if (move.x < 0 && LokiSpriteRenderer == true)
-        {
-            LokiSpriteRenderer.flipX = false;
-        }
-        if (cloneisfocus == true && clonescript.active == false)
-        {
-            CloneCam.Priority = 0;
-            LokiCam.Priority = 1;
-            cloneisfocus = false;
-        }
-        if (isDashing == true)
-        {
-            rb.velocity = DashDirection * DashForce;
-            CurrentDashTime -= Time.deltaTime;
-            if (CurrentDashTime <= 0)
-            {
-                isDashing = false;
-            }
-
-        }
-        if (canbounce == true)
-        {
-            canbouncetimer -= Time.deltaTime;
-            if (canbouncetimer <= 0)
-            {
-                canbounce = false;
-                clonescript.canbounce = false;
-            }
-        }
-        if (rb.velocity.y == 0 && clonescript.active == false)
-        {
-            candash = true;
-        }
-        if (clonescript.tethered == true || clonescript.active == false)
-        {
-            canclonebounce = false;
-        }
-
-
-    }
-
     //void clone
     //if inactive = true, set clone active, set clone's position to yours, give force with opposite direction to yours, and detether baldr
 
     //in the clone, clonebounce, and switch player function, call the detether function
-
+    
     void SummonClone()
     {
         if(clonescript.active == false && candash == true)
@@ -229,7 +170,7 @@ public class LokiControls : MonoBehaviour
     {
         if(rb.velocity.y == 0)
         {
-            rb.velocity += 0, jumpheight;
+            rb.velocity = new Vector2(0, jumpHeight);
             if (isTethered == true)
             {
                 StartCoroutine(tetheredJump());
@@ -243,10 +184,67 @@ public class LokiControls : MonoBehaviour
         if(canclonebounce == true && rb.velocity.y < 0)
         {
             cbscript.ClonebounceFunction();
-            baldrControls.isTethered = false;
-            isTethered = false;
         }
        
+    }
+
+    void Update()
+    {
+        Vector2 m = new Vector2(move.x, 0f) * Time.deltaTime * speed;
+        transform.Translate(m, Space.World);
+        LokiAnimator.SetFloat("Speed", Mathf.Abs(move.x));
+        if(rb.velocity.y == 0)
+        {
+            LokiAnimator.SetBool("IsJumping", false);
+            canclonebounce = false;
+        }
+        else
+        {
+            LokiAnimator.SetBool("IsJumping", true);
+        }
+        if(move.x > 0 && LokiSpriteRenderer.flipX == false)
+        {
+            LokiSpriteRenderer.flipX = true;
+        }
+        if(move.x<0 && LokiSpriteRenderer == true)
+        {
+            LokiSpriteRenderer.flipX = false;
+        }
+        if(cloneisfocus == true && clonescript.active == false)
+        {
+            CloneCam.Priority = 0;
+            LokiCam.Priority = 1;
+            cloneisfocus = false;
+        }
+        if(isDashing == true)
+        {
+            rb.velocity = DashDirection * DashForce;
+            CurrentDashTime -= Time.deltaTime;
+            if(CurrentDashTime <= 0)
+            {
+                isDashing = false;
+            }
+
+        }
+        if(canbounce == true)
+        {
+            canbouncetimer -= Time.deltaTime;
+            if(canbouncetimer  <= 0)
+            {
+                canbounce = false;
+                clonescript.canbounce = false;
+            }
+        }
+        if(rb.velocity.y == 0 && clonescript.active == false)
+        {
+            candash = true;
+        }
+        if(clonescript.tethered == true || clonescript.active == false)
+        {
+            canclonebounce = false;
+        }
+
+      
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
