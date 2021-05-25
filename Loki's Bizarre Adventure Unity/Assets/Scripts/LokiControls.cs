@@ -49,6 +49,7 @@ public class LokiControls : MonoBehaviour
     public Clonebounce cbscript;
     public bool canclonebounce = false;
     private Transform clonebouncedetector;
+    public CameraShake shakescript;
 
 
 
@@ -87,6 +88,7 @@ public class LokiControls : MonoBehaviour
     {
         if(clonescript.active == false && candash == true)
         {
+            StartCoroutine(shakescript.Shake(0.2f, 2));
             clone.transform.position = this.gameObject.transform.position;
             clone.GetComponent<SpriteRenderer>().enabled = true;
             clonescript.active = true;
