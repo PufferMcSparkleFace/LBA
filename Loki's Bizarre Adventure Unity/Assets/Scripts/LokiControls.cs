@@ -43,7 +43,7 @@ public class LokiControls : MonoBehaviour
     public Vector2 DashDirection;
     public bool canmirrorbounce = false;
     public float canmirrorbouncetimer;
-    public float startingcanmirrorbouncetimer = 1.5f;
+    public float startingcanmirrorbouncetimer = 0.75f;
     public bool candash = true;
     public float clonebounceheight;
     public bool canclonebounce = false;
@@ -256,7 +256,7 @@ public class LokiControls : MonoBehaviour
         if (collision.gameObject.tag == "Mirror" && canmirrorbounce == true)
         {
             var direction = Vector3.Reflect(move.normalized, collision.contacts[0].normal);
-            rb.velocity = direction * DashForce * mirrorboostamount;
+            rb.velocity = direction * DashForce * mirrorboostamount * 2;
             canmirrorbouncetimer = startingcanmirrorbouncetimer;
             isbouncing = true;
         }
