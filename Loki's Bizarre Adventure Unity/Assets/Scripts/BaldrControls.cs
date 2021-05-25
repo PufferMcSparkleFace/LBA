@@ -39,6 +39,9 @@ public class BaldrControls : MonoBehaviour
     public float momentumincrease;
     public bool canslide = true;
     public bool isslowingdown = false;
+    public bool istouchingwall = false;
+    public float xWallForce;
+    public float yWallForce = 1;
 
 
     // Start is called before the first frame update
@@ -105,8 +108,12 @@ public class BaldrControls : MonoBehaviour
                 issliding = true;
                 currentslidetime = 1;
                 momentum *= momentumincrease;
+                canslide = false;
             }
-            canslide = false;
+            else if (istouchingwall == true)
+            {
+                rb.velocity = new Vector2(xWallForce, yWallForce);
+            }
         }
  
     }
@@ -224,7 +231,7 @@ public class BaldrControls : MonoBehaviour
         //if touching wall set anim
         //if not set anim
 
-
+        xWallForce = -move.x * speed * momentum * Time.deltaTime;
     }
 
     public void OnEnable()
