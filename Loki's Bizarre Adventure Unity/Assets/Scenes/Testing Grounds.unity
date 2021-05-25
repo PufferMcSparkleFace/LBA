@@ -8565,6 +8565,11 @@ PrefabInstance:
       objectReference: {fileID: 671192714}
     - target: {fileID: 4059596429737676872, guid: 08bbef220a509b640b073c02da272c9b,
         type: 3}
+      propertyPath: momentumincrease
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4059596429737676872, guid: 08bbef220a509b640b073c02da272c9b,
+        type: 3}
       propertyPath: BaldrSpriteRenderer
       value: 
       objectReference: {fileID: 671192713}
