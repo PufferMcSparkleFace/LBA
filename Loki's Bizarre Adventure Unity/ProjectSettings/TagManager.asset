@@ -9,6 +9,7 @@ TagManager:
   - Baldr
   - CameraConfiner
   - Clone
+  - Clonebounce Detector
   layers:
   - Default
   - TransparentFX

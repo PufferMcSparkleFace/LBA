@@ -174,6 +174,10 @@ public class LokiControls : MonoBehaviour
             }
      
         }
+        if(canclonebounce == true && rb.velocity.y < 0)
+        {
+            cbscript.ClonebounceFunction();
+        }
        
     }
 
