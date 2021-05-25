@@ -254,7 +254,6 @@ public class LokiControls : MonoBehaviour
             var bouncespeed = lastMove.magnitude;
             var direction = Vector2.Reflect(lastMove.normalized, collision.contacts[0].normal);
             rb.velocity = direction * bouncespeed * mirrorboostamount;
-            isDashing = true;
             CurrentDashTime = DashTime;
             canbounce = true;
             canbouncetimer = startingcanbouncetimer;
