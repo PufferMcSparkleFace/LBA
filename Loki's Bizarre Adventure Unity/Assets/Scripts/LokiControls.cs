@@ -41,9 +41,9 @@ public class LokiControls : MonoBehaviour
     public float CurrentDashTime;
     public bool isDashing = false;
     public Vector2 DashDirection;
-    public bool canbounce = false;
-    public float canbouncetimer;
-    public float startingcanbouncetimer = 1.5f;
+    public bool canmirrorbounce = false;
+    public float canmirrorbouncetimer;
+    public float startingcanmirrorbouncetimer = 1.5f;
     public bool candash = true;
     public float clonebounceheight;
     public bool canclonebounce = false;
@@ -99,9 +99,9 @@ public class LokiControls : MonoBehaviour
             DashDirection = new Vector2(move.x, move.y);
             clonescript.DashDirection = new Vector2(-move.x, -move.y);
             clonescript.CurrentDashTime = clonescript.DashTime;
-            canbounce = true;
-            clonescript.canbounce = true;
-            canbouncetimer = startingcanbouncetimer;
+            canmirrorbounce = true;
+            clonescript.canmirrorbounce = true;
+            canmirrorbouncetimer = startingcanmirrorbouncetimer;
             candash = false;
             cameraShake.ShakeCamera(2f, 0.2f);
         }
@@ -188,13 +188,13 @@ public class LokiControls : MonoBehaviour
 
     void Update()
     {
-        if (canbounce == true)
+        if (canmirrorbounce == true)
         {
-            canbouncetimer -= Time.deltaTime;
-            if (canbouncetimer <= 0)
+            canmirrorbouncetimer -= Time.deltaTime;
+            if (canmirrorbouncetimer <= 0)
             {
-                canbounce = false;
-                clonescript.canbounce = false;
+                canmirrorbounce = false;
+                clonescript.canmirrorbounce = false;
                 isbouncing = false;
             }
         }
@@ -253,11 +253,11 @@ public class LokiControls : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Mirror" && canbounce == true)
+        if (collision.gameObject.tag == "Mirror" && canmirrorbounce == true)
         {
             var direction = Vector3.Reflect(move.normalized, collision.contacts[0].normal);
-            rb.velocity = direction * DashForce * mirrorboostamount * 2;
-            canbouncetimer = startingcanbouncetimer;
+            rb.velocity = direction * DashForce * mirrorboostamount;
+            canmirrorbouncetimer = startingcanmirrorbouncetimer;
             isbouncing = true;
         }
     }
