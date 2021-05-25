@@ -51,7 +51,7 @@ public class LokiControls : MonoBehaviour
     public CameraShake cameraShake;
     private Vector2 lastMove;
     public float mirrorboostamount = 1.2f;
-    public bool isclonebouncing = false;
+  
 
     
 
@@ -104,7 +104,6 @@ public class LokiControls : MonoBehaviour
             clonescript.DashDirection = new Vector2(-move.x, -move.y);
             clonescript.CurrentDashTime = clonescript.DashTime;
             canbounce = true;
-            isclonebouncing = true;
             clonescript.canbounce = true;
             canbouncetimer = startingcanbouncetimer;
             candash = false;
@@ -193,7 +192,7 @@ public class LokiControls : MonoBehaviour
 
     void Update()
     {
-        if(isclonebouncing != true)
+        if(canbounce == false)
         {
             Vector2 m = new Vector2(move.x, 0f) * Time.deltaTime * speed;
             transform.Translate(m, Space.World);
@@ -239,7 +238,6 @@ public class LokiControls : MonoBehaviour
             {
                 canbounce = false;
                 clonescript.canbounce = false;
-                isclonebouncing = false;
             }
         }
         if(rb.velocity.y == 0 && clonescript.active == false)
