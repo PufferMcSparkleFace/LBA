@@ -53,7 +53,20 @@ public class LokiControls : MonoBehaviour
     private Vector2 lastMove;
     public float mirrorboostamount = 1.2f;
 
-
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Mirror" && canbounce == true)
+        {
+            var bouncespeed = lastMove.magnitude;
+            var direction = Vector2.Reflect(lastMove.normalized, collision.contacts[0].normal);
+            rb.velocity = direction * bouncespeed * mirrorboostamount;
+            isDashing = true;
+            CurrentDashTime = DashTime;
+            canbounce = true;
+            canbouncetimer = startingcanbouncetimer;
+            Debug.Log("We Hit the Mirror");
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -287,21 +300,6 @@ public class LokiControls : MonoBehaviour
         if(collision.tag == "Clonebounce Detector" && clonescript.tethered == false && clonescript.active == true)
         {
             canclonebounce = true;
-        }
-    }
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.tag == "Mirror" && canbounce == true)
-        {
-            var bouncespeed = lastMove.magnitude;
-            var direction = Vector2.Reflect(lastMove.normalized, collision.contacts[0].normal);
-            rb.velocity = direction * bouncespeed * mirrorboostamount;
-            isDashing = true;
-            CurrentDashTime = DashTime;
-            canbounce = true;
-            canbouncetimer = startingcanbouncetimer;
-            Debug.Log("We Hit the Mirror");
         }
     }
 
