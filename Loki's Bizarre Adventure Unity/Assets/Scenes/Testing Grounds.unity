@@ -6525,7 +6525,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 384016117}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.3588011, y: 1.0583575, z: -0.08085786}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 519420032}
@@ -6653,7 +6653,6 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
-  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -6754,24 +6753,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.7353289, y: -1.0426158, z: -10}
+  m_LocalPosition: {x: 1.7398171, y: -1.0426537, z: -9.919142}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 384016118}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &519420033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40e66292764f3ed48b10e69035e33caf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &596104076
 GameObject:
   m_ObjectHideFlags: 0
@@ -6798,7 +6785,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 596104076}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.8075659, y: -1.6800002, z: -10}
+  m_LocalPosition: {x: 0.4487648, y: -2.7383575, z: -9.919142}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 431138119}
@@ -6914,7 +6901,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 676456111}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.6099997, y: -1.8100003, z: -10}
+  m_LocalPosition: {x: 4.251199, y: -2.8683577, z: -9.919142}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 898123483}
@@ -8450,7 +8437,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1358102680}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.86, y: -1.67, z: -10}
+  m_LocalPosition: {x: 2.5011988, y: -2.7283573, z: -9.919142}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 749494824}
@@ -8566,11 +8553,6 @@ PrefabInstance:
       propertyPath: clonescript
       value: 
       objectReference: {fileID: 366193125}
-    - target: {fileID: 4059596429737676872, guid: 08bbef220a509b640b073c02da272c9b,
-        type: 3}
-      propertyPath: shakescript
-      value: 
-      objectReference: {fileID: 519420033}
     - target: {fileID: 4059596429737676872, guid: 08bbef220a509b640b073c02da272c9b,
         type: 3}
       propertyPath: lokiControls
@@ -8775,11 +8757,6 @@ PrefabInstance:
       propertyPath: clonescript
       value: 
       objectReference: {fileID: 366193125}
-    - target: {fileID: 7855434974119868134, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
-        type: 3}
-      propertyPath: shakescript
-      value: 
-      objectReference: {fileID: 519420033}
     - target: {fileID: 7855434974119868134, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
         type: 3}
       propertyPath: LokiAnimator
