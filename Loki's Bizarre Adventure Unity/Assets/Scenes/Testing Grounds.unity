@@ -6547,6 +6547,7 @@ GameObject:
   - component: {fileID: 431138119}
   - component: {fileID: 431138121}
   - component: {fileID: 431138120}
+  - component: {fileID: 431138122}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -6623,6 +6624,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &431138122
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431138118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  m_PivotOffset: {x: 0, y: 0, z: 0}
+  m_AmplitudeGain: 0
+  m_FrequencyGain: 5
+  mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!4 &493697544 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4059596429737676873, guid: 08bbef220a509b640b073c02da272c9b,
@@ -6753,7 +6771,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.7398171, y: -1.0426537, z: -9.919142}
+  m_LocalPosition: {x: 1.7353282, y: -1.042616, z: -9.919142}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 384016118}
@@ -6770,6 +6788,7 @@ GameObject:
   - component: {fileID: 596104077}
   - component: {fileID: 596104078}
   - component: {fileID: 596104079}
+  - component: {fileID: 596104080}
   m_Layer: 0
   m_Name: CM vcam Baldr
   m_TagString: Untagged
@@ -6844,6 +6863,18 @@ MonoBehaviour:
   m_BoundingShape2D: {fileID: 724863197}
   m_ConfineScreenEdges: 1
   m_Damping: 0
+--- !u!114 &596104080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 596104076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40e66292764f3ed48b10e69035e33caf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &671192710 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4059596429737676869, guid: 08bbef220a509b640b073c02da272c9b,
@@ -7032,6 +7063,7 @@ GameObject:
   - component: {fileID: 749494824}
   - component: {fileID: 749494826}
   - component: {fileID: 749494825}
+  - component: {fileID: 749494827}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -7108,6 +7140,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &749494827
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 749494823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  m_PivotOffset: {x: 0, y: 0, z: 0}
+  m_AmplitudeGain: 0
+  m_FrequencyGain: 5
+  mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &824383231
 GameObject:
   m_ObjectHideFlags: 0
@@ -8387,6 +8436,7 @@ GameObject:
   - component: {fileID: 1358102682}
   - component: {fileID: 1358102681}
   - component: {fileID: 1358102683}
+  - component: {fileID: 1358102684}
   m_Layer: 0
   m_Name: CM vcam Loki
   m_TagString: Untagged
@@ -8461,6 +8511,18 @@ MonoBehaviour:
   m_BoundingShape2D: {fileID: 724863197}
   m_ConfineScreenEdges: 1
   m_Damping: 0
+--- !u!114 &1358102684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358102680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40e66292764f3ed48b10e69035e33caf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1614024956 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7855434974119868129, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
@@ -8548,6 +8610,16 @@ PrefabInstance:
       propertyPath: CloneCam
       value: 
       objectReference: {fileID: 676456114}
+    - target: {fileID: 4059596429737676872, guid: 08bbef220a509b640b073c02da272c9b,
+        type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 596104080}
+    - target: {fileID: 4059596429737676872, guid: 08bbef220a509b640b073c02da272c9b,
+        type: 3}
+      propertyPath: camreaShake
+      value: 
+      objectReference: {fileID: 596104080}
     - target: {fileID: 4059596429737676872, guid: 08bbef220a509b640b073c02da272c9b,
         type: 3}
       propertyPath: clonescript
@@ -8752,6 +8824,16 @@ PrefabInstance:
       propertyPath: DashForce
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 7855434974119868134, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
+        type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 1358102684}
+    - target: {fileID: 7855434974119868134, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
+        type: 3}
+      propertyPath: camreaShake
+      value: 
+      objectReference: {fileID: 1358102684}
     - target: {fileID: 7855434974119868134, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
         type: 3}
       propertyPath: clonescript
