@@ -45,6 +45,9 @@ public class LokiControls : MonoBehaviour
     public float canbouncetimer;
     public float startingcanbouncetimer;
     public bool candash = true;
+    public float clonebounceheight;
+    public Clonebounce cbscript;
+    public bool canclonebounce = false;
 
 
 
@@ -224,6 +227,10 @@ public class LokiControls : MonoBehaviour
         {
             candash = true;
         }
+        if(clonescript.tethered == true || clonescript.active == false)
+        {
+            canclonebounce = false;
+        }
         
     }
 
@@ -263,4 +270,19 @@ public class LokiControls : MonoBehaviour
         controls.Loki.Disable();
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Clonebounce Detector" && clonescript.tethered == false && clonescript.active == true)
+        {
+            canclonebounce = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.tag == "Clonebounce Dectector")
+        {
+            canclonebounce = false;
+        }
+    }
 }
