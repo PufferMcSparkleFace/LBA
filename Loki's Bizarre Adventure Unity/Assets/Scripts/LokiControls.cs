@@ -46,7 +46,6 @@ public class LokiControls : MonoBehaviour
     public float startingcanbouncetimer = 1.5f;
     public bool candash = true;
     public float clonebounceheight;
-    public Clonebounce cbscript;
     public bool canclonebounce = false;
     private Transform clonebouncedetector;
     public CameraShake cameraShake;
@@ -183,7 +182,7 @@ public class LokiControls : MonoBehaviour
         }
         if(canclonebounce == true && rb.velocity.y < 0)
         {
-            cbscript.ClonebounceFunction();
+            CloneBounce();
             isTethered = false;
             baldrControls.isTethered = false;
         }
@@ -303,6 +302,12 @@ public class LokiControls : MonoBehaviour
         {
             canclonebounce = true;
         }
+    }
+
+    public void CloneBounce()
+    {
+        rb.velocity = new Vector2(0f, clonebounceheight);
+        canclonebounce = false;
     }
 
 }

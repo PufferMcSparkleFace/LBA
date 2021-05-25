@@ -6249,7 +6249,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 338052815}
-  - component: {fileID: 338052816}
   - component: {fileID: 338052817}
   m_Layer: 0
   m_Name: Clonebounce Detector
@@ -6272,20 +6271,6 @@ Transform:
   m_Father: {fileID: 366193124}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &338052816
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 338052814}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a07ba47a41299ac438e9b993b37eb558, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lokirb: {fileID: 1614024958}
-  lokiscript: {fileID: 1640241014}
 --- !u!61 &338052817
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8548,12 +8533,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!50 &1614024958 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 7855434974119868131, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
-    type: 3}
-  m_PrefabInstance: {fileID: 7855434974669578640}
-  m_PrefabAsset: {fileID: 0}
 --- !u!212 &1614024960 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 7855434974119868132, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
@@ -8927,7 +8906,7 @@ PrefabInstance:
         type: 3}
       propertyPath: cbscript
       value: 
-      objectReference: {fileID: 338052816}
+      objectReference: {fileID: 0}
     - target: {fileID: 7855434974119868134, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
         type: 3}
       propertyPath: DashForce
