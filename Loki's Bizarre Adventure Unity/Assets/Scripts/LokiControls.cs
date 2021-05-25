@@ -49,6 +49,7 @@ public class LokiControls : MonoBehaviour
     public Clonebounce cbscript;
     public bool canclonebounce = false;
     private Transform clonebouncedetector;
+    public CameraShake cameraShake;
 
 
 
@@ -104,6 +105,7 @@ public class LokiControls : MonoBehaviour
             clonescript.canbounce = true;
             canbouncetimer = startingcanbouncetimer;
             candash = false;
+            cameraShake.ShakeCamera(2f, 0.2f);
         }
         else if (clonescript.active == true && clonescript.tethered == true)
         {

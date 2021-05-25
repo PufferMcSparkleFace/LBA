@@ -39,6 +39,7 @@ public class BaldrControls : MonoBehaviour
     public float momentumincrease;
     public bool canslide = true;
     public bool isslowingdown = false;
+    public CameraShake cameraShake;
 
 
     // Start is called before the first frame update
@@ -105,6 +106,7 @@ public class BaldrControls : MonoBehaviour
                 issliding = true;
                 currentslidetime = 1;
                 momentum *= momentumincrease;
+                cameraShake.ShakeCamera(momentum, 0.2f);
             }
             canslide = false;
         }
