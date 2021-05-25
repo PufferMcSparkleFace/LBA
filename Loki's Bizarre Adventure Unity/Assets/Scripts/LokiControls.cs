@@ -258,7 +258,7 @@ public class LokiControls : MonoBehaviour
             //canbouncetimer = startingcanbouncetimer;
             Debug.Log("We Hit the Mirror");
             rb.velocity = new Vector2(5f,5f);
-            canbouncetimer = startingcanbouncetimer
+            canbouncetimer = startingcanbouncetimer;
         }
     }
 
