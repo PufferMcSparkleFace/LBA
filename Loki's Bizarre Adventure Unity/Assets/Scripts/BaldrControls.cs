@@ -93,13 +93,16 @@ public class BaldrControls : MonoBehaviour
 
     public void Slide()
     {
-        //if movement.y = 0
-        //is sliding =  true
-        //current slide time = 1
-        //momentum *= momentum increase
         //else if on wall
         //make jump opposite direction
         //set currentslide time to 3 seconds
+
+        if(rb.velocity.y == 0)
+        {
+            issliding = true;
+            currentslidetime = 1;
+            momentum *= momentumincrease;
+        }
     }
 
     public void Jump()
@@ -113,7 +116,11 @@ public class BaldrControls : MonoBehaviour
         {
             rb.velocity = new Vector2(0, jumpHeight);
             jumpbuffer = false;
-            //if issliding is true, set currentslidetimeto 2 seconds
+            if(issliding == true)
+            {
+                currentslidetime = 2;
+            }
+ 
         }
 
     }
@@ -123,13 +130,24 @@ public class BaldrControls : MonoBehaviour
     void Update()
     {
 
-        //if is sliding is true, subtract time.delta time from currentslidetime and set the animator and whe it = 0 sliding is false
-        //if issliding = false, momentum = 1 and set the animator.
+        if(issliding == true)
+        {
+            currentslidetime -= Time.deltaTime;
+            BaldrAnimator.SetBool("IsSliding", true);
+            if(currentslidetime <= 0)
+            {
+                issliding = false;
+            }
+        }
+        if(issliding == false)
+        {
+            momentum = 1;
+            BaldrAnimator.SetBool("IsSliding", false);
+        }
 
         if (isTethered == false)
         {
-            Vector2 m = new Vector2(move.x, 0f) * Time.deltaTime * speed;
-            //^ * momentum
+            Vector2 m = new Vector2(move.x, 0f) * Time.deltaTime * speed * momentum;
             transform.Translate(m, Space.World);
         }
        
