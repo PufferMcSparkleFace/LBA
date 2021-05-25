@@ -44,6 +44,7 @@ public class LokiControls : MonoBehaviour
     public bool canbounce = false;
     public float canbouncetimer;
     public float startingcanbouncetimer;
+    public bool candash = true;
 
 
 
@@ -79,7 +80,7 @@ public class LokiControls : MonoBehaviour
     
     void SummonClone()
     {
-        if(clonescript.active == false)
+        if(clonescript.active == false && candash == true)
         {
             clone.transform.position = this.gameObject.transform.position;
             clone.GetComponent<SpriteRenderer>().enabled = true;
@@ -97,6 +98,7 @@ public class LokiControls : MonoBehaviour
             canbounce = true;
             clonescript.canbounce = true;
             canbouncetimer = startingcanbouncetimer;
+            candash = false;
         }
         else if (clonescript.active == true && clonescript.tethered == true)
         {
@@ -217,6 +219,10 @@ public class LokiControls : MonoBehaviour
                 canbounce = false;
                 clonescript.canbounce = false;
             }
+        }
+        if(rb.velocity.y == 0 && clonescript.active == false)
+        {
+            candash = true;
         }
         
     }

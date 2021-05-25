@@ -6302,6 +6302,7 @@ MonoBehaviour:
   CurrentDashTime: 0
   isDashing: 0
   DashDirection: {x: 0, y: 0}
+  canbounce: 0
 --- !u!212 &366193126
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8557,6 +8558,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Loki
       objectReference: {fileID: 0}
+    - target: {fileID: 7855434974119868131, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 7855434974119868132, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
         type: 3}
       propertyPath: m_FlipX
@@ -8677,5 +8683,10 @@ PrefabInstance:
       propertyPath: LokiSpriteRenderer
       value: 
       objectReference: {fileID: 1614024960}
+    - target: {fileID: 7855434974119868134, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
+        type: 3}
+      propertyPath: startingcanbouncetimer
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4acb9815b6ee4934790c4d9f2fbbb00d, type: 3}
