@@ -80,11 +80,6 @@ public class LokiControls : MonoBehaviour
         
     
     }
-
-    //void clone
-    //if inactive = true, set clone active, set clone's position to yours, give force with opposite direction to yours, and detether baldr
-
-    //in the clone, clonebounce, and switch player function, call the detether function
     
     void SummonClone()
     {
