@@ -7737,7 +7737,7 @@ MonoBehaviour:
   CurrentDashTime: 0
   isDashing: 0
   DashDirection: {x: 0, y: 0}
-  canbounce: 0
+  canmirrorbounce: 0
 --- !u!212 &366193126
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11692,6 +11692,11 @@ PrefabInstance:
         type: 3}
       propertyPath: startingcanbouncetimer
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7855434974119868134, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
+        type: 3}
+      propertyPath: startingcanmirrorbouncetimer
+      value: 0.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4acb9815b6ee4934790c4d9f2fbbb00d, type: 3}
