@@ -151,7 +151,7 @@ public class BaldrControls : MonoBehaviour
         {
             momentum -= Time.deltaTime;
         }
-        if(momentum == 1)
+        if(momentum <= 1)
         {
             canslide = true;
             isslowingdown = false;
