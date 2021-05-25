@@ -19,6 +19,7 @@ public class Clone : MonoBehaviour
     public float CurrentDashTime;
     public bool isDashing = false;
     public Vector2 DashDirection;
+    public bool canbounce = false;
 
     // Start is called before the first frame update
     void Start()

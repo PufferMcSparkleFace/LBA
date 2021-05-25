@@ -41,6 +41,9 @@ public class LokiControls : MonoBehaviour
     public float CurrentDashTime;
     public bool isDashing = false;
     public Vector2 DashDirection;
+    public bool canbounce = false;
+    public float canbouncetimer;
+    public float startingcanbouncetimer;
 
 
 
@@ -91,6 +94,9 @@ public class LokiControls : MonoBehaviour
             DashDirection = new Vector2(move.x, move.y);
             clonescript.DashDirection = new Vector2(-move.x, -move.y);
             clonescript.CurrentDashTime = clonescript.DashTime;
+            canbounce = true;
+            clonescript.canbounce = true;
+            canbouncetimer = startingcanbouncetimer;
         }
         else if (clonescript.active == true && clonescript.tethered == true)
         {
@@ -202,6 +208,15 @@ public class LokiControls : MonoBehaviour
                 isDashing = false;
             }
 
+        }
+        if(canbounce == true)
+        {
+            canbouncetimer -= Time.deltaTime;
+            if(canbouncetimer  <= 0)
+            {
+                canbounce = false;
+                clonescript.canbounce = false;
+            }
         }
         
     }
