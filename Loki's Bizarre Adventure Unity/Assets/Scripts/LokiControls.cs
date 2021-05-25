@@ -51,7 +51,6 @@ public class LokiControls : MonoBehaviour
     public CameraShake cameraShake;
     private Vector2 lastMove;
     public float mirrorboostamount = 1.2f;
-    public bool isbouncing = false;
   
 
     
@@ -195,7 +194,7 @@ public class LokiControls : MonoBehaviour
             {
                 canmirrorbounce = false;
                 clonescript.canmirrorbounce = false;
-                isbouncing = false;
+                
             }
         }
         else
@@ -229,7 +228,7 @@ public class LokiControls : MonoBehaviour
             LokiCam.Priority = 1;
             cloneisfocus = false;
         }
-        if(isDashing == true && isbouncing == false)
+        if(isDashing == true)
         {
             rb.velocity = DashDirection * DashForce;
             CurrentDashTime -= Time.deltaTime;
@@ -258,7 +257,7 @@ public class LokiControls : MonoBehaviour
             var direction = Vector3.Reflect(move.normalized, collision.contacts[0].normal);
             rb.velocity = direction * DashForce * mirrorboostamount * 2;
             canmirrorbouncetimer = startingcanmirrorbouncetimer;
-            isbouncing = true;
+            
         }
     }
 
