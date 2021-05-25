@@ -51,6 +51,7 @@ public class LokiControls : MonoBehaviour
     public CameraShake cameraShake;
     private Vector2 lastMove;
     public float mirrorboostamount = 1.2f;
+    public bool isclonebouncing = false;
 
     
 
@@ -103,6 +104,7 @@ public class LokiControls : MonoBehaviour
             clonescript.DashDirection = new Vector2(-move.x, -move.y);
             clonescript.CurrentDashTime = clonescript.DashTime;
             canbounce = true;
+            isclonebouncing = true;
             clonescript.canbounce = true;
             canbouncetimer = startingcanbouncetimer;
             candash = false;
@@ -191,8 +193,11 @@ public class LokiControls : MonoBehaviour
 
     void Update()
     {
-        Vector2 m = new Vector2(move.x, 0f) * Time.deltaTime * speed;
-        transform.Translate(m, Space.World);
+        if(isclonebouncing != true)
+        {
+            Vector2 m = new Vector2(move.x, 0f) * Time.deltaTime * speed;
+            transform.Translate(m, Space.World);
+        }
         LokiAnimator.SetFloat("Speed", Mathf.Abs(move.x));
         if(rb.velocity.y == 0)
         {
@@ -234,6 +239,7 @@ public class LokiControls : MonoBehaviour
             {
                 canbounce = false;
                 clonescript.canbounce = false;
+                isclonebouncing = false;
             }
         }
         if(rb.velocity.y == 0 && clonescript.active == false)
@@ -252,10 +258,11 @@ public class LokiControls : MonoBehaviour
     {
         if (collision.gameObject.tag == "Mirror" && canbounce == true)
         {
-            var direction = Vector3.Reflect(rb.velocity.normalized, collision.contacts[0].normal);
-            rb.velocity = direction * Mathf.Max(rb.velocity.x, 0f) * mirrorboostamount;
-            canbouncetimer = startingcanbouncetimer;
+            //var direction = Vector3.Reflect(rb.velocity.normalized, collision.contacts[0].normal);
+            //rb.velocity = direction * Mathf.Max(rb.velocity.x, 0f) * mirrorboostamount;
+            //canbouncetimer = startingcanbouncetimer;
             Debug.Log("We Hit the Mirror");
+            rb.velocity = new Vector2(5,5);
         }
     }
 
