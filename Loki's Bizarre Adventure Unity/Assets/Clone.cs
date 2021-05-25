@@ -85,7 +85,5 @@ public class Clone : MonoBehaviour
 
     }
 
-    //move = loki's move
-    //animator controls
 }
     

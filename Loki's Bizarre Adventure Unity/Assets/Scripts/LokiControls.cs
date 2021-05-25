@@ -91,9 +91,6 @@ public class LokiControls : MonoBehaviour
             DashDirection = new Vector2(move.x, move.y);
             clonescript.DashDirection = new Vector2(-move.x, -move.y);
             clonescript.CurrentDashTime = clonescript.DashTime;
-            rb.gravityScale = 0.0f;
-            clonerb.gravityScale = 0.0f;
-            OnDisable();
         }
         else if (clonescript.active == true && clonescript.tethered == true)
         {
@@ -203,9 +200,6 @@ public class LokiControls : MonoBehaviour
             if(CurrentDashTime <= 0)
             {
                 isDashing = false;
-                rb.gravityScale = 5;
-                clonerb.gravityScale = 5;
-                OnEnable();
             }
 
         }
