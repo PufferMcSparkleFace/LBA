@@ -253,7 +253,6 @@ public class LokiControls : MonoBehaviour
         {
             var direction = Vector2.Reflect(lastMove.normalized, collision.contacts[0].normal);
             rb.velocity = direction * Mathf.Max(rb.velocity.x, 0f) * mirrorboostamount;
-            canbounce = true;
             canbouncetimer = startingcanbouncetimer;
             Debug.Log("We Hit the Mirror");
         }
