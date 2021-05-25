@@ -172,7 +172,7 @@ public class BaldrControls : MonoBehaviour
         }
         if(isslowingdown == true)
         {
-            momentum -= Time.deltaTime *2;
+            momentum -= Time.deltaTime;
         }
         if(momentum <= 1)
         {
