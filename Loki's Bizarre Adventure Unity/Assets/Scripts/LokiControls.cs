@@ -168,18 +168,6 @@ public class LokiControls : MonoBehaviour
 
     void Update()
     {
-        if (isDashing == true)
-        {
-            move = new Vector2(0f, 0f);
-            clonescript.move = new Vector2(0f, 0f);
-            rb.velocity = DashDirection * DashForce;
-            CurrentDashTime -= Time.deltaTime;
-            if (CurrentDashTime <= 0)
-            {
-                isDashing = false;
-            }
-
-        }
         Vector2 m = new Vector2(move.x, 0f) * Time.deltaTime * speed;
         transform.Translate(m, Space.World);
         LokiAnimator.SetFloat("Speed", Mathf.Abs(move.x));
@@ -199,11 +187,21 @@ public class LokiControls : MonoBehaviour
         {
             LokiSpriteRenderer.flipX = false;
         }
-        if (cloneisfocus == true && clonescript.active == false)
+        if(cloneisfocus == true && clonescript.active == false)
         {
             CloneCam.Priority = 0;
             LokiCam.Priority = 1;
             cloneisfocus = false;
+        }
+        if(isDashing == true)
+        {
+            rb.velocity = DashDirection * DashForce;
+            CurrentDashTime -= Time.deltaTime;
+            if(CurrentDashTime <= 0)
+            {
+                isDashing = false;
+            }
+
         }
         
     }
