@@ -187,12 +187,22 @@ public class LokiControls : MonoBehaviour
 
     void Update()
     {
-        if(canbounce == false)
+        if (canbounce == true)
+        {
+            canbouncetimer -= Time.deltaTime;
+            if (canbouncetimer <= 0)
+            {
+                canbounce = false;
+                clonescript.canbounce = false;
+            }
+        }
+        else
         {
             Vector2 m = new Vector2(move.x, 0f) * Time.deltaTime * speed;
             transform.Translate(m, Space.World);
         }
         LokiAnimator.SetFloat("Speed", Mathf.Abs(move.x));
+        
         if(rb.velocity.y == 0)
         {
             LokiAnimator.SetBool("IsJumping", false);
@@ -202,6 +212,7 @@ public class LokiControls : MonoBehaviour
         {
             LokiAnimator.SetBool("IsJumping", true);
         }
+
         if(move.x > 0 && LokiSpriteRenderer.flipX == false)
         {
             LokiSpriteRenderer.flipX = true;
@@ -226,15 +237,6 @@ public class LokiControls : MonoBehaviour
             }
 
         }
-        if(canbounce == true)
-        {
-            canbouncetimer -= Time.deltaTime;
-            if(canbouncetimer  <= 0)
-            {
-                canbounce = false;
-                clonescript.canbounce = false;
-            }
-        }
         if(rb.velocity.y == 0 && clonescript.active == false)
         {
             candash = true;
@@ -255,7 +257,8 @@ public class LokiControls : MonoBehaviour
             //rb.velocity = direction * Mathf.Max(rb.velocity.x, 0f) * mirrorboostamount;
             //canbouncetimer = startingcanbouncetimer;
             Debug.Log("We Hit the Mirror");
-            rb.velocity = new Vector2(5,5);
+            rb.velocity = new Vector2(5f,5f);
+            canbouncetimer = startingcanbouncetimer
         }
     }
 
