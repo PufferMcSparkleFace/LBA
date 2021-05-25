@@ -93,22 +93,6 @@ public class BaldrControls : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.tag == "Wall")
-        {
-            istouchingwall = true;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if(collision.tag == "Wall")
-        {
-            istouchingwall = false;
-        }
-    }
-
     public void Slide()
     {
         //else if on wall
