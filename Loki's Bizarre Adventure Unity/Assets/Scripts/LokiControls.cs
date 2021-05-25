@@ -48,6 +48,7 @@ public class LokiControls : MonoBehaviour
     public float clonebounceheight;
     public Clonebounce cbscript;
     public bool canclonebounce = false;
+    private Transform clonebouncedetector;
 
 
 
@@ -59,6 +60,7 @@ public class LokiControls : MonoBehaviour
         BaldrFollow = GameObject.FindGameObjectWithTag("Baldr").GetComponent<Transform>();
         GameObject clone = GameObject.FindGameObjectWithTag("Clone");
         Physics2D.IgnoreCollision(clone.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        clonebouncedetector = GameObject.FindGameObjectWithTag("Clonebounce Detector").GetComponent<Transform>();
     }
 
     void Awake()
@@ -189,6 +191,7 @@ public class LokiControls : MonoBehaviour
         if(rb.velocity.y == 0)
         {
             LokiAnimator.SetBool("IsJumping", false);
+            canclonebounce = false;
         }
         else
         {
@@ -235,7 +238,6 @@ public class LokiControls : MonoBehaviour
         {
             canclonebounce = false;
         }
-        
     }
 
     void tetherManagement()
@@ -282,11 +284,4 @@ public class LokiControls : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if(collision.tag == "Clonebounce Dectector")
-        {
-            canclonebounce = false;
-        }
-    }
 }

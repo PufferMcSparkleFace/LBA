@@ -21,5 +21,6 @@ public class Clonebounce : MonoBehaviour
     public void ClonebounceFunction()
     {
         lokirb.velocity = new Vector2 (0f, lokiscript.clonebounceheight);
+        lokiscript.canclonebounce = false;
     }
 }
