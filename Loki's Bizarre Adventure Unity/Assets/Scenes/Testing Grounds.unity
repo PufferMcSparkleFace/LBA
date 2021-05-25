@@ -8566,7 +8566,7 @@ PrefabInstance:
     - target: {fileID: 4059596429737676872, guid: 08bbef220a509b640b073c02da272c9b,
         type: 3}
       propertyPath: momentumincrease
-      value: 1.5
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 4059596429737676872, guid: 08bbef220a509b640b073c02da272c9b,
         type: 3}
