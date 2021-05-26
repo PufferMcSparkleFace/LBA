@@ -99,16 +99,20 @@ public class BaldrControls : MonoBehaviour
         //else if on wall
         //make jump opposite direction
         //set currentslide time to 3 seconds
-        if(canslide == true)
+        if (canslide == true)
         {
-            if (rb.velocity.y == 0)
+            if (move.x >= 0.5f || move.x <= -0.5f)
             {
-                issliding = true;
-                currentslidetime = 1;
-                momentum *= momentumincrease;
-                cameraShake.ShakeCamera(momentum, 0.2f);
+                if (rb.velocity.y == 0)
+                {
+                    issliding = true;
+                    currentslidetime = 1;
+                    momentum *= momentumincrease;
+                    cameraShake.ShakeCamera(momentum, 0.2f);
+                }
+                canslide = false;
             }
-            canslide = false;
+      
         }
  
     }
@@ -184,11 +188,13 @@ public class BaldrControls : MonoBehaviour
         if(rb.velocity.y > 0)
         {
             BaldrAnimator.SetBool("IsJumping", true);
+            canslide = true;
         }
-        if (rb.velocity.y <0)
+        else if (rb.velocity.y <0)
         {
             BaldrAnimator.SetBool("IsJumping", false);
             BaldrAnimator.SetBool("IsFalling", true);
+            canslide = true;
         }
         if(rb.velocity.y == 0)
         {
@@ -223,8 +229,6 @@ public class BaldrControls : MonoBehaviour
             }
         }
 
-        //if touching wall set anim
-        //if not set anim
 
 
     }
