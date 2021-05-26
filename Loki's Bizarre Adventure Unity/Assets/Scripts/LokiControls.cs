@@ -269,7 +269,6 @@ public class LokiControls : MonoBehaviour
         }
     }
 
-
     void tetherManagement()
     {
         if(isTethered == true)
@@ -312,6 +311,7 @@ public class LokiControls : MonoBehaviour
         {
             canclonebounce = true;
         }
+
     }
 
     public void CloneBounce()
