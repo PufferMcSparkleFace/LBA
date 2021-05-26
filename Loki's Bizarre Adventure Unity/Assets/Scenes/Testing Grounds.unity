@@ -7837,7 +7837,7 @@ Transform:
   m_Children:
   - {fileID: 338052815}
   m_Father: {fileID: 1331319862}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &366193125
 MonoBehaviour:
@@ -8226,7 +8226,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -8983,10 +8983,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 808287742}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: -0.7071068}
-  m_LocalPosition: {x: 0.50000006, y: 0.8, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_LocalPosition: {x: 1.298765, y: -3.3783574, z: 0.08085786}
+  m_LocalScale: {x: 0.42500004, y: 0.42500004, z: 1}
   m_Children: []
-  m_Father: {fileID: 493697544}
+  m_Father: {fileID: 1331319862}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 270}
 --- !u!251 &808287744
@@ -11572,6 +11572,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1640241013}
+  - {fileID: 808287743}
   - {fileID: 493697544}
   - {fileID: 366193124}
   m_Father: {fileID: 0}
@@ -12636,7 +12637,7 @@ PrefabInstance:
     - target: {fileID: 4059596429737676873, guid: 08bbef220a509b640b073c02da272c9b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4059596429737676873, guid: 08bbef220a509b640b073c02da272c9b,
         type: 3}
