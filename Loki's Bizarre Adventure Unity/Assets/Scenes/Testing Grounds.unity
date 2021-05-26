@@ -7867,6 +7867,11 @@ MonoBehaviour:
   isDashing: 0
   DashDirection: {x: 0, y: 0}
   canmirrorbounce: 0
+  isbouncing: 0
+  mirrorboostamount: 1.2
+  startingmirrorboostamount: 1.2
+  canmirrorbouncetimer: 0
+  startingcanmirrorbouncetimer: 0.75
 --- !u!212 &366193126
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11458,7 +11463,7 @@ GameObject:
   - component: {fileID: 1351024949}
   m_Layer: 0
   m_Name: Shield Direction
-  m_TagString: Untagged
+  m_TagString: Mirror
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11506,13 +11511,13 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0.055197477, y: -1.490346}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 0.64, y: 0.64}
     newSize: {x: 0.64, y: 0.64}
     adaptiveTilingThreshold: 0.5
