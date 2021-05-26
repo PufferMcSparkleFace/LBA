@@ -196,6 +196,7 @@ public class LokiControls : MonoBehaviour
                 canmirrorbounce = false;
                 clonescript.canmirrorbounce = false;
                 isbouncing = false;
+                rb.gravityScale = 5f;
             }
         }
         else
@@ -259,6 +260,7 @@ public class LokiControls : MonoBehaviour
             rb.velocity = direction * DashForce * mirrorboostamount * 1.5f;
             canmirrorbouncetimer = startingcanmirrorbouncetimer;
             isbouncing = true;
+            rb.gravityScale = 0.0f;
         }
     }
 
