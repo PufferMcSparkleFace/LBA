@@ -201,7 +201,7 @@ public class LokiControls : MonoBehaviour
                 rb.gravityScale = 5f;
             }
         }
-        else
+        if(canmirrorbounce == false)
         {
             Vector2 m = new Vector2(move.x, 0f) * Time.deltaTime * speed;
             transform.Translate(m, Space.World);
