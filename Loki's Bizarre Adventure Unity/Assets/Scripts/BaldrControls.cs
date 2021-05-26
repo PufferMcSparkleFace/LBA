@@ -45,7 +45,8 @@ public class BaldrControls : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        GameObject shield = GameObject.FindGameObjectWithTag("Mirror");
+        Physics2D.IgnoreCollision(shield.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         OnDisable();
         LokiFollow = GameObject.FindGameObjectWithTag("Loki").GetComponent<Transform>();
       
