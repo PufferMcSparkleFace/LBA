@@ -20,6 +20,11 @@ public class Clone : MonoBehaviour
     public bool isDashing = false;
     public Vector2 DashDirection;
     public bool canmirrorbounce = false;
+    public bool isbouncing = false;
+    public float mirrorboostamount = 1.2f;
+    public float startingmirrorboostamount = 1.2f;
+    public float canmirrorbouncetimer;
+    public float startingcanmirrorbouncetimer = 0.75f;
 
     // Start is called before the first frame update
     void Start()
@@ -30,12 +35,25 @@ public class Clone : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (canmirrorbounce == true)
+        {
+            canmirrorbouncetimer -= Time.deltaTime;
+            if (canmirrorbouncetimer <= 0)
+            {
+                canmirrorbounce = false;
+                
+                isbouncing = false;
+                mirrorboostamount = startingmirrorboostamount;
+                rb.gravityScale = 5f;
+                isDashing = false;
+            }
+        }
         if (jumpbuffer == true && rb.velocity.y == 0)
         {
             rb.velocity = new Vector2(0, jumpheight);
             jumpbuffer = false;
         }
-        if(tethered == true)
+        if(tethered == true && isbouncing == false)
         {
             move.x = lokicontrols.move.x;
             Vector2 m = new Vector2(move.x, 0f) * Time.deltaTime * speed;
@@ -59,7 +77,7 @@ public class Clone : MonoBehaviour
             cloneSprite.flipX = false;
         }
         
-        if (isDashing == true)
+        if (isDashing == true && isbouncing == false)
         {
             rb.velocity = DashDirection * DashForce;
             CurrentDashTime -= Time.deltaTime;
@@ -84,6 +102,19 @@ public class Clone : MonoBehaviour
             jumpbuffer = false;
         }
 
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Mirror" && canmirrorbounce == true)
+        {
+            var direction = collision.contacts[0].normal;
+            rb.velocity = direction * DashForce * mirrorboostamount;
+            mirrorboostamount += 0.5f;
+            canmirrorbouncetimer = startingcanmirrorbouncetimer;
+            isbouncing = true;
+            rb.gravityScale = 0.0f;
+        }
     }
 
 }
