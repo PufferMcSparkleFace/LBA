@@ -39,6 +39,7 @@ public class BaldrControls : MonoBehaviour
     public float momentumincrease;
     public bool canslide = true;
     public bool isslowingdown = false;
+    public CameraShake cameraShake;
 
 
     // Start is called before the first frame update
@@ -100,17 +101,18 @@ public class BaldrControls : MonoBehaviour
         //set currentslide time to 3 seconds
         if (canslide == true)
         {
-            if (move.x >= 0.5 || move.x <= -0.5)
+            if (move.x >= 0.5f || move.x <= -0.5f)
             {
                 if (rb.velocity.y == 0)
                 {
                     issliding = true;
                     currentslidetime = 1;
                     momentum *= momentumincrease;
+                    cameraShake.ShakeCamera(momentum, 0.2f);
                 }
                 canslide = false;
             }
-    
+      
         }
  
     }
@@ -225,8 +227,6 @@ public class BaldrControls : MonoBehaviour
             }
         }
 
-        //if touching wall set anim
-        //if not set anim
 
 
     }

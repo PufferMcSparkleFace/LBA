@@ -10,6 +10,7 @@ TagManager:
   - CameraConfiner
   - Clone
   - Clonebounce Detector
+  - Mirror
   layers:
   - Default
   - TransparentFX
