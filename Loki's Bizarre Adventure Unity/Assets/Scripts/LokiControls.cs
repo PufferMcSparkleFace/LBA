@@ -202,6 +202,14 @@ public class LokiControls : MonoBehaviour
         {
             Vector2 m = new Vector2(move.x, 0f) * Time.deltaTime * speed;
             transform.Translate(m, Space.World);
+            if (move.x > 0 && LokiSpriteRenderer.flipX == false)
+            {
+                LokiSpriteRenderer.flipX = true;
+            }
+            if (move.x < 0 && LokiSpriteRenderer == true)
+            {
+                LokiSpriteRenderer.flipX = false;
+            }
         }
         LokiAnimator.SetFloat("Speed", Mathf.Abs(move.x));
         
@@ -215,14 +223,6 @@ public class LokiControls : MonoBehaviour
             LokiAnimator.SetBool("IsJumping", true);
         }
 
-        if(move.x > 0 && LokiSpriteRenderer.flipX == false)
-        {
-            LokiSpriteRenderer.flipX = true;
-        }
-        if(move.x<0 && LokiSpriteRenderer == true)
-        {
-            LokiSpriteRenderer.flipX = false;
-        }
         if(cloneisfocus == true && clonescript.active == false)
         {
             CloneCam.Priority = 0;
@@ -256,7 +256,7 @@ public class LokiControls : MonoBehaviour
         if (collision.gameObject.tag == "Mirror" && canmirrorbounce == true)
         {
             var direction = Vector3.Reflect(move.normalized, collision.contacts[0].normal);
-            rb.velocity = direction * DashForce * mirrorboostamount * 2;
+            rb.velocity = direction * DashForce * mirrorboostamount * 1.5f;
             canmirrorbouncetimer = startingcanmirrorbouncetimer;
             isbouncing = true;
         }
