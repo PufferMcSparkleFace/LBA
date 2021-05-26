@@ -40,10 +40,9 @@ public class BaldrControls : MonoBehaviour
     public bool canslide = true;
     public bool isslowingdown = false;
     public CameraShake cameraShake;
-    public PolygonCollider2D myCollider;
+    public BoxCollider2D myCollider;
     public LayerMask WallLayerMask;
-    public float raydistance;
-   
+
 
 
     // Start is called before the first frame update
@@ -101,37 +100,16 @@ public class BaldrControls : MonoBehaviour
 
     public bool IsTouchingWallRight()
     {
-       RaycastHit2D raycasthitright = Physics2D.Raycast(myCollider.bounds.center, Vector2.right, raydistance, WallLayerMask);
-        Color rayColor;
-        if(raycasthitright.collider != null)
-        {
-            rayColor = Color.green;
-        }
-        else
-        {
-            rayColor = Color.red;
-        }
-        Debug.DrawRay(myCollider.bounds.center, Vector2.right * raydistance);
+       RaycastHit2D raycasthitright = Physics2D.Raycast(myCollider.bounds.center, Vector2.right, myCollider.bounds.extents.x +0.1f, WallLayerMask);
         return raycasthitright.collider != null;
 
     }
 
     public bool IsTouchingWallLeft()
     {
-        RaycastHit2D raycasthitleft = Physics2D.Raycast(myCollider.bounds.center, Vector2.left, raydistance, WallLayerMask);
-        Color rayColor;
-        if (raycasthitleft.collider != null)
-        {
-            rayColor = Color.green;
-        }
-        else
-        {
-            rayColor = Color.red;
-        }
-        Debug.DrawRay(myCollider.bounds.center, Vector2.left * raydistance);
+        RaycastHit2D raycasthitleft = Physics2D.Raycast(myCollider.bounds.center, Vector2.left, myCollider.bounds.extents.x + 0.1f, WallLayerMask);
         return raycasthitleft.collider != null;
     }
-
 
     public void Slide()
     {
@@ -150,10 +128,6 @@ public class BaldrControls : MonoBehaviour
                     cameraShake.ShakeCamera(momentum, 0.2f);
                 }
                 canslide = false;
-            }
-            else if (IsTouchingWallRight() || IsTouchingWallLeft())
-            {
-                Debug.Log("Vroom Vroom mfs");
             }
       
         }
