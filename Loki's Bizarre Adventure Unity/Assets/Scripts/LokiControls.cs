@@ -214,7 +214,7 @@ public class LokiControls : MonoBehaviour
         }
         LokiAnimator.SetFloat("Speed", Mathf.Abs(move.x));
         
-        if(rb.velocity.y == 0)
+        if(rb.velocity.y == 0 && canmirrorbounce == false)
         {
             LokiAnimator.SetBool("IsJumping", false);
             canclonebounce = false;
