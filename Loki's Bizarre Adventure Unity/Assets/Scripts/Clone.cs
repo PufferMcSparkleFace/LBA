@@ -58,8 +58,8 @@ public class Clone : MonoBehaviour
             move.x = lokicontrols.move.x;
             Vector2 m = new Vector2(move.x, 0f) * Time.deltaTime * speed;
             transform.Translate(m, Space.World);
+            cloneAnimator.SetFloat("Speed", Mathf.Abs(move.x));
         }
-        cloneAnimator.SetFloat("Speed", Mathf.Abs(move.x));
         if (rb.velocity.y == 0)
         {
             cloneAnimator.SetBool("IsJumping", false);
@@ -114,6 +114,7 @@ public class Clone : MonoBehaviour
             canmirrorbouncetimer = startingcanmirrorbouncetimer;
             isbouncing = true;
             rb.gravityScale = 0.0f;
+            move.x = 0;
         }
     }
 

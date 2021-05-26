@@ -105,6 +105,7 @@ public class LokiControls : MonoBehaviour
             canmirrorbouncetimer = startingcanmirrorbouncetimer;
             candash = false;
             cameraShake.ShakeCamera(2f, 0.2f);
+            clonescript.canmirrorbouncetimer = clonescript.startingcanmirrorbouncetimer;
         }
         else if (clonescript.active == true && clonescript.tethered == true)
         {
@@ -195,7 +196,6 @@ public class LokiControls : MonoBehaviour
             if (canmirrorbouncetimer <= 0)
             {
                 canmirrorbounce = false;
-                clonescript.canmirrorbounce = false;
                 isbouncing = false;
                 mirrorboostamount = originalmirrorboostamount;
                 rb.gravityScale = 5f;
