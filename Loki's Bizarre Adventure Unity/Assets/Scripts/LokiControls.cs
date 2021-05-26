@@ -267,6 +267,7 @@ public class LokiControls : MonoBehaviour
             isbouncing = true;
             rb.gravityScale = 0.0f;
             cameraShake.ShakeCamera(1f, 0.2f);
+            Debug.Log("bouncybouncy");
         }
     }
 
@@ -311,17 +312,6 @@ public class LokiControls : MonoBehaviour
         if(collision.tag == "Clonebounce Detector" && clonescript.tethered == false && clonescript.active == true)
         {
             canclonebounce = true;
-        }
-        if(collision.gameObject.tag == "Mirror" && canmirrorbounce == true)
-        {
-            Debug.Log("bouncy bouncy");
-            var direction = new Vector2(shield.transform.rotation.z, shield.transform.rotation.z);
-            rb.velocity = direction * DashForce * mirrorboostamount;
-            mirrorboostamount += 0.5f;
-            canmirrorbouncetimer = startingcanmirrorbouncetimer;
-            isbouncing = true;
-            rb.gravityScale = 0.0f;
-            cameraShake.ShakeCamera(1f, 0.2f);
         }
 
     }
