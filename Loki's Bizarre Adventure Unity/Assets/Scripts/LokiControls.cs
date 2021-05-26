@@ -264,6 +264,7 @@ public class LokiControls : MonoBehaviour
             canmirrorbouncetimer = startingcanmirrorbouncetimer;
             isbouncing = true;
             rb.gravityScale = 0.0f;
+            cameraShake.ShakeCamera(1f, 0.2f);
         }
     }
 
