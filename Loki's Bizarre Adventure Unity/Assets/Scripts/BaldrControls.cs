@@ -188,11 +188,13 @@ public class BaldrControls : MonoBehaviour
         if(rb.velocity.y > 0)
         {
             BaldrAnimator.SetBool("IsJumping", true);
+            canslide = true;
         }
-        if (rb.velocity.y <0)
+        else if (rb.velocity.y <0)
         {
             BaldrAnimator.SetBool("IsJumping", false);
             BaldrAnimator.SetBool("IsFalling", true);
+            canslide = true;
         }
         if(rb.velocity.y == 0)
         {
