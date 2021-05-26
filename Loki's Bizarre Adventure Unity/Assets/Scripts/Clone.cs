@@ -30,6 +30,8 @@ public class Clone : MonoBehaviour
     void Start()
     {
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        GameObject baldr = GameObject.FindGameObjectWithTag("Baldr");
+        Physics2D.IgnoreCollision(baldr.GetComponent<Collider2D>(), GetComponent<Collider2D>());
     }
 
     // Update is called once per frame
