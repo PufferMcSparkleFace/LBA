@@ -46,7 +46,7 @@ public class BaldrControls : MonoBehaviour
     void Start()
     {
         GameObject shield = GameObject.FindGameObjectWithTag("Mirror");
-        Physics2D.IgnoreCollision(shield.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        Physics2D.IgnoreCollision(shield.GetComponent<BoxCollider2D>(), GetComponent<PolygonCollider2D>());
         OnDisable();
         LokiFollow = GameObject.FindGameObjectWithTag("Loki").GetComponent<Transform>();
       
