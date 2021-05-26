@@ -311,6 +311,10 @@ public class LokiControls : MonoBehaviour
         {
             canclonebounce = true;
         }
+        if(collision.gameObject.tag == "Mirror" && canmirrorbounce == true)
+        {
+            Debug.Log("bouncy bouncy");
+        }
 
     }
 
