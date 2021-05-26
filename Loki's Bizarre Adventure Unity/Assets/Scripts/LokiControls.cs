@@ -53,6 +53,7 @@ public class LokiControls : MonoBehaviour
     public float mirrorboostamount = 1.2f;
     public float originalmirrorboostamount = 1.2f;
     public bool isbouncing = false;
+    public GameObject shield;
   
 
     
@@ -314,6 +315,13 @@ public class LokiControls : MonoBehaviour
         if(collision.gameObject.tag == "Mirror" && canmirrorbounce == true)
         {
             Debug.Log("bouncy bouncy");
+            //var direction = new Vector2 shieldrotation;
+            //rb.velocity = direction * DashForce * mirrorboostamount;
+            mirrorboostamount += 0.5f;
+            canmirrorbouncetimer = startingcanmirrorbouncetimer;
+            isbouncing = true;
+            rb.gravityScale = 0.0f;
+            cameraShake.ShakeCamera(1f, 0.2f);
         }
 
     }
