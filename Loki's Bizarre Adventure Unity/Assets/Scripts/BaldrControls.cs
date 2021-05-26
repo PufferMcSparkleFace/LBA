@@ -40,7 +40,6 @@ public class BaldrControls : MonoBehaviour
     public bool canslide = true;
     public bool isslowingdown = false;
     public CameraShake cameraShake;
-    public float lastMove;
 
 
     // Start is called before the first frame update
@@ -169,14 +168,10 @@ public class BaldrControls : MonoBehaviour
         {
             momentum = 3;
         }
-        if(issliding == false || rb.velocity.y == 0)
-        {
-            lastMove = move.x;
-        }
 
         if (isTethered == false)
         {
-            Vector2 m = new Vector2(lastMove, 0f) * Time.deltaTime * speed * momentum;
+            Vector2 m = new Vector2(move.x, 0f) * Time.deltaTime * speed * momentum;
             transform.Translate(m, Space.World);
         }
        
