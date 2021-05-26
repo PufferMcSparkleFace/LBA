@@ -98,15 +98,19 @@ public class BaldrControls : MonoBehaviour
         //else if on wall
         //make jump opposite direction
         //set currentslide time to 3 seconds
-        if(canslide == true)
+        if (canslide == true)
         {
-            if (rb.velocity.y == 0)
+            if (move.x >= 0.5 || move.x <= -0.5)
             {
-                issliding = true;
-                currentslidetime = 1;
-                momentum *= momentumincrease;
+                if (rb.velocity.y == 0)
+                {
+                    issliding = true;
+                    currentslidetime = 1;
+                    momentum *= momentumincrease;
+                }
+                canslide = false;
             }
-            canslide = false;
+    
         }
  
     }
