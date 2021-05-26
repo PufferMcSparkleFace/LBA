@@ -11898,7 +11898,7 @@ PrefabInstance:
     - target: {fileID: 7855434974119868134, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
         type: 3}
       propertyPath: startingcanmirrorbouncetimer
-      value: 0.75
+      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4acb9815b6ee4934790c4d9f2fbbb00d, type: 3}
