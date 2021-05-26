@@ -199,9 +199,10 @@ public class LokiControls : MonoBehaviour
                 isbouncing = false;
                 mirrorboostamount = originalmirrorboostamount;
                 rb.gravityScale = 5f;
+                isDashing = false;
             }
         }
-        if(canmirrorbounce == false)
+        if(isbouncing == false)
         {
             Vector2 m = new Vector2(move.x, 0f) * Time.deltaTime * speed;
             transform.Translate(m, Space.World);
