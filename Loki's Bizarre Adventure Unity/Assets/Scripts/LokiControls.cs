@@ -255,7 +255,7 @@ public class LokiControls : MonoBehaviour
     {
         if (collision.gameObject.tag == "Mirror" && canmirrorbounce == true)
         {
-            var direction = Vector3.Reflect(move.normalized, collision.contacts[0].normal);
+            var direction = collision.contacts[0].normal;
             rb.velocity = direction * DashForce * mirrorboostamount * 1.5f;
             canmirrorbouncetimer = startingcanmirrorbouncetimer;
             isbouncing = true;
