@@ -44,7 +44,6 @@ public class BaldrControls : MonoBehaviour
     public LayerMask WallLayerMask;
 
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -54,7 +53,6 @@ public class BaldrControls : MonoBehaviour
         LokiFollow = GameObject.FindGameObjectWithTag("Loki").GetComponent<Transform>();
         GameObject clone = GameObject.FindGameObjectWithTag("Clone");
         Physics2D.IgnoreCollision(clone.GetComponent<Collider2D>(), GetComponent<Collider2D>());
-        raydistance = myCollider.bounds.extents.x + 5f;
     }
 
     void Awake()
@@ -67,7 +65,7 @@ public class BaldrControls : MonoBehaviour
         controls.Baldr.SwitchPlayerLeft.performed += ctx => SwitchPlayerLeft();
         controls.Baldr.SwitchPlayerRight.performed += ctx => SwitchPlayerRight();
         controls.Baldr.Slide.performed += ctx => Slide();
-}
+    }
 
     void SwitchPlayerRight()
     {
