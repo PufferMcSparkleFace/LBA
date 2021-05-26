@@ -40,8 +40,6 @@ public class BaldrControls : MonoBehaviour
     public bool canslide = true;
     public bool isslowingdown = false;
     public CameraShake cameraShake;
-    public BoxCollider2D myCollider;
-    public LayerMask WallLayerMask;
 
 
     // Start is called before the first frame update
@@ -94,19 +92,6 @@ public class BaldrControls : MonoBehaviour
             CloneCam.Priority = 0;
             lokiControls.cloneisfocus = false;
         }
-    }
-
-    public bool IsTouchingWallRight()
-    {
-       RaycastHit2D raycasthitright = Physics2D.Raycast(myCollider.bounds.center, Vector2.right, myCollider.bounds.extents.x +0.1f, WallLayerMask);
-        return raycasthitright.collider != null;
-
-    }
-
-    public bool IsTouchingWallLeft()
-    {
-        RaycastHit2D raycasthitleft = Physics2D.Raycast(myCollider.bounds.center, Vector2.left, myCollider.bounds.extents.x + 0.1f, WallLayerMask);
-        return raycasthitleft.collider != null;
     }
 
     public void Slide()
