@@ -53,14 +53,14 @@ public class Clone : MonoBehaviour
             rb.velocity = new Vector2(0, jumpheight);
             jumpbuffer = false;
         }
-        if(tethered == true && isbouncing == false)
+        if(tethered == true)
         {
             move.x = lokicontrols.move.x;
             Vector2 m = new Vector2(move.x, 0f) * Time.deltaTime * speed;
             transform.Translate(m, Space.World);
             cloneAnimator.SetFloat("Speed", Mathf.Abs(move.x));
         }
-        if (rb.velocity.y == 0)
+        if (rb.velocity.y == 0 && isDashing == false)
         {
             cloneAnimator.SetBool("IsJumping", false);
         }
@@ -86,6 +86,10 @@ public class Clone : MonoBehaviour
                 isDashing = false;
             }
 
+        }
+        if(isDashing == true)
+        {
+            move.x = 0;
         }
     }
 
