@@ -51,6 +51,7 @@ public class LokiControls : MonoBehaviour
     public CameraShake cameraShake;
     private Vector2 lastMove;
     public float mirrorboostamount = 1.2f;
+    public float originalmirrorboostamount = 1.2f;
     public bool isbouncing = false;
   
 
@@ -196,6 +197,7 @@ public class LokiControls : MonoBehaviour
                 canmirrorbounce = false;
                 clonescript.canmirrorbounce = false;
                 isbouncing = false;
+                mirrorboostamount = originalmirrorboostamount;
                 rb.gravityScale = 5f;
             }
         }
@@ -257,7 +259,8 @@ public class LokiControls : MonoBehaviour
         if (collision.gameObject.tag == "Mirror" && canmirrorbounce == true)
         {
             var direction = collision.contacts[0].normal;
-            rb.velocity = direction * DashForce * mirrorboostamount * 1.5f;
+            rb.velocity = direction * DashForce * mirrorboostamount;
+            mirrorboostamount += 0.5f;
             canmirrorbouncetimer = startingcanmirrorbouncetimer;
             isbouncing = true;
             rb.gravityScale = 0.0f;
