@@ -40,8 +40,10 @@ public class BaldrControls : MonoBehaviour
     public bool canslide = true;
     public bool isslowingdown = false;
     public CameraShake cameraShake;
-    public BoxCollider2D myCollider;
+    public PolygonCollider2D myCollider;
     public LayerMask WallLayerMask;
+    public float raydistance;
+   
 
 
     // Start is called before the first frame update
@@ -53,6 +55,7 @@ public class BaldrControls : MonoBehaviour
         LokiFollow = GameObject.FindGameObjectWithTag("Loki").GetComponent<Transform>();
         GameObject clone = GameObject.FindGameObjectWithTag("Clone");
         Physics2D.IgnoreCollision(clone.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        raydistance = myCollider.bounds.extents.x + 5f;
     }
 
     void Awake()
@@ -65,7 +68,7 @@ public class BaldrControls : MonoBehaviour
         controls.Baldr.SwitchPlayerLeft.performed += ctx => SwitchPlayerLeft();
         controls.Baldr.SwitchPlayerRight.performed += ctx => SwitchPlayerRight();
         controls.Baldr.Slide.performed += ctx => Slide();
-    }
+}
 
     void SwitchPlayerRight()
     {
@@ -98,14 +101,34 @@ public class BaldrControls : MonoBehaviour
 
     public bool IsTouchingWallRight()
     {
-       RaycastHit2D raycasthitright = Physics2D.Raycast(myCollider.bounds.center, Vector2.right, myCollider.bounds.extents.x +0.1f, WallLayerMask);
+       RaycastHit2D raycasthitright = Physics2D.Raycast(myCollider.bounds.center, Vector2.right, raydistance, WallLayerMask);
+        Color rayColor;
+        if(raycasthitright.collider != null)
+        {
+            rayColor = Color.green;
+        }
+        else
+        {
+            rayColor = Color.red;
+        }
+        Debug.DrawRay(myCollider.bounds.center, Vector2.right * raydistance);
         return raycasthitright.collider != null;
 
     }
 
     public bool IsTouchingWallLeft()
     {
-        RaycastHit2D raycasthitleft = Physics2D.Raycast(myCollider.bounds.center, Vector2.left, myCollider.bounds.extents.x + 0.1f, WallLayerMask);
+        RaycastHit2D raycasthitleft = Physics2D.Raycast(myCollider.bounds.center, Vector2.left, raydistance, WallLayerMask);
+        Color rayColor;
+        if (raycasthitleft.collider != null)
+        {
+            rayColor = Color.green;
+        }
+        else
+        {
+            rayColor = Color.red;
+        }
+        Debug.DrawRay(myCollider.bounds.center, Vector2.left * raydistance);
         return raycasthitleft.collider != null;
     }
 
