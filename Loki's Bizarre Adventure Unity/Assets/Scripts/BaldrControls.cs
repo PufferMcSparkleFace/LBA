@@ -210,10 +210,12 @@ public class BaldrControls : MonoBehaviour
         if (move.x > 0 && BaldrSpriteRenderer.flipX == true)
         {
             BaldrSpriteRenderer.flipX = false;
+            shieldgameobject.transform.eulerAngles = new Vector3(shieldgameobject.transform.eulerAngles.x, shieldgameobject.transform.eulerAngles.y + 0, shieldgameobject.transform.eulerAngles.z);
         }
         if (move.x < 0 && BaldrSpriteRenderer.flipX == false)
         {
             BaldrSpriteRenderer.flipX = true;
+            shieldgameobject.transform.eulerAngles = new Vector3(shieldgameobject.transform.eulerAngles.x, shieldgameobject.transform.eulerAngles.y + 180, shieldgameobject.transform.eulerAngles.z);
         }
 
 
