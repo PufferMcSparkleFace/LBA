@@ -233,12 +233,12 @@ public class BaldrControls : MonoBehaviour
         if(BaldrSpriteRenderer.flipX == true)
         {
             shieldgameobject.transform.eulerAngles = new Vector3(shieldgameobject.transform.eulerAngles.x, 180, shieldgameobject.transform.eulerAngles.z);
-            shieldpositiongameobject.transform.position = new Vector2(-0.5f, shieldpositiongameobject.transform.position.y);
+            shieldpositiongameobject.transform.position = new Vector2(shieldpositiongameobject.transform.position.x - 1, shieldpositiongameobject.transform.position.y);
         }
         else
         {
             shieldgameobject.transform.eulerAngles = new Vector3(shieldgameobject.transform.eulerAngles.x, 0, shieldgameobject.transform.eulerAngles.z);
-            shieldpositiongameobject.transform.position = new Vector2(0.5f, shieldpositiongameobject.transform.position.y);
+            shieldpositiongameobject.transform.position = new Vector2(shieldpositiongameobject.transform.position.x + 1, shieldpositiongameobject.transform.position.y);
         }
 
     }
