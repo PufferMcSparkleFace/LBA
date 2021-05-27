@@ -210,10 +210,12 @@ public class BaldrControls : MonoBehaviour
         if (move.x > 0 && BaldrSpriteRenderer.flipX == true)
         {
             BaldrSpriteRenderer.flipX = false;
+            shieldpositiongameobject.transform.position = new Vector2(shieldpositiongameobject.transform.position.x, shieldpositiongameobject.transform.position.y);
         }
         if (move.x < 0 && BaldrSpriteRenderer.flipX == false)
         {
             BaldrSpriteRenderer.flipX = true;
+            shieldpositiongameobject.transform.position = new Vector2(shieldpositiongameobject.transform.position.x - 1, shieldpositiongameobject.transform.position.y);
         }
 
 
@@ -223,22 +225,21 @@ public class BaldrControls : MonoBehaviour
             if (LokiFollow.position.x > transform.position.x)
             {
                 BaldrSpriteRenderer.flipX = false;
-
+                shieldpositiongameobject.transform.position = new Vector2(shieldpositiongameobject.transform.position.x, shieldpositiongameobject.transform.position.y);
             }
             else if (LokiFollow.position.x < transform.position.x)
             {
                 BaldrSpriteRenderer.flipX = true;
+                shieldpositiongameobject.transform.position = new Vector2(shieldpositiongameobject.transform.position.x - 1, shieldpositiongameobject.transform.position.y);
             }
         }
         if(BaldrSpriteRenderer.flipX == true)
         {
             shieldgameobject.transform.eulerAngles = new Vector3(shieldgameobject.transform.eulerAngles.x, 180, shieldgameobject.transform.eulerAngles.z);
-            shieldpositiongameobject.transform.position = new Vector2(shieldpositiongameobject.transform.position.x - 1, shieldpositiongameobject.transform.position.y);
         }
         else
         {
             shieldgameobject.transform.eulerAngles = new Vector3(shieldgameobject.transform.eulerAngles.x, 0, shieldgameobject.transform.eulerAngles.z);
-            shieldpositiongameobject.transform.position = new Vector2(shieldpositiongameobject.transform.position.x + 1, shieldpositiongameobject.transform.position.y);
         }
 
     }
