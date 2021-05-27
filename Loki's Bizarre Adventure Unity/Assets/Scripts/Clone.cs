@@ -21,8 +21,8 @@ public class Clone : MonoBehaviour
     public Vector2 DashDirection;
     public bool canmirrorbounce = false;
     public bool isbouncing = false;
-    public float mirrorboostamount = 1.2f;
-    public float startingmirrorboostamount = 1.2f;
+    public float mirrorboostamount = 1.5f;
+    public float startingmirrorboostamount = 1.5f;
     public float canmirrorbouncetimer;
     public float startingcanmirrorbouncetimer = 0.75f;
 
@@ -116,7 +116,7 @@ public class Clone : MonoBehaviour
         {
             var direction = collision.contacts[0].normal;
             rb.velocity = direction * DashForce * mirrorboostamount;
-            mirrorboostamount += 0.5f;
+            mirrorboostamount += 0.1f;
             canmirrorbouncetimer = startingcanmirrorbouncetimer;
             isbouncing = true;
             rb.gravityScale = 0.0f;

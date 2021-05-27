@@ -50,8 +50,8 @@ public class LokiControls : MonoBehaviour
     private Transform clonebouncedetector;
     public CameraShake cameraShake;
     private Vector2 lastMove;
-    public float mirrorboostamount = 1.2f;
-    public float originalmirrorboostamount = 1.2f;
+    public float mirrorboostamount = 1.5f;
+    public float originalmirrorboostamount = 1.5f;
     public bool isbouncing = false;
     public GameObject shield;
   
@@ -262,7 +262,7 @@ public class LokiControls : MonoBehaviour
         {
             var direction = collision.contacts[0].normal;
             rb.velocity = direction * DashForce * mirrorboostamount;
-            mirrorboostamount += 0.5f;
+            mirrorboostamount += 0.1f;
             canmirrorbouncetimer = startingcanmirrorbouncetimer;
             isbouncing = true;
             rb.gravityScale = 0.0f;
