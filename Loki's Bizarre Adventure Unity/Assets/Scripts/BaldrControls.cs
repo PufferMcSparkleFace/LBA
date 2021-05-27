@@ -42,6 +42,7 @@ public class BaldrControls : MonoBehaviour
     public CameraShake cameraShake;
     public GameObject shieldgameobject;
     public GameObject shieldpositiongameobject;
+    public GameObject position1, position2;
 
 
     // Start is called before the first frame update
@@ -210,12 +211,12 @@ public class BaldrControls : MonoBehaviour
         if (move.x > 0 && BaldrSpriteRenderer.flipX == true)
         {
             BaldrSpriteRenderer.flipX = false;
-            shieldpositiongameobject.transform.position = new Vector2(shieldpositiongameobject.transform.position.x +1, shieldpositiongameobject.transform.position.y);
+         
         }
         if (move.x < 0 && BaldrSpriteRenderer.flipX == false)
         {
             BaldrSpriteRenderer.flipX = true;
-            shieldpositiongameobject.transform.position = new Vector2(shieldpositiongameobject.transform.position.x - 1, shieldpositiongameobject.transform.position.y);
+            
         }
 
 
@@ -225,21 +226,23 @@ public class BaldrControls : MonoBehaviour
             if (LokiFollow.position.x > transform.position.x)
             {
                 BaldrSpriteRenderer.flipX = false;
-                shieldpositiongameobject.transform.position = new Vector2(shieldpositiongameobject.transform.position.x +1, shieldpositiongameobject.transform.position.y);
+               
             }
             else if (LokiFollow.position.x < transform.position.x)
             {
                 BaldrSpriteRenderer.flipX = true;
-                shieldpositiongameobject.transform.position = new Vector2(shieldpositiongameobject.transform.position.x - 1, shieldpositiongameobject.transform.position.y);
+                
             }
         }
         if(BaldrSpriteRenderer.flipX == true)
         {
             shieldgameobject.transform.eulerAngles = new Vector3(shieldgameobject.transform.eulerAngles.x, 180, shieldgameobject.transform.eulerAngles.z);
+            shieldgameobject.transform.position = position1.transform.position;
         }
         else
         {
             shieldgameobject.transform.eulerAngles = new Vector3(shieldgameobject.transform.eulerAngles.x, 0, shieldgameobject.transform.eulerAngles.z);
+            shieldgameobject.transform.position = position2.transform.position;
         }
 
     }
