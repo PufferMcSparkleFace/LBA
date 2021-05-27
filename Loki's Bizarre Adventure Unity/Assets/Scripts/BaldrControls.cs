@@ -210,7 +210,7 @@ public class BaldrControls : MonoBehaviour
         if (move.x > 0 && BaldrSpriteRenderer.flipX == true)
         {
             BaldrSpriteRenderer.flipX = false;
-            shieldpositiongameobject.transform.position = new Vector2(shieldpositiongameobject.transform.position.x, shieldpositiongameobject.transform.position.y);
+            shieldpositiongameobject.transform.position = new Vector2(shieldpositiongameobject.transform.position.x +1, shieldpositiongameobject.transform.position.y);
         }
         if (move.x < 0 && BaldrSpriteRenderer.flipX == false)
         {
@@ -225,7 +225,7 @@ public class BaldrControls : MonoBehaviour
             if (LokiFollow.position.x > transform.position.x)
             {
                 BaldrSpriteRenderer.flipX = false;
-                shieldpositiongameobject.transform.position = new Vector2(shieldpositiongameobject.transform.position.x, shieldpositiongameobject.transform.position.y);
+                shieldpositiongameobject.transform.position = new Vector2(shieldpositiongameobject.transform.position.x +1, shieldpositiongameobject.transform.position.y);
             }
             else if (LokiFollow.position.x < transform.position.x)
             {
