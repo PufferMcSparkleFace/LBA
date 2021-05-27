@@ -42,6 +42,7 @@ public class BaldrControls : MonoBehaviour
     public CameraShake cameraShake;
     public GameObject shieldgameobject;
     public GameObject shieldpositiongameobject;
+    public Vector2 startingshieldposition;
 
 
     // Start is called before the first frame update
@@ -51,6 +52,7 @@ public class BaldrControls : MonoBehaviour
         Physics2D.IgnoreCollision(shield.GetComponent<BoxCollider2D>(), GetComponent<PolygonCollider2D>());
         OnDisable();
         LokiFollow = GameObject.FindGameObjectWithTag("Loki").GetComponent<Transform>();
+        startingshieldposition = new Vector2(shieldpositiongameobject.transform.position.x, shieldpositiongameobject.transform.position.y);
       
     }
 
@@ -233,12 +235,12 @@ public class BaldrControls : MonoBehaviour
         if(BaldrSpriteRenderer.flipX == true)
         {
             shieldgameobject.transform.eulerAngles = new Vector3(shieldgameobject.transform.eulerAngles.x, 180, shieldgameobject.transform.eulerAngles.z);
-            shieldpositiongameobject.transform.position = new Vector2(shieldpositiongameobject.transform.position.x - 1, shieldpositiongameobject.transform.position.y);
+            shieldpositiongameobject.transform.position = new Vector2(startingshieldposition.x - 1, shieldpositiongameobject.transform.position.y);
         }
         else
         {
             shieldgameobject.transform.eulerAngles = new Vector3(shieldgameobject.transform.eulerAngles.x, 0, shieldgameobject.transform.eulerAngles.z);
-            shieldpositiongameobject.transform.position = new Vector2(shieldpositiongameobject.transform.position.x + 1, shieldpositiongameobject.transform.position.y);
+            shieldpositiongameobject.transform.position = new Vector2(startingshieldposition.x + 1, shieldpositiongameobject.transform.position.y);
         }
 
     }
