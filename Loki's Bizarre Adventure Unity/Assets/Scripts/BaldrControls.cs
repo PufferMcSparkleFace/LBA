@@ -232,7 +232,7 @@ public class BaldrControls : MonoBehaviour
         }
         if(BaldrSpriteRenderer.flipX == true)
         {
-            shieldgameobject.transform.eulerAngles = new Vector3(shieldgameobject.transform.eulerAngles.x, shieldgameobject.transform.eulerAngles.y + 180, shieldgameobject.transform.eulerAngles.z);
+            shieldgameobject.transform.eulerAngles = new Vector3(shieldgameobject.transform.eulerAngles.x, 180, shieldgameobject.transform.eulerAngles.z);
         }
         else
         {
