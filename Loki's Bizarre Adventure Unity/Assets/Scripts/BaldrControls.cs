@@ -40,6 +40,8 @@ public class BaldrControls : MonoBehaviour
     public bool canslide = true;
     public bool isslowingdown = false;
     public CameraShake cameraShake;
+    public GameObject shieldgameobject;
+    public GameObject shieldpositiongameobject;
 
 
     // Start is called before the first frame update
@@ -221,10 +223,13 @@ public class BaldrControls : MonoBehaviour
             if (LokiFollow.position.x > transform.position.x)
             {
                 BaldrSpriteRenderer.flipX = false;
+                shieldgameobject.transform.eulerAngles = new Vector3(shieldgameobject.transform.eulerAngles.x, shieldgameobject.transform.eulerAngles.y, shieldgameobject.transform.eulerAngles.z);
+                
             }
             else if (LokiFollow.position.x < transform.position.x)
             {
                 BaldrSpriteRenderer.flipX = true;
+                shieldgameobject.transform.eulerAngles = new Vector3(shieldgameobject.transform.eulerAngles.x, shieldgameobject.transform.eulerAngles.y + 180, shieldgameobject.transform.eulerAngles.z);
             }
         }
 
