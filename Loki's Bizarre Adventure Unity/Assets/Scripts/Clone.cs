@@ -26,6 +26,7 @@ public class Clone : MonoBehaviour
     public float canmirrorbouncetimer;
     public float startingcanmirrorbouncetimer = 0.75f;
     public Collider2D clonecollider;
+    public Collision2D clonecollision;
 
     // Start is called before the first frame update
     void Start()
@@ -126,14 +127,14 @@ public class Clone : MonoBehaviour
         if (collision.gameObject.tag == "Mirror" && canmirrorbounce == false)
         {
             Physics2D.IgnoreCollision(collision.collider, clonecollider);
+            clonecollision = collision;
             Invoke("IgnoreCollisions", 1f);
         }
     }
 
     private void IgnoreCollisions()
     {
-        GameObject mirror = GameObject.FindGameObjectWithTag("Mirror");
-        Physics2D.IgnoreCollision(mirror.GetComponent<Collider2D>(), clonecollider, false);
+        Physics2D.IgnoreCollision(clonecollision.collider, clonecollider, false);
     }
 
 }
