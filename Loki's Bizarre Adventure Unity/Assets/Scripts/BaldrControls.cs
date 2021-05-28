@@ -176,7 +176,6 @@ public class BaldrControls : MonoBehaviour
         {
             Vector2 m = new Vector2(move.x, 0f) * Time.deltaTime * speed * momentum;
             transform.Translate(m, Space.World);
-            shieldgameobject.transform.eulerAngles = new Vector3(shieldgameobject.transform.eulerAngles.x, shieldgameobject.transform.eulerAngles.y, shieldangle);
         }
        
         if(Vector2.Distance(transform.position, LokiFollow.position) > distancetoloki && isTethered == true)
@@ -241,6 +240,7 @@ public class BaldrControls : MonoBehaviour
         {
             shieldgameobject.transform.eulerAngles = new Vector3(shieldgameobject.transform.eulerAngles.x, 0, shieldgameobject.transform.eulerAngles.z);
             shieldpositiongameobject.transform.position = position2.transform.position;
+            shieldangle = -shieldangle;
         }
 
         if (BaldrSpriteRenderer.flipX == true)
@@ -257,6 +257,8 @@ public class BaldrControls : MonoBehaviour
         {
             shieldsprite.enabled = true;
         }
+
+        shieldgameobject.transform.eulerAngles = new Vector3(shieldgameobject.transform.eulerAngles.x, shieldgameobject.transform.eulerAngles.y, shieldangle);
 
 
     }
