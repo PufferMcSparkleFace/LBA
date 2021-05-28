@@ -57,6 +57,7 @@ public class LokiControls : MonoBehaviour
     public Collider2D lokicollider;
     public Collision2D lokicollision;
     public bool isignoring = false;
+    public BaldrClone baldrclonescript;
   
 
     
