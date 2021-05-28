@@ -105,7 +105,7 @@ public class LokiControls : MonoBehaviour
 
     void SummonClone()
     {
-        if(clonescript.active == false && candash == true)
+        if(clonescript.active == false && candash == true && cloneisloki == true)
         {
             clone.transform.position = this.gameObject.transform.position;
             clone.GetComponent<SpriteRenderer>().enabled = true;
@@ -127,12 +127,12 @@ public class LokiControls : MonoBehaviour
             cameraShake.ShakeCamera(2f, 0.2f);
             clonescript.canmirrorbouncetimer = clonescript.startingcanmirrorbouncetimer;
         }
-        else if (clonescript.active == true && clonescript.tethered == true)
+        else if (clonescript.active == true && clonescript.tethered == true && cloneisloki == true)
         {
             clonescript.tethered = false;
             clonescript.move.x = 0;
         }
-        else if (clonescript.active == true && clonescript.tethered == false)
+        else if (clonescript.active == true && clonescript.tethered == false && cloneisloki == true)
         {
             clone.GetComponent<SpriteRenderer>().enabled = false;
             clonescript.active = false;

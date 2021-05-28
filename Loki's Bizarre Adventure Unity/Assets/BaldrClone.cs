@@ -58,7 +58,7 @@ public class BaldrClone : MonoBehaviour
             Physics2D.IgnoreCollision(collision.collider, clonecollider);
             clonecollision = collision;
             isignoring = true;
-            //Invoke("IgnoreCollisions", 1f);
+           
         }
     }
 
