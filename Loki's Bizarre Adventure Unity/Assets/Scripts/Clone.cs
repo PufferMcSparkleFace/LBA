@@ -112,19 +112,15 @@ public class Clone : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Mirror" || collision.gameObject.tag == "Shield")
+        if (collision.gameObject.tag == "Mirror" && canmirrorbounce == true)
         {
-            if(canmirrorbounce == true)
-            {
-                var direction = collision.contacts[0].normal;
-                rb.velocity = direction * DashForce * mirrorboostamount;
-                mirrorboostamount += 0.1f;
-                canmirrorbouncetimer = startingcanmirrorbouncetimer;
-                isbouncing = true;
-                rb.gravityScale = 0.0f;
-                move.x = 0;
-            }
-         
+            var direction = collision.contacts[0].normal;
+            rb.velocity = direction * DashForce * mirrorboostamount;
+            mirrorboostamount += 0.1f;
+            canmirrorbouncetimer = startingcanmirrorbouncetimer;
+            isbouncing = true;
+            rb.gravityScale = 0.0f;
+            move.x = 0;
         }
     }
 
