@@ -12627,6 +12627,11 @@ PrefabInstance:
       objectReference: {fileID: 1640241014}
     - target: {fileID: 4059596429737676872, guid: 08bbef220a509b640b073c02da272c9b,
         type: 3}
+      propertyPath: shieldsprite
+      value: 
+      objectReference: {fileID: 808287746}
+    - target: {fileID: 4059596429737676872, guid: 08bbef220a509b640b073c02da272c9b,
+        type: 3}
       propertyPath: BaldrAnimator
       value: 
       objectReference: {fileID: 671192714}

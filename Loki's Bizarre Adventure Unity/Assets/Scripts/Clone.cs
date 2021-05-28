@@ -25,6 +25,7 @@ public class Clone : MonoBehaviour
     public float startingmirrorboostamount = 1.5f;
     public float canmirrorbouncetimer;
     public float startingcanmirrorbouncetimer = 0.75f;
+    public Collider2D clonecollider;
 
     // Start is called before the first frame update
     void Start()
@@ -92,6 +93,8 @@ public class Clone : MonoBehaviour
         if(isDashing == true)
         {
             move.x = 0;
+            GameObject mirror = GameObject.FindGameObjectWithTag("Mirror");
+            Physics2D.IgnoreCollision(mirror.GetComponent<Collider2D>(), clonecollider, false);
         }
     }
 
@@ -121,6 +124,10 @@ public class Clone : MonoBehaviour
             isbouncing = true;
             rb.gravityScale = 0.0f;
             move.x = 0;
+        }
+        if (collision.gameObject.tag == "Mirror" && canmirrorbounce == false)
+        {
+            Physics2D.IgnoreCollision(collision.collider, clonecollider);
         }
     }
 

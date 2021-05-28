@@ -54,6 +54,7 @@ public class LokiControls : MonoBehaviour
     public float originalmirrorboostamount = 1.5f;
     public bool isbouncing = false;
     public GameObject shield;
+    public Collider2D lokicollider;
   
 
     
@@ -107,6 +108,8 @@ public class LokiControls : MonoBehaviour
             candash = false;
             cameraShake.ShakeCamera(2f, 0.2f);
             clonescript.canmirrorbouncetimer = clonescript.startingcanmirrorbouncetimer;
+            GameObject mirror = GameObject.FindGameObjectWithTag("Mirror");
+            Physics2D.IgnoreCollision(mirror.GetComponent<Collider2D>(), lokicollider, false);
         }
         else if (clonescript.active == true && clonescript.tethered == true)
         {
@@ -268,6 +271,10 @@ public class LokiControls : MonoBehaviour
             rb.gravityScale = 0.0f;
             cameraShake.ShakeCamera(1f, 0.2f);
             Debug.Log("bouncybouncy");
+        }
+        if(collision.gameObject.tag == "Mirror" && canmirrorbounce == false)
+        {
+            Physics2D.IgnoreCollision(collision.collider, lokicollider);
         }
     }
 
