@@ -128,12 +128,12 @@ public class LokiControls : MonoBehaviour
             cameraShake.ShakeCamera(2f, 0.2f);
             clonescript.canmirrorbouncetimer = clonescript.startingcanmirrorbouncetimer;
         }
-        else if (clonescript.active == true && clonescript.tethered == true && cloneisloki == true)
+        else if (clonescript.active == true && clonescript.tethered == true)
         {
             clonescript.tethered = false;
             clonescript.move.x = 0;
         }
-        else if (clonescript.active == true && clonescript.tethered == false && cloneisloki == true)
+        else if (clonescript.active == true && clonescript.tethered == false)
         {
             clone.GetComponent<SpriteRenderer>().enabled = false;
             clonescript.active = false;
@@ -160,12 +160,12 @@ public class LokiControls : MonoBehaviour
             cameraShake.ShakeCamera(2f, 0.2f);
             baldrclonescript.canmirrorbouncetimer = clonescript.startingcanmirrorbouncetimer;
         }
-        else if (baldrclonescript.active == true && baldrclonescript.tethered == true && cloneisloki == false)
+        else if (baldrclonescript.active == true && baldrclonescript.tethered == true)
         {
             baldrclonescript.tethered = false;
             baldrclonescript.move.x = 0;
         }
-        else if (baldrclonescript.active == true && baldrclonescript.tethered == false && cloneisloki == false)
+        else if (baldrclonescript.active == true && baldrclonescript.tethered == false)
         {
             baldrclone.GetComponent<SpriteRenderer>().enabled = false;
             baldrclonescript.active = false;
