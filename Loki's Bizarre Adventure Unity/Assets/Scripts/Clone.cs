@@ -52,6 +52,7 @@ public class Clone : MonoBehaviour
                 isDashing = false;
             }
         }
+
         if (jumpbuffer == true && rb.velocity.y == 0)
         {
             rb.velocity = new Vector2(0, jumpheight);
