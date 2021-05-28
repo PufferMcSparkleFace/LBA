@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BaldrClone : MonoBehaviour
 {
-    public float speed;
+   public float speed;
     public float jumpheight;
     public Vector2 move;
     public Rigidbody2D rb;
@@ -39,22 +39,53 @@ public class BaldrClone : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.tag == "Mirror" && canmirrorbounce == true)
+        {
+            var direction = collision.contacts[0].normal;
+            rb.velocity = direction * DashForce * mirrorboostamount;
+            mirrorboostamount += 0.1f;
+            canmirrorbouncetimer = startingcanmirrorbouncetimer;
+            isbouncing = true;
+            rb.gravityScale = 0.0f;
+            move.x = 0;
+        }
         if (collision.gameObject.tag == "Mirror" && canmirrorbounce == false)
         {
             Physics2D.IgnoreCollision(collision.collider, clonecollider);
+            clonecollision = collision;
+            isignoring = true;
+            //Invoke("IgnoreCollisions", 1f);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (canmirrorbounce == true)
+        {
+            canmirrorbouncetimer -= Time.deltaTime;
+            if (canmirrorbouncetimer <= 0)
+            {
+                canmirrorbounce = false;
+                
+                isbouncing = false;
+                mirrorboostamount = startingmirrorboostamount;
+                rb.gravityScale = 5f;
+                isDashing = false;
+            }
+        }
+        if (canmirrorbounce == true && isignoring == true)
+        {
+            Physics2D.IgnoreCollision(clonecollision.collider, clonecollider, false);
+            isignoring = false;
+        }
 
         if (jumpbuffer == true && rb.velocity.y == 0)
         {
             rb.velocity = new Vector2(0, jumpheight);
             jumpbuffer = false;
         }
-        if (tethered == true)
+        if(tethered == true)
         {
             move.x = lokicontrols.move.x;
             Vector2 m = new Vector2(move.x, 0f) * Time.deltaTime * speed;
@@ -77,7 +108,7 @@ public class BaldrClone : MonoBehaviour
         {
             cloneSprite.flipX = false;
         }
-
+        
         if (isDashing == true && isbouncing == false)
         {
             rb.velocity = DashDirection * DashForce;
@@ -88,7 +119,7 @@ public class BaldrClone : MonoBehaviour
             }
 
         }
-        if (isDashing == true)
+        if(isDashing == true)
         {
             move.x = 0;
         }
