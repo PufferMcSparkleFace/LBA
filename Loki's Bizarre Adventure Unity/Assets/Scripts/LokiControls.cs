@@ -273,7 +273,7 @@ public class LokiControls : MonoBehaviour
         if(collision.gameObject.tag == "Mirror" && canmirrorbounce == false)
         {
             Physics2D.IgnoreCollision(collision.collider, lokicollider);
-            IgnoreCollisions(collision);
+            Invoke("IgnoreCollisions", 1);
         }
     }
 
@@ -328,9 +328,10 @@ public class LokiControls : MonoBehaviour
         canclonebounce = false;
     }
 
-    private void IgnoreCollisions(Collision2D collision)
+    void IgnoreCollisions()
     {
-        Physics2D.IgnoreCollision(collision.collider, lokicollider, false);
+        GameObject mirror = GameObject.FindGameObjectWithTag("Mirror");
+        Physics2D.IgnoreCollision(mirror.GetComponent<Collider2D>(), lokicollider, false);
     }
 
 
