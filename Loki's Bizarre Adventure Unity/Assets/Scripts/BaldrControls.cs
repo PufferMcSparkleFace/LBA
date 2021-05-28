@@ -44,7 +44,7 @@ public class BaldrControls : MonoBehaviour
     public GameObject shieldpositiongameobject;
     public GameObject position1, position2;
     public SpriteRenderer shieldsprite;
-    public float shieldrotation;
+    public Vector2 shieldrotation;
 
 
     // Start is called before the first frame update
@@ -62,8 +62,8 @@ public class BaldrControls : MonoBehaviour
         controls = new PlayerControls();
         controls.Baldr.Move.performed += ctx => move = ctx.ReadValue<Vector2>();
         controls.Baldr.Move.canceled += ctx => move = Vector2.zero;
-        controls.Baldr.AngleShield.performed += ctx => shieldrotation = ctx.ReadValue<float>();
-        controls.Baldr.AngleShield.canceled += ctx => shieldrotation = 0;
+        controls.Baldr.AngleShield.performed += ctx => shieldrotation = ctx.ReadValue<Vector2>();
+        controls.Baldr.AngleShield.canceled += ctx => shieldrotation = Vector2.zero;
         controls.Baldr.Jump.performed += ctx => Jump();
         controls.Baldr.Jump2.performed += ctx => Jump();
         controls.Baldr.SwitchPlayerLeft.performed += ctx => SwitchPlayerLeft();
@@ -179,7 +179,7 @@ public class BaldrControls : MonoBehaviour
         {
             Vector2 m = new Vector2(move.x, 0f) * Time.deltaTime * speed * momentum;
             transform.Translate(m, Space.World);
-            shieldgameobject.transform.eulerAngles = new Vector3(shieldgameobject.transform.eulerAngles.x, shieldgameobject.transform.eulerAngles.y, shieldrotation);
+            shieldgameobject.transform.eulerAngles = shieldrotation;
         }
        
         if(Vector2.Distance(transform.position, LokiFollow.position) > distancetoloki && isTethered == true)
