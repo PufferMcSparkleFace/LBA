@@ -46,6 +46,7 @@ public class BaldrControls : MonoBehaviour
     public SpriteRenderer shieldsprite;
     public Vector2 shieldrotation;
     public float shieldangle;
+    public float currentshieldangle;
 
 
     // Start is called before the first frame update
@@ -64,6 +65,7 @@ public class BaldrControls : MonoBehaviour
         controls.Baldr.Move.performed += ctx => move = ctx.ReadValue<Vector2>();
         controls.Baldr.Move.canceled += ctx => move = Vector2.zero;
         controls.Baldr.AngleShield.performed += ctx => shieldrotation = ctx.ReadValue<Vector2>();
+        controls.Baldr.AngleShield.canceled += ctx => LockShieldAngle();
         controls.Baldr.Jump.performed += ctx => Jump();
         controls.Baldr.Jump2.performed += ctx => Jump();
         controls.Baldr.SwitchPlayerLeft.performed += ctx => SwitchPlayerLeft();
@@ -141,11 +143,17 @@ public class BaldrControls : MonoBehaviour
 
     }
 
+    public void LockShieldAngle()
+    {
+        shieldangle = currentshieldangle;
+    }
+
 
 
     void Update()
     {
         shieldangle = Mathf.Atan2(shieldrotation.x, shieldrotation.y) * Mathf.Rad2Deg;
+        currentshieldangle = shieldangle;
         if(issliding == true)
         {
             currentslidetime -= Time.deltaTime;
