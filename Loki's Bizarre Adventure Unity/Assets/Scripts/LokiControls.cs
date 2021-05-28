@@ -195,7 +195,6 @@ public class LokiControls : MonoBehaviour
     {
         if (canmirrorbounce == true)
         {
-            Physics2D.IgnoreCollision(lokicollision.collider, lokicollider, false);
             canmirrorbouncetimer -= Time.deltaTime;
             if (canmirrorbouncetimer <= 0)
             {

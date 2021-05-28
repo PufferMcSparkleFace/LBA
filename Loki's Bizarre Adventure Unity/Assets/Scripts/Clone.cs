@@ -41,7 +41,6 @@ public class Clone : MonoBehaviour
     {
         if (canmirrorbounce == true)
         {
-            Physics2D.IgnoreCollision(clonecollision.collider, clonecollider, false);
             canmirrorbouncetimer -= Time.deltaTime;
             if (canmirrorbouncetimer <= 0)
             {
