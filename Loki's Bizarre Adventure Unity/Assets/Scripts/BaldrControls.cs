@@ -50,8 +50,8 @@ public class BaldrControls : MonoBehaviour
     {
         GameObject shield = GameObject.FindGameObjectWithTag("Shield");
         Physics2D.IgnoreCollision(shield.GetComponent<BoxCollider2D>(), GetComponent<PolygonCollider2D>());
-        OnDisable();
         LokiFollow = GameObject.FindGameObjectWithTag("Loki").GetComponent<Transform>();
+        OnDisable();
       
     }
 
@@ -221,7 +221,7 @@ public class BaldrControls : MonoBehaviour
 
 
         if (isTethered == true)
-        {
+        { 
             move.x = lokiControls.move.x;
             if (LokiFollow.position.x > transform.position.x)
             {
