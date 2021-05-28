@@ -59,6 +59,7 @@ public class LokiControls : MonoBehaviour
     public bool isignoring = false;
     public BaldrClone baldrclonescript;
     public bool cloneisloki = true;
+    public GameObject baldrclone;
   
 
     
@@ -136,6 +137,38 @@ public class LokiControls : MonoBehaviour
         {
             clone.GetComponent<SpriteRenderer>().enabled = false;
             clonescript.active = false;
+        }
+        else if (baldrclonescript.active == false && candash == true && cloneisloki == false)
+        {
+            baldrclone.transform.position = this.gameObject.transform.position;
+            baldrclone.GetComponent<SpriteRenderer>().enabled = true;
+            baldrclonescript.active = true;
+            baldrclonescript.tethered = true;
+            baldrControls.isTethered = false;
+            isTethered = false;
+            baldrControls.move.x = 0;
+            isDashing = true;
+            baldrclonescript.isDashing = true;
+            CurrentDashTime = DashTime;
+            DashDirection = new Vector2(move.x, move.y);
+            baldrclonescript.DashDirection = new Vector2(-move.x, -move.y);
+            baldrclonescript.CurrentDashTime = clonescript.DashTime;
+            canmirrorbounce = true;
+            baldrclonescript.canmirrorbounce = true;
+            canmirrorbouncetimer = startingcanmirrorbouncetimer;
+            candash = false;
+            cameraShake.ShakeCamera(2f, 0.2f);
+            baldrclonescript.canmirrorbouncetimer = clonescript.startingcanmirrorbouncetimer;
+        }
+        else if (baldrclonescript.active == true && baldrclonescript.tethered == true && cloneisloki == false)
+        {
+            baldrclonescript.tethered = false;
+            baldrclonescript.move.x = 0;
+        }
+        else if (baldrclonescript.active == true && baldrclonescript.tethered == false && cloneisloki == false)
+        {
+            baldrclone.GetComponent<SpriteRenderer>().enabled = false;
+            baldrclonescript.active = false;
         }
     }
 

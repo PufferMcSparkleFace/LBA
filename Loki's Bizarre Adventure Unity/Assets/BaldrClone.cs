@@ -104,13 +104,13 @@ public class BaldrClone : MonoBehaviour
         {
             cloneAnimator.SetBool("IsJumping", true);
         }
-        if (move.x > 0 && cloneSprite.flipX == false)
-        {
-            cloneSprite.flipX = true;
-        }
-        if (move.x < 0 && cloneSprite == true)
+        if (move.x > 0 && cloneSprite.flipX == true)
         {
             cloneSprite.flipX = false;
+        }
+        if (move.x < 0 && cloneSprite == false)
+        {
+            cloneSprite.flipX = true;
         }
         
         if (isDashing == true && isbouncing == false)
