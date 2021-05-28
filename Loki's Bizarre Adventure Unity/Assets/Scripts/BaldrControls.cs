@@ -179,7 +179,7 @@ public class BaldrControls : MonoBehaviour
         {
             Vector2 m = new Vector2(move.x, 0f) * Time.deltaTime * speed * momentum;
             transform.Translate(m, Space.World);
-            shieldgameobject.transform.eulerAngles = shieldrotation;
+            shieldgameobject.transform.eulerAngles = shieldrotation * 360;
         }
        
         if(Vector2.Distance(transform.position, LokiFollow.position) > distancetoloki && isTethered == true)
@@ -272,6 +272,14 @@ public class BaldrControls : MonoBehaviour
     public void OnDisable()
     {
         controls.Baldr.Disable();
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Mirror")
+        {
+            Physics2D.IgnoreCollision(collision.collider, this.gameObject.GetComponent<Collider2D>());
+        }
     }
 
 }
