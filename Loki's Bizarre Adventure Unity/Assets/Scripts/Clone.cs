@@ -93,8 +93,6 @@ public class Clone : MonoBehaviour
         if(isDashing == true)
         {
             move.x = 0;
-            GameObject mirror = GameObject.FindGameObjectWithTag("Mirror");
-            Physics2D.IgnoreCollision(mirror.GetComponent<Collider2D>(), clonecollider, false);
         }
     }
 
@@ -128,7 +126,13 @@ public class Clone : MonoBehaviour
         if (collision.gameObject.tag == "Mirror" && canmirrorbounce == false)
         {
             Physics2D.IgnoreCollision(collision.collider, clonecollider);
+            IgnoreCollisions(collision);
         }
+    }
+
+    private void IgnoreCollisions(Collision2D collision)
+    {
+        Physics2D.IgnoreCollision(collision.collider, clonecollider, false);
     }
 
 }

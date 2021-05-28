@@ -7902,6 +7902,7 @@ MonoBehaviour:
   startingmirrorboostamount: 1.2
   canmirrorbouncetimer: 0
   startingcanmirrorbouncetimer: 0.75
+  clonecollider: {fileID: 366193129}
 --- !u!212 &366193126
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11934,6 +11935,12 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!60 &1614024959 stripped
+PolygonCollider2D:
+  m_CorrespondingSourceObject: {fileID: 7855434974119868130, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
+    type: 3}
+  m_PrefabInstance: {fileID: 7855434974669578640}
+  m_PrefabAsset: {fileID: 0}
 --- !u!212 &1614024960 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 7855434974119868132, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
@@ -12859,6 +12866,11 @@ PrefabInstance:
       propertyPath: LokiAnimator
       value: 
       objectReference: {fileID: 1614024957}
+    - target: {fileID: 7855434974119868134, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
+        type: 3}
+      propertyPath: lokicollider
+      value: 
+      objectReference: {fileID: 1614024959}
     - target: {fileID: 7855434974119868134, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
         type: 3}
       propertyPath: baldrControls

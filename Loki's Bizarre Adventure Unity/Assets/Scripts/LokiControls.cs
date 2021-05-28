@@ -108,8 +108,6 @@ public class LokiControls : MonoBehaviour
             candash = false;
             cameraShake.ShakeCamera(2f, 0.2f);
             clonescript.canmirrorbouncetimer = clonescript.startingcanmirrorbouncetimer;
-            GameObject mirror = GameObject.FindGameObjectWithTag("Mirror");
-            Physics2D.IgnoreCollision(mirror.GetComponent<Collider2D>(), lokicollider, false);
         }
         else if (clonescript.active == true && clonescript.tethered == true)
         {
@@ -275,6 +273,7 @@ public class LokiControls : MonoBehaviour
         if(collision.gameObject.tag == "Mirror" && canmirrorbounce == false)
         {
             Physics2D.IgnoreCollision(collision.collider, lokicollider);
+            IgnoreCollisions(collision);
         }
     }
 
@@ -328,5 +327,11 @@ public class LokiControls : MonoBehaviour
         rb.velocity = new Vector2(0f, clonebounceheight);
         canclonebounce = false;
     }
+
+    private void IgnoreCollisions(Collision2D collision)
+    {
+        Physics2D.IgnoreCollision(collision.collider, lokicollider, false);
+    }
+
 
 }
