@@ -11,7 +11,7 @@ TagManager:
   - Clone
   - Clonebounce Detector
   - Mirror
-  - Standeable Mirror
+  - Shield
   layers:
   - Default
   - TransparentFX
