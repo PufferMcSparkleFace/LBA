@@ -132,6 +132,7 @@ public class LokiControls : MonoBehaviour
         {
             clonescript.tethered = false;
             clonescript.move.x = 0;
+            baldrclonescript.move.x = 0;
         }
         else if (clonescript.active == true && clonescript.tethered == false)
         {
@@ -164,6 +165,7 @@ public class LokiControls : MonoBehaviour
         {
             baldrclonescript.tethered = false;
             baldrclonescript.move.x = 0;
+            clonescript.move.x = 0;
         }
         else if (baldrclonescript.active == true && baldrclonescript.tethered == false)
         {

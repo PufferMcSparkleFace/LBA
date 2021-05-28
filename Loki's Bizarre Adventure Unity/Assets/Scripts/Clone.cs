@@ -56,6 +56,10 @@ public class Clone : MonoBehaviour
             isignoring = true;
             //Invoke("IgnoreCollisions", 1f);
         }
+        if(collision.gameObject.tag == "CloneShield" || collision.gameObject.tag == "Baldr")
+        {
+            Physics2D.IgnoreCollision(collision.collider, clonecollider);
+        }
     }
 
     // Update is called once per frame
