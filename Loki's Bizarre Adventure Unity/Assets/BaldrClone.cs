@@ -39,6 +39,10 @@ public class BaldrClone : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if(collision.gameObject.name == "Clone Shield")
+        {
+            Physics2D.IgnoreCollision(collision.collider, clonecollider);
+        }
         if (collision.gameObject.tag == "Mirror" && canmirrorbounce == true)
         {
             var direction = collision.contacts[0].normal;
