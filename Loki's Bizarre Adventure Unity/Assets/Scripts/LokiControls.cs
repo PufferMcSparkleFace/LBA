@@ -260,6 +260,10 @@ public class LokiControls : MonoBehaviour
             isignoring = true;
             //Invoke("IgnoreCollisions", 1);
         }
+        if(collision.gameObject.tag == "CloneShield" || collision.gameObject.tag == "Baldr")
+        {
+            Physics2D.IgnoreCollision(collision.collider, lokicollider);
+        }
     }
 
     void Update()
