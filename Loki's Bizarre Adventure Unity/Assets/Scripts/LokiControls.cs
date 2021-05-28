@@ -258,16 +258,20 @@ public class LokiControls : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Mirror" && canmirrorbounce == true)
+        if (collision.gameObject.tag == "Mirror" || collision.gameObject.tag == "Shield")
         {
-            var direction = collision.contacts[0].normal;
-            rb.velocity = direction * DashForce * mirrorboostamount;
-            mirrorboostamount += 0.1f;
-            canmirrorbouncetimer = startingcanmirrorbouncetimer;
-            isbouncing = true;
-            rb.gravityScale = 0.0f;
-            cameraShake.ShakeCamera(1f, 0.2f);
-            Debug.Log("bouncybouncy");
+            if(canmirrorbounce == true)
+            {
+                var direction = collision.contacts[0].normal;
+                rb.velocity = direction * DashForce * mirrorboostamount;
+                mirrorboostamount += 0.1f;
+                canmirrorbouncetimer = startingcanmirrorbouncetimer;
+                isbouncing = true;
+                rb.gravityScale = 0.0f;
+                cameraShake.ShakeCamera(1f, 0.2f);
+                Debug.Log("bouncybouncy");
+            }
+        
         }
     }
 
