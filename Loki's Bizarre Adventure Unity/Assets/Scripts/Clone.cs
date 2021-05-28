@@ -41,6 +41,7 @@ public class Clone : MonoBehaviour
     {
         if (canmirrorbounce == true)
         {
+            Physics2D.IgnoreCollision(clonecollision.collider, clonecollider, false);
             canmirrorbouncetimer -= Time.deltaTime;
             if (canmirrorbouncetimer <= 0)
             {
@@ -128,14 +129,14 @@ public class Clone : MonoBehaviour
         {
             Physics2D.IgnoreCollision(collision.collider, clonecollider);
             clonecollision = collision;
-            Invoke("IgnoreCollisions", 1f);
+            //Invoke("IgnoreCollisions", 1f);
         }
     }
 
-    private void IgnoreCollisions()
-    {
-        Physics2D.IgnoreCollision(clonecollision.collider, clonecollider, false);
-    }
+    //private void IgnoreCollisions()
+    //{
+    //    Physics2D.IgnoreCollision(clonecollision.collider, clonecollider, false);
+    //}
 
 }
     

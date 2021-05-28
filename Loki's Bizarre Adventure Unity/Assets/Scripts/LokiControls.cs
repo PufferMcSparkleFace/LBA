@@ -195,6 +195,7 @@ public class LokiControls : MonoBehaviour
     {
         if (canmirrorbounce == true)
         {
+            Physics2D.IgnoreCollision(lokicollision.collider, lokicollider, false);
             canmirrorbouncetimer -= Time.deltaTime;
             if (canmirrorbouncetimer <= 0)
             {
@@ -275,7 +276,7 @@ public class LokiControls : MonoBehaviour
         {
             Physics2D.IgnoreCollision(collision.collider, lokicollider);
             lokicollision = collision;
-            Invoke("IgnoreCollisions", 1);
+            //Invoke("IgnoreCollisions", 1);
         }
     }
 
@@ -330,10 +331,10 @@ public class LokiControls : MonoBehaviour
         canclonebounce = false;
     }
 
-    void IgnoreCollisions()
-    {
-        Physics2D.IgnoreCollision(lokicollision.collider, lokicollider, false);
-    }
+    //void IgnoreCollisions()
+    //{
+    //    Physics2D.IgnoreCollision(lokicollision.collider, lokicollider, false);
+    //}
 
 
 }
