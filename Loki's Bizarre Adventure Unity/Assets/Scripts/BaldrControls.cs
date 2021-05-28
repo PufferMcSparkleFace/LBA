@@ -43,6 +43,7 @@ public class BaldrControls : MonoBehaviour
     public GameObject shieldgameobject;
     public GameObject shieldpositiongameobject;
     public GameObject position1, position2;
+    public SpriteRenderer shieldsprite;
 
 
     // Start is called before the first frame update
@@ -245,6 +246,15 @@ public class BaldrControls : MonoBehaviour
             shieldgameobject.transform.eulerAngles = new Vector3(shieldgameobject.transform.eulerAngles.x, 0, shieldgameobject.transform.eulerAngles.z);
             shieldgameobject.transform.position = position2.transform.position;
         }
+        if(issliding == true || rb.velocity.y != 0 || isTethered == true)
+        {
+            shieldsprite.enabled = false;
+        }
+        else
+        {
+            shieldsprite.enabled = true;
+        }
+
 
     }
 
