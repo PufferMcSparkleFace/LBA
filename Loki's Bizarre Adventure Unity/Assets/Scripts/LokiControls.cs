@@ -58,6 +58,7 @@ public class LokiControls : MonoBehaviour
     public Collision2D lokicollision;
     public bool isignoring = false;
     public BaldrClone baldrclonescript;
+    public bool cloneisloki = true;
   
 
     
@@ -84,10 +85,24 @@ public class LokiControls : MonoBehaviour
         controls.Loki.SwitchPlayerRight.performed += ctx => SwitchPlayerRight();
         controls.Loki.TetherBaldr.performed += ctx => tetherManagement();
         controls.Loki.SummonClone.performed += ctx => SummonClone();
+        controls.Loki.SwitchCloneLeft.performed += ctx => SwitchCloneTarget();
+        controls.Loki.SwitchCloneRight.performed += ctx => SwitchCloneTarget();
         
     
     }
     
+    void SwitchCloneTarget()
+    {
+        if(cloneisloki == true)
+        {
+            cloneisloki = false;
+        }
+        else
+        {
+            cloneisloki = true;
+        }
+    }
+
     void SummonClone()
     {
         if(clonescript.active == false && candash == true)

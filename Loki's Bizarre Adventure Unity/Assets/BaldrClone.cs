@@ -14,9 +14,20 @@ public class BaldrClone : MonoBehaviour
     public bool active = false;
     public bool jumpbuffer = false;
     public LokiControls lokicontrols;
+    public float DashForce;
+    public float DashTime;
+    public float CurrentDashTime;
+    public bool isDashing = false;
+    public Vector2 DashDirection;
+    public bool canmirrorbounce = false;
+    public bool isbouncing = false;
+    public float mirrorboostamount = 1.5f;
+    public float startingmirrorboostamount = 1.5f;
+    public float canmirrorbouncetimer;
+    public float startingcanmirrorbouncetimer = 0.75f;
     public Collider2D clonecollider;
     public Collision2D clonecollision;
-    
+    public bool isignoring = false;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +39,7 @@ public class BaldrClone : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Mirror")
+        if (collision.gameObject.tag == "Mirror" && canmirrorbounce == false)
         {
             Physics2D.IgnoreCollision(collision.collider, clonecollider);
         }
@@ -37,7 +48,6 @@ public class BaldrClone : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
 
         if (jumpbuffer == true && rb.velocity.y == 0)
         {
@@ -51,7 +61,11 @@ public class BaldrClone : MonoBehaviour
             transform.Translate(m, Space.World);
             cloneAnimator.SetFloat("Speed", Mathf.Abs(move.x));
         }
-        if(rb.velocity.y != 0)
+        if (rb.velocity.y == 0 && isDashing == false)
+        {
+            cloneAnimator.SetBool("IsJumping", false);
+        }
+        else
         {
             cloneAnimator.SetBool("IsJumping", true);
         }
@@ -64,6 +78,20 @@ public class BaldrClone : MonoBehaviour
             cloneSprite.flipX = false;
         }
 
+        if (isDashing == true && isbouncing == false)
+        {
+            rb.velocity = DashDirection * DashForce;
+            CurrentDashTime -= Time.deltaTime;
+            if (CurrentDashTime <= 0)
+            {
+                isDashing = false;
+            }
+
+        }
+        if (isDashing == true)
+        {
+            move.x = 0;
+        }
     }
 
     public void Jump()
