@@ -56,6 +56,7 @@ public class LokiControls : MonoBehaviour
     public GameObject shield;
     public Collider2D lokicollider;
     public Collision2D lokicollision;
+    public bool isignoring = false;
   
 
     
@@ -190,6 +191,27 @@ public class LokiControls : MonoBehaviour
         }
        
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Mirror" && canmirrorbounce == true)
+        {
+            var direction = collision.contacts[0].normal;
+            rb.velocity = direction * DashForce * mirrorboostamount;
+            mirrorboostamount += 0.1f;
+            canmirrorbouncetimer = startingcanmirrorbouncetimer;
+            isbouncing = true;
+            rb.gravityScale = 0.0f;
+            cameraShake.ShakeCamera(1f, 0.2f);
+            Debug.Log("bouncybouncy");
+        }
+        if (collision.gameObject.tag == "Mirror" && canmirrorbounce == false)
+        {
+            Physics2D.IgnoreCollision(collision.collider, lokicollider);
+            lokicollision = collision;
+            isignoring = true;
+            //Invoke("IgnoreCollisions", 1);
+        }
+    }
 
     void Update()
     {
@@ -205,7 +227,12 @@ public class LokiControls : MonoBehaviour
                 isDashing = false;
             }
         }
-        if(isbouncing == false)
+        if (canmirrorbounce == true && isignoring == true)
+        {
+            Physics2D.IgnoreCollision(lokicollision.collider, lokicollider, false);
+            isignoring = false;
+        }
+        if (isbouncing == false)
         {
             Vector2 m = new Vector2(move.x, 0f) * Time.deltaTime * speed;
             transform.Translate(m, Space.World);
@@ -258,28 +285,9 @@ public class LokiControls : MonoBehaviour
       
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Mirror" && canmirrorbounce == true)
-        {
-            var direction = collision.contacts[0].normal;
-            rb.velocity = direction * DashForce * mirrorboostamount;
-            mirrorboostamount += 0.1f;
-            canmirrorbouncetimer = startingcanmirrorbouncetimer;
-            isbouncing = true;
-            rb.gravityScale = 0.0f;
-            cameraShake.ShakeCamera(1f, 0.2f);
-            Debug.Log("bouncybouncy");
-        }
-        if(collision.gameObject.tag == "Mirror" && canmirrorbounce == false)
-        {
-            Physics2D.IgnoreCollision(collision.collider, lokicollider);
-            lokicollision = collision;
-            //Invoke("IgnoreCollisions", 1);
-        }
-    }
-
-    void tetherManagement()
+    
+      
+void tetherManagement()
     {
         if(isTethered == true)
         {

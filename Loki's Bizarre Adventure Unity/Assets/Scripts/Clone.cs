@@ -27,6 +27,7 @@ public class Clone : MonoBehaviour
     public float startingcanmirrorbouncetimer = 0.75f;
     public Collider2D clonecollider;
     public Collision2D clonecollision;
+    public bool isignoring = false;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +35,27 @@ public class Clone : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
         GameObject baldr = GameObject.FindGameObjectWithTag("Baldr");
         Physics2D.IgnoreCollision(baldr.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Mirror" && canmirrorbounce == true)
+        {
+            var direction = collision.contacts[0].normal;
+            rb.velocity = direction * DashForce * mirrorboostamount;
+            mirrorboostamount += 0.1f;
+            canmirrorbouncetimer = startingcanmirrorbouncetimer;
+            isbouncing = true;
+            rb.gravityScale = 0.0f;
+            move.x = 0;
+        }
+        if (collision.gameObject.tag == "Mirror" && canmirrorbounce == false)
+        {
+            Physics2D.IgnoreCollision(collision.collider, clonecollider);
+            clonecollision = collision;
+            isignoring = true;
+            //Invoke("IgnoreCollisions", 1f);
+        }
     }
 
     // Update is called once per frame
@@ -51,6 +73,11 @@ public class Clone : MonoBehaviour
                 rb.gravityScale = 5f;
                 isDashing = false;
             }
+        }
+        if (canmirrorbounce == true && isignoring == true)
+        {
+            Physics2D.IgnoreCollision(clonecollision.collider, clonecollider, false);
+            isignoring = false;
         }
 
         if (jumpbuffer == true && rb.velocity.y == 0)
@@ -113,25 +140,7 @@ public class Clone : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Mirror" && canmirrorbounce == true)
-        {
-            var direction = collision.contacts[0].normal;
-            rb.velocity = direction * DashForce * mirrorboostamount;
-            mirrorboostamount += 0.1f;
-            canmirrorbouncetimer = startingcanmirrorbouncetimer;
-            isbouncing = true;
-            rb.gravityScale = 0.0f;
-            move.x = 0;
-        }
-        if (collision.gameObject.tag == "Mirror" && canmirrorbounce == false)
-        {
-            Physics2D.IgnoreCollision(collision.collider, clonecollider);
-            clonecollision = collision;
-            //Invoke("IgnoreCollisions", 1f);
-        }
-    }
+    
 
     //private void IgnoreCollisions()
     //{
