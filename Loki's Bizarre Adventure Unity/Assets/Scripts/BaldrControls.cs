@@ -257,7 +257,7 @@ public class BaldrControls : MonoBehaviour
             shieldpositiongameobject.transform.position = position1.transform.position;
         }
      
-        if(issliding == true || rb.velocity.y != 0 || isTethered == true)
+        if(issliding == true || rb.velocity.y != 0)
         {
             shieldsprite.enabled = false;
         }
