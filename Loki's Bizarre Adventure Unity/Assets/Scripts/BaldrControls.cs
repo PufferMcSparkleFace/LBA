@@ -162,6 +162,7 @@ public class BaldrControls : MonoBehaviour
             {
                 issliding = false;
                 isslowingdown = true;
+                BaldrAnimator.SetBool("IsSliding", false);
             }
         }
         if(isslowingdown == true)
@@ -172,7 +173,6 @@ public class BaldrControls : MonoBehaviour
         {
             canslide = true;
             isslowingdown = false;
-            BaldrAnimator.SetBool("IsSliding", false);
         }
 
         if(momentum > 3)
