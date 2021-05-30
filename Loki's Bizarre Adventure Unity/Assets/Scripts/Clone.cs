@@ -49,6 +49,10 @@ public class Clone : MonoBehaviour
             rb.gravityScale = 0.0f;
             move.x = 0;
         }
+        if (collision.gameObject.tag == "Stop")
+        {
+            canmirrorbounce = false;
+        }
     }
 
     // Update is called once per frame

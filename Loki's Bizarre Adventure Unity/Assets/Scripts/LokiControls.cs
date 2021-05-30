@@ -59,6 +59,7 @@ public class LokiControls : MonoBehaviour
     public bool isignoring = false;
     public Collider2D clonecollider;
     public Collider2D shieldcollider;
+    public Collider2D stopcollider;
   
 
     
@@ -209,6 +210,10 @@ public class LokiControls : MonoBehaviour
             cameraShake.ShakeCamera(1f, 0.2f);
             Debug.Log("bouncybouncy");
         }
+        if(collision.gameObject.tag == "Stop")
+        {
+            canmirrorbounce = false;
+        }
   
     }
 
@@ -218,6 +223,7 @@ public class LokiControls : MonoBehaviour
         {
             canmirrorbouncetimer -= Time.deltaTime;
             shieldcollider.enabled = true;
+            stopcollider.enabled = true;
             if (canmirrorbouncetimer <= 0)
             {
                 canmirrorbounce = false;
@@ -230,6 +236,7 @@ public class LokiControls : MonoBehaviour
         else
         {
             shieldcollider.enabled = false;
+            stopcollider.enabled = false;
         }
         if (isbouncing == false)
         {
