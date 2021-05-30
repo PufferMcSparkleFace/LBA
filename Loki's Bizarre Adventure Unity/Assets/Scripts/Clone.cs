@@ -28,7 +28,6 @@ public class Clone : MonoBehaviour
     public Collider2D clonecollider;
     public Collision2D clonecollision;
     public bool isignoring = false;
-    public bool stopcheckcanbounce = false;
     public Collider2D shieldcollider;
 
     // Start is called before the first frame update
@@ -42,13 +41,13 @@ public class Clone : MonoBehaviour
     {
         if (collision.gameObject.tag == "Stop")
         {
-            stopcheckcanbounce = false;
-            Physics2D.IgnoreCollision(shieldcollider, clonecollider);
+            canmirrorbounce = false;
+            canmirrorbouncetimer = 0;
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Mirror" && canmirrorbounce == true && stopcheckcanbounce == true)
+        if (collision.gameObject.tag == "Mirror" && canmirrorbounce == true)
         {
             var direction = collision.contacts[0].normal;
             rb.velocity = direction * DashForce * mirrorboostamount;

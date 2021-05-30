@@ -60,7 +60,7 @@ public class LokiControls : MonoBehaviour
     public Collider2D clonecollider;
     public Collider2D shieldcollider;
     public Collider2D stopcollider;
-    public bool stopcheckcanbounce = false;
+
   
 
     
@@ -116,8 +116,6 @@ public class LokiControls : MonoBehaviour
             cameraShake.ShakeCamera(2f, 0.2f);
             clonescript.canmirrorbouncetimer = clonescript.startingcanmirrorbouncetimer;
             clonecollider.enabled = true;
-            stopcheckcanbounce = true;
-            clonescript.stopcheckcanbounce = true;
             Physics2D.IgnoreCollision(shieldcollider, lokicollider, false);
             clonescript.IsSummoned();
             
@@ -188,9 +186,8 @@ public class LokiControls : MonoBehaviour
         }
         if (collision.gameObject.tag == "Stop")
         {
-            stopcheckcanbounce = false;
-            Physics2D.IgnoreCollision(shieldcollider, clonecollider);
-            Debug.Log("Stop");
+            canmirrorbounce = false;
+            canmirrorbouncetimer = 0;
         }
 
     }
@@ -220,7 +217,7 @@ public class LokiControls : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Mirror" && canmirrorbounce == true && stopcheckcanbounce == true)
+        if (collision.gameObject.tag == "Mirror" && canmirrorbounce == true)
         {
             var direction = collision.contacts[0].normal;
             rb.velocity = direction * DashForce * mirrorboostamount;
@@ -242,7 +239,7 @@ public class LokiControls : MonoBehaviour
             shieldcollider.enabled = true;
             stopcollider.enabled = true;
         }
-        else
+        if(canmirrorbounce == false && clonescript.canmirrorbounce == false)
         {
             shieldcollider.enabled = false;
             stopcollider.enabled = false;
