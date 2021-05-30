@@ -118,6 +118,9 @@ public class LokiControls : MonoBehaviour
             clonecollider.enabled = true;
             stopcheckcanbounce = true;
             clonescript.stopcheckcanbounce = true;
+            Physics2D.IgnoreCollision(shieldcollider, lokicollider, false);
+            clonescript.IsSummoned();
+            
         }
         else if (clonescript.active == true && clonescript.tethered == true)
         {
@@ -337,6 +340,7 @@ void tetherManagement()
         if (collision.gameObject.tag == "Stop")
         {
             stopcheckcanbounce = false;
+            Physics2D.IgnoreCollision(shieldcollider, clonecollider);
         }
 
     }

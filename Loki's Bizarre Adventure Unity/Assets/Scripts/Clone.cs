@@ -29,6 +29,7 @@ public class Clone : MonoBehaviour
     public Collision2D clonecollision;
     public bool isignoring = false;
     public bool stopcheckcanbounce = false;
+    public Collider2D shieldcollider;
 
     // Start is called before the first frame update
     void Start()
@@ -59,6 +60,7 @@ public class Clone : MonoBehaviour
         if (collision.gameObject.tag == "Stop")
         {
             stopcheckcanbounce = false;
+            Physics2D.IgnoreCollision(shieldcollider, clonecollider);
         }
     }
 
@@ -138,6 +140,11 @@ public class Clone : MonoBehaviour
             jumpbuffer = false;
         }
 
+    }
+
+    public void IsSummoned()
+    {
+        Physics2D.IgnoreCollision(shieldcollider, clonecollider, false);
     }
 
     
