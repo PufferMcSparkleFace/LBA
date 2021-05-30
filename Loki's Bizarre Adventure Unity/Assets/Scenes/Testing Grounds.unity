@@ -8092,6 +8092,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89c46483b84d3464ba5f10613a0b3302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!60 &366193126 stripped
+PolygonCollider2D:
+  m_CorrespondingSourceObject: {fileID: 106232278850255530, guid: 75069b6a3af9061499d232abeac41d5d,
+    type: 3}
+  m_PrefabInstance: {fileID: 106232278528496451}
+  m_PrefabAsset: {fileID: 0}
 --- !u!50 &366193128 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 106232278850255531, guid: 75069b6a3af9061499d232abeac41d5d,
@@ -12692,6 +12698,11 @@ PrefabInstance:
       propertyPath: baldrControls
       value: 
       objectReference: {fileID: 493697545}
+    - target: {fileID: 2630882990381955763, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
+        type: 3}
+      propertyPath: clonecollider
+      value: 
+      objectReference: {fileID: 366193126}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4acb9815b6ee4934790c4d9f2fbbb00d, type: 3}
 --- !u!1001 &3939475863262024336
