@@ -8562,6 +8562,67 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 0
+--- !u!1 &773348134
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 773348135}
+  - component: {fileID: 773348136}
+  m_Layer: 0
+  m_Name: Stop
+  m_TagString: Stop
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &773348135
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 773348134}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 808287743}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &773348136
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 773348134}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.07504648, y: -0.57596946}
+      - {x: -2.45198, y: 0.083879024}
+      - {x: -2.6140318, y: -1.859664}
+      - {x: 2.9892638, y: -1.7095689}
+      - {x: 2.8272107, y: 0.08387852}
 --- !u!1 &789004048
 GameObject:
   m_ObjectHideFlags: 0
@@ -12701,6 +12762,11 @@ PrefabInstance:
       objectReference: {fileID: 366193125}
     - target: {fileID: 2630882990381955763, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
         type: 3}
+      propertyPath: stopcollider
+      value: 
+      objectReference: {fileID: 773348136}
+    - target: {fileID: 2630882990381955763, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
+        type: 3}
       propertyPath: baldrControls
       value: 
       objectReference: {fileID: 493697545}
@@ -13257,10 +13323,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 270
       objectReference: {fileID: 0}
+    - target: {fileID: 8035315701121974017, guid: e2d737e564da07e4b86caff099bbb8ba,
+        type: 3}
+      propertyPath: m_UsedByEffector
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8035315701121974020, guid: e2d737e564da07e4b86caff099bbb8ba,
         type: 3}
       propertyPath: shieldPosition
       value: 
       objectReference: {fileID: 731504091}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8035315701121974016, guid: e2d737e564da07e4b86caff099bbb8ba, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e2d737e564da07e4b86caff099bbb8ba, type: 3}
