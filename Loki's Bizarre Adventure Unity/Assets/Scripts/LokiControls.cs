@@ -57,6 +57,7 @@ public class LokiControls : MonoBehaviour
     public Collider2D lokicollider;
     public Collision2D lokicollision;
     public bool isignoring = false;
+    public Collider2D clonecollider;
   
 
     
@@ -70,6 +71,7 @@ public class LokiControls : MonoBehaviour
         GameObject clone = GameObject.FindGameObjectWithTag("Clone");
         Physics2D.IgnoreCollision(clone.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         clonebouncedetector = GameObject.FindGameObjectWithTag("Clonebounce Detector").GetComponent<Transform>();
+        clonecollider.enabled = false;
     }
 
     void Awake()
@@ -110,6 +112,7 @@ public class LokiControls : MonoBehaviour
             candash = false;
             cameraShake.ShakeCamera(2f, 0.2f);
             clonescript.canmirrorbouncetimer = clonescript.startingcanmirrorbouncetimer;
+            clonecollider.enabled = true;
         }
         else if (clonescript.active == true && clonescript.tethered == true)
         {
@@ -120,6 +123,7 @@ public class LokiControls : MonoBehaviour
         {
             clone.GetComponent<SpriteRenderer>().enabled = false;
             clonescript.active = false;
+            clonecollider.enabled = false;
         }
     }
 
