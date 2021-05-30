@@ -43,6 +43,7 @@ public class Clone : MonoBehaviour
         {
             canmirrorbounce = false;
             canmirrorbouncetimer = 0;
+            lokicontrols.canmirrorbouncetimer = 0;
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)

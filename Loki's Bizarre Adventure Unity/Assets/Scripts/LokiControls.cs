@@ -188,6 +188,7 @@ public class LokiControls : MonoBehaviour
         {
             canmirrorbounce = false;
             canmirrorbouncetimer = 0;
+            clonescript.canmirrorbouncetimer = 0;
         }
 
     }
