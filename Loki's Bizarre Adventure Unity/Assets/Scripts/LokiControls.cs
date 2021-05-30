@@ -190,6 +190,7 @@ public class LokiControls : MonoBehaviour
         {
             stopcheckcanbounce = false;
             Physics2D.IgnoreCollision(shieldcollider, clonecollider);
+            Debug.Log("Stop");
         }
 
     }

@@ -8782,8 +8782,8 @@ PolygonCollider2D:
     m_Paths:
     - - {x: -0.041628823, y: -0.53707695}
       - {x: -2.45198, y: 0.083879024}
-      - {x: -2.4195726, y: -1.5874214}
-      - {x: 2.6003454, y: -1.6317865}
+      - {x: -3.2110376, y: -1.7570201}
+      - {x: 3.1656773, y: -1.801385}
       - {x: 2.554968, y: 0.04498598}
 --- !u!1 &808287742 stripped
 GameObject:
@@ -12243,6 +12243,11 @@ PrefabInstance:
       propertyPath: lokicontrols
       value: 
       objectReference: {fileID: 1640241014}
+    - target: {fileID: 106232278850255526, guid: 75069b6a3af9061499d232abeac41d5d,
+        type: 3}
+      propertyPath: shieldcollider
+      value: 
+      objectReference: {fileID: 808287747}
     - target: {fileID: 106232278850255527, guid: 75069b6a3af9061499d232abeac41d5d,
         type: 3}
       propertyPath: m_RootOrder
@@ -12671,12 +12676,12 @@ PrefabInstance:
     - target: {fileID: 5447813507063278268, guid: 96e249b31324c534c8897d4808b858ba,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.500183
+      value: 2.500184
       objectReference: {fileID: 0}
     - target: {fileID: 5447813507063278268, guid: 96e249b31324c534c8897d4808b858ba,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.99739087
+      value: -0.9973904
       objectReference: {fileID: 0}
     - target: {fileID: 5447813507063278268, guid: 96e249b31324c534c8897d4808b858ba,
         type: 3}
