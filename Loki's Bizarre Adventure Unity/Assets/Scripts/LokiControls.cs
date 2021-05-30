@@ -213,10 +213,6 @@ public class LokiControls : MonoBehaviour
             cameraShake.ShakeCamera(1f, 0.2f);
             Debug.Log("bouncybouncy");
         }
-        if(collision.gameObject.tag == "Stop")
-        {
-            stopcheckcanbounce = false;
-        }
   
     }
 
@@ -337,6 +333,10 @@ void tetherManagement()
         if(collision.tag == "Clonebounce Detector" && clonescript.tethered == false && clonescript.active == true)
         {
             canclonebounce = true;
+        }
+        if (collision.gameObject.tag == "Stop")
+        {
+            stopcheckcanbounce = false;
         }
 
     }

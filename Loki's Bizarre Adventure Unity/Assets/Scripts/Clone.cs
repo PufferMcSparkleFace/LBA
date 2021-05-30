@@ -37,7 +37,13 @@ public class Clone : MonoBehaviour
         GameObject baldr = GameObject.FindGameObjectWithTag("Baldr");
         Physics2D.IgnoreCollision(baldr.GetComponent<Collider2D>(), GetComponent<Collider2D>());
     }
-
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Stop")
+        {
+            stopcheckcanbounce = false;
+        }
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Mirror" && canmirrorbounce == true && stopcheckcanbounce == true)
