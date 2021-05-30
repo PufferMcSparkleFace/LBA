@@ -28,6 +28,7 @@ public class Clone : MonoBehaviour
     public Collider2D clonecollider;
     public Collision2D clonecollision;
     public bool isignoring = false;
+    public bool stopcheckcanbounce = false;
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +40,7 @@ public class Clone : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Mirror" && canmirrorbounce == true)
+        if (collision.gameObject.tag == "Mirror" && canmirrorbounce == true && stopcheckcanbounce == true)
         {
             var direction = collision.contacts[0].normal;
             rb.velocity = direction * DashForce * mirrorboostamount;
@@ -51,7 +52,7 @@ public class Clone : MonoBehaviour
         }
         if (collision.gameObject.tag == "Stop")
         {
-            canmirrorbounce = false;
+            stopcheckcanbounce = false;
         }
     }
 
@@ -61,17 +62,17 @@ public class Clone : MonoBehaviour
         if (canmirrorbounce == true)
         {
             canmirrorbouncetimer -= Time.deltaTime;
-            if (canmirrorbouncetimer <= 0)
-            {
-                canmirrorbounce = false;
-                
-                isbouncing = false;
-                mirrorboostamount = startingmirrorboostamount;
-                rb.gravityScale = 5f;
-                isDashing = false;
-            }
         }
-       
+        if (canmirrorbouncetimer <= 0)
+        {
+            canmirrorbounce = false;
+            
+            isbouncing = false;
+            mirrorboostamount = startingmirrorboostamount;
+            rb.gravityScale = 5f;
+            isDashing = false;
+        }
+
 
         if (jumpbuffer == true && rb.velocity.y == 0)
         {

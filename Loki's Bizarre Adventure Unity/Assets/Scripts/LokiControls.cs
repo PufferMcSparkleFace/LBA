@@ -60,6 +60,7 @@ public class LokiControls : MonoBehaviour
     public Collider2D clonecollider;
     public Collider2D shieldcollider;
     public Collider2D stopcollider;
+    public bool stopcheckcanbounce = false;
   
 
     
@@ -115,6 +116,8 @@ public class LokiControls : MonoBehaviour
             cameraShake.ShakeCamera(2f, 0.2f);
             clonescript.canmirrorbouncetimer = clonescript.startingcanmirrorbouncetimer;
             clonecollider.enabled = true;
+            stopcheckcanbounce = true;
+            clonescript.stopcheckcanbounce = true;
         }
         else if (clonescript.active == true && clonescript.tethered == true)
         {
@@ -199,7 +202,7 @@ public class LokiControls : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Mirror" && canmirrorbounce == true)
+        if (collision.gameObject.tag == "Mirror" && canmirrorbounce == true && stopcheckcanbounce == true)
         {
             var direction = collision.contacts[0].normal;
             rb.velocity = direction * DashForce * mirrorboostamount;
@@ -212,7 +215,7 @@ public class LokiControls : MonoBehaviour
         }
         if(collision.gameObject.tag == "Stop")
         {
-            canmirrorbounce = false;
+            stopcheckcanbounce = false;
         }
   
     }
@@ -224,19 +227,19 @@ public class LokiControls : MonoBehaviour
             canmirrorbouncetimer -= Time.deltaTime;
             shieldcollider.enabled = true;
             stopcollider.enabled = true;
-            if (canmirrorbouncetimer <= 0)
-            {
-                canmirrorbounce = false;
-                isbouncing = false;
-                mirrorboostamount = originalmirrorboostamount;
-                rb.gravityScale = 5f;
-                isDashing = false;
-            }
         }
         else
         {
             shieldcollider.enabled = false;
             stopcollider.enabled = false;
+        }
+        if (canmirrorbouncetimer <= 0)
+        {
+            canmirrorbounce = false;
+            isbouncing = false;
+            mirrorboostamount = originalmirrorboostamount;
+            rb.gravityScale = 5f;
+            isDashing = false;
         }
         if (isbouncing == false)
         {
