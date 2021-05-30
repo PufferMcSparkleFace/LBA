@@ -8709,6 +8709,12 @@ SpriteRenderer:
     type: 3}
   m_PrefabInstance: {fileID: 8035315700850688256}
   m_PrefabAsset: {fileID: 0}
+--- !u!61 &808287747 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 8035315701121974017, guid: e2d737e564da07e4b86caff099bbb8ba,
+    type: 3}
+  m_PrefabInstance: {fileID: 8035315700850688256}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &824383231
 GameObject:
   m_ObjectHideFlags: 0
@@ -12703,6 +12709,11 @@ PrefabInstance:
       propertyPath: clonecollider
       value: 
       objectReference: {fileID: 366193126}
+    - target: {fileID: 2630882990381955763, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
+        type: 3}
+      propertyPath: shieldcollider
+      value: 
+      objectReference: {fileID: 808287747}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4acb9815b6ee4934790c4d9f2fbbb00d, type: 3}
 --- !u!1001 &3939475863262024336
