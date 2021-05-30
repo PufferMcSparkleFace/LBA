@@ -12233,7 +12233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c99923fdf1220fc4f9b54eab19efe145, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sticky: 1
+  sticky: 0
   wall: {fileID: 8608071}
   switchunpressed: {fileID: 2000368197}
   switchpressed: {fileID: 628374082}
