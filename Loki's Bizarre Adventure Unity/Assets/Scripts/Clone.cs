@@ -49,13 +49,6 @@ public class Clone : MonoBehaviour
             rb.gravityScale = 0.0f;
             move.x = 0;
         }
-        if (collision.gameObject.tag == "Mirror" && canmirrorbounce == false)
-        {
-            Physics2D.IgnoreCollision(collision.collider, clonecollider);
-            clonecollision = collision;
-            isignoring = true;
-            //Invoke("IgnoreCollisions", 1f);
-        }
     }
 
     // Update is called once per frame
@@ -74,11 +67,7 @@ public class Clone : MonoBehaviour
                 isDashing = false;
             }
         }
-        if (canmirrorbounce == true && isignoring == true)
-        {
-            Physics2D.IgnoreCollision(clonecollision.collider, clonecollider, false);
-            isignoring = false;
-        }
+       
 
         if (jumpbuffer == true && rb.velocity.y == 0)
         {

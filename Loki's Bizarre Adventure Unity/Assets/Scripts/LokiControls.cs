@@ -58,6 +58,7 @@ public class LokiControls : MonoBehaviour
     public Collision2D lokicollision;
     public bool isignoring = false;
     public Collider2D clonecollider;
+    public Collider2D shieldcollider;
   
 
     
@@ -208,13 +209,7 @@ public class LokiControls : MonoBehaviour
             cameraShake.ShakeCamera(1f, 0.2f);
             Debug.Log("bouncybouncy");
         }
-        if (collision.gameObject.tag == "Mirror" && canmirrorbounce == false)
-        {
-            Physics2D.IgnoreCollision(collision.collider, lokicollider);
-            lokicollision = collision;
-            isignoring = true;
-            //Invoke("IgnoreCollisions", 1);
-        }
+  
     }
 
     void Update()
@@ -222,6 +217,7 @@ public class LokiControls : MonoBehaviour
         if (canmirrorbounce == true)
         {
             canmirrorbouncetimer -= Time.deltaTime;
+            shieldcollider.enabled = true;
             if (canmirrorbouncetimer <= 0)
             {
                 canmirrorbounce = false;
@@ -231,10 +227,9 @@ public class LokiControls : MonoBehaviour
                 isDashing = false;
             }
         }
-        if (canmirrorbounce == true && isignoring == true)
+        else
         {
-            Physics2D.IgnoreCollision(lokicollision.collider, lokicollider, false);
-            isignoring = false;
+            shieldcollider.enabled = false;
         }
         if (isbouncing == false)
         {
