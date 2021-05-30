@@ -43,6 +43,7 @@ public class Clone : MonoBehaviour
         if (collision.gameObject.tag == "Stop")
         {
             stopcheckcanbounce = false;
+            Physics2D.IgnoreCollision(shieldcollider, clonecollider);
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -56,11 +57,6 @@ public class Clone : MonoBehaviour
             isbouncing = true;
             rb.gravityScale = 0.0f;
             move.x = 0;
-        }
-        if (collision.gameObject.tag == "Stop")
-        {
-            stopcheckcanbounce = false;
-            Physics2D.IgnoreCollision(shieldcollider, clonecollider);
         }
     }
 

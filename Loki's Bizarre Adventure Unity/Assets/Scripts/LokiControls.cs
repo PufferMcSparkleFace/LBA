@@ -180,6 +180,20 @@ public class LokiControls : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Clonebounce Detector" && clonescript.tethered == false && clonescript.active == true)
+        {
+            canclonebounce = true;
+        }
+        if (collision.gameObject.tag == "Stop")
+        {
+            stopcheckcanbounce = false;
+            Physics2D.IgnoreCollision(shieldcollider, clonecollider);
+        }
+
+    }
+
     void Jump()
     {
         if(rb.velocity.y == 0)
@@ -331,19 +345,6 @@ void tetherManagement()
         controls.Loki.Disable();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.tag == "Clonebounce Detector" && clonescript.tethered == false && clonescript.active == true)
-        {
-            canclonebounce = true;
-        }
-        if (collision.gameObject.tag == "Stop")
-        {
-            stopcheckcanbounce = false;
-            Physics2D.IgnoreCollision(shieldcollider, clonecollider);
-        }
-
-    }
 
     public void CloneBounce()
     {
