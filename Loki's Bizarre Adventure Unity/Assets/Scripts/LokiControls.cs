@@ -23,7 +23,7 @@ public class LokiControls : MonoBehaviour
     [SerializeField]
     private CinemachineVirtualCamera BaldrCam;
     [SerializeField]
-    private bool isTethered = true;
+    public bool isTethered = true;
     [SerializeField]
     private float delay = 1;
     private Transform BaldrFollow;

@@ -71,6 +71,7 @@ public class BaldrControls : MonoBehaviour
         controls.Baldr.SwitchPlayerLeft.performed += ctx => SwitchPlayerLeft();
         controls.Baldr.SwitchPlayerRight.performed += ctx => SwitchPlayerRight();
         controls.Baldr.Slide.performed += ctx => Slide();
+        controls.Baldr.Tether.performed += ctx => tetherManagement();
     }
 
     void SwitchPlayerRight()
@@ -289,4 +290,27 @@ public class BaldrControls : MonoBehaviour
         }
     }
 
+
+    void tetherManagement()
+    {
+        if (isTethered == true)
+        {
+            isTethered = false;
+            lokiControls.isTethered = false;
+            lokiControls.move.x = 0;
+            return;
+        }
+
+        if (isTethered == false && Vector2.Distance(transform.position, LokiFollow.position) < 5)
+        {
+            isTethered = true;
+            lokiControls.isTethered = true;
+            OnDisable();
+            lokiControls.OnEnable();
+            BaldrCam.Priority = 0;
+            LokiCam.Priority = 1;
+            CloneCam.Priority = 0;
+            lokiControls.cloneisfocus = false;
+        }
+    }
 }
