@@ -112,6 +112,8 @@ public class BaldrControls : MonoBehaviour
             {
                 if (rb.velocity.y == 0)
                 {
+
+                    FindObjectOfType<AudioManager>().Play("Roll");
                     issliding = true;
                     currentslidetime = 1;
                     momentum *= momentumincrease;
