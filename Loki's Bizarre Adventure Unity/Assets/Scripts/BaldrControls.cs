@@ -284,7 +284,7 @@ public class BaldrControls : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Mirror" || collision.gameObject.tag == "Stop")
+        if(collision.gameObject.tag == "Mirror" || collision.gameObject.tag == "Stop" || collision.gameObject.tag == "Shield")
         {
             Physics2D.IgnoreCollision(collision.collider, this.gameObject.GetComponent<Collider2D>());
         }

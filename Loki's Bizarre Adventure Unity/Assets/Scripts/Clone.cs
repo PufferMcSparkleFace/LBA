@@ -58,6 +58,16 @@ public class Clone : MonoBehaviour
             rb.gravityScale = 0.0f;
             move.x = 0;
         }
+        if (collision.gameObject.tag == "Shield" && canmirrorbounce == true)
+        {
+            var direction = collision.transform.up;
+            rb.velocity = direction * DashForce * mirrorboostamount;
+            mirrorboostamount += 0.1f;
+            canmirrorbouncetimer = startingcanmirrorbouncetimer;
+            isbouncing = true;
+            rb.gravityScale = 0.0f;
+            move.x = 0;
+        }
     }
 
     // Update is called once per frame

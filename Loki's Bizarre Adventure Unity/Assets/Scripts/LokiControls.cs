@@ -229,7 +229,18 @@ public class LokiControls : MonoBehaviour
             cameraShake.ShakeCamera(1f, 0.2f);
             Debug.Log("bouncybouncy");
         }
-  
+        if (collision.gameObject.tag == "Shield" && canmirrorbounce == true)
+        {
+            var direction = collision.transform.up;
+            rb.velocity = direction * DashForce * mirrorboostamount;
+            mirrorboostamount += 0.1f;
+            canmirrorbouncetimer = startingcanmirrorbouncetimer;
+            isbouncing = true;
+            rb.gravityScale = 0.0f;
+            cameraShake.ShakeCamera(1f, 0.2f);
+            Debug.Log("bouncybouncy");
+        }
+
     }
 
     void Update()

@@ -8780,11 +8780,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.041628823, y: -0.53707695}
-      - {x: -2.45198, y: 0.083879024}
+    - - {x: -0.041628756, y: -1.0458755}
+      - {x: -3.1869113, y: -1.3859854}
       - {x: -3.2110376, y: -1.7570201}
       - {x: 3.1656773, y: -1.801385}
-      - {x: 2.554968, y: 0.04498598}
+      - {x: 2.6680346, y: -1.4248757}
+      - {x: 2.1592362, y: -1.1987443}
 --- !u!1 &808287742 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8035315701121973502, guid: e2d737e564da07e4b86caff099bbb8ba,
@@ -8797,15 +8798,49 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8035315700850688256}
   m_PrefabAsset: {fileID: 0}
+--- !u!60 &808287745
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 808287742}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 0.64, y: 0.64}
+    newSize: {x: 2, y: 0.875}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.16, y: 0.12}
+      - {x: 0.32, y: 0.12}
+      - {x: 3.0335946, y: -1.6190617}
+      - {x: 2.3866024, y: -0.6075815}
+      - {x: 1.2794775, y: 0.18906009}
+      - {x: 0.049999997, y: 0.53999996}
+      - {x: 0.01, y: 0.56}
+      - {x: -0.03, y: 0.56}
+      - {x: -1.5637307, y: 0.4626661}
+      - {x: -2.8622262, y: -0.19254981}
+      - {x: -3.0901282, y: -1.4063979}
+      - {x: -0.17, y: 0.12}
+      - {x: -0.13, y: 0.14999999}
+      - {x: 0, y: 0.32999998}
+      - {x: 0.02, y: 0.29}
 --- !u!212 &808287746 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 8035315701121974018, guid: e2d737e564da07e4b86caff099bbb8ba,
-    type: 3}
-  m_PrefabInstance: {fileID: 8035315700850688256}
-  m_PrefabAsset: {fileID: 0}
---- !u!61 &808287747 stripped
-BoxCollider2D:
-  m_CorrespondingSourceObject: {fileID: 8035315701121974017, guid: e2d737e564da07e4b86caff099bbb8ba,
     type: 3}
   m_PrefabInstance: {fileID: 8035315700850688256}
   m_PrefabAsset: {fileID: 0}
@@ -12247,7 +12282,7 @@ PrefabInstance:
         type: 3}
       propertyPath: shieldcollider
       value: 
-      objectReference: {fileID: 808287747}
+      objectReference: {fileID: 808287745}
     - target: {fileID: 106232278850255527, guid: 75069b6a3af9061499d232abeac41d5d,
         type: 3}
       propertyPath: m_RootOrder
@@ -12458,6 +12493,11 @@ PrefabInstance:
       objectReference: {fileID: 366193123}
     - target: {fileID: 2630882990381955763, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
         type: 3}
+      propertyPath: shield
+      value: 
+      objectReference: {fileID: 808287742}
+    - target: {fileID: 2630882990381955763, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
+        type: 3}
       propertyPath: LokiCam
       value: 
       objectReference: {fileID: 1358102681}
@@ -12505,7 +12545,7 @@ PrefabInstance:
         type: 3}
       propertyPath: shieldcollider
       value: 
-      objectReference: {fileID: 808287747}
+      objectReference: {fileID: 808287745}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4acb9815b6ee4934790c4d9f2fbbb00d, type: 3}
 --- !u!1001 &3939475863262024336
@@ -12994,6 +13034,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Shield '
       objectReference: {fileID: 0}
+    - target: {fileID: 8035315701121973502, guid: e2d737e564da07e4b86caff099bbb8ba,
+        type: 3}
+      propertyPath: m_TagString
+      value: Shield
+      objectReference: {fileID: 0}
     - target: {fileID: 8035315701121973503, guid: e2d737e564da07e4b86caff099bbb8ba,
         type: 3}
       propertyPath: m_RootOrder
@@ -13061,4 +13106,5 @@ PrefabInstance:
       objectReference: {fileID: 731504091}
     m_RemovedComponents:
     - {fileID: 8035315701121974016, guid: e2d737e564da07e4b86caff099bbb8ba, type: 3}
+    - {fileID: 8035315701121974017, guid: e2d737e564da07e4b86caff099bbb8ba, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e2d737e564da07e4b86caff099bbb8ba, type: 3}

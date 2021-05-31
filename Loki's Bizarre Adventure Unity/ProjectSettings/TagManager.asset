@@ -13,6 +13,7 @@ TagManager:
   - Mirror
   - CloneShield
   - Stop
+  - Shield
   layers:
   - Default
   - TransparentFX
