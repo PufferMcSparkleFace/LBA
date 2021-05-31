@@ -118,7 +118,7 @@ public class BaldrControls : MonoBehaviour
                     currentslidetime = 1;
                     momentum *= momentumincrease;
                     cameraShake.ShakeCamera(momentum, 0.2f);
-                    FindObjectOfType<AudioManager>().Play("Main Game");
+                   
                 }
                 canslide = false;
             }
@@ -138,7 +138,7 @@ public class BaldrControls : MonoBehaviour
         {
             rb.velocity = new Vector2(0, jumpHeight);
             jumpbuffer = false;
-            FindObjectOfType<AudioManager>().StopPlaying("Main Game");
+            
             if (issliding == true)
             {
                 currentslidetime = 2;
