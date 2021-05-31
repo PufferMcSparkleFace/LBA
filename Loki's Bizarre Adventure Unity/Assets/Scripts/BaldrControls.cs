@@ -150,6 +150,22 @@ public class BaldrControls : MonoBehaviour
         shieldangle = currentshieldangle;
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Switch")
+        {
+            ispressingswitch = true;
+            Debug.Log("Baldr is pressing a switch");
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Swtich")
+        {
+            ispressingswitch = false;
+        }
+    }
+
 
 
     void Update()
@@ -312,20 +328,6 @@ public class BaldrControls : MonoBehaviour
             LokiCam.Priority = 1;
             CloneCam.Priority = 0;
             lokiControls.cloneisfocus = false;
-        }
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.tag == "Switch")
-        {
-            ispressingswitch = true;
-        }
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if(collision.tag == "Swtich")
-        {
-            ispressingswitch = false;
         }
     }
 

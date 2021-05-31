@@ -10948,7 +10948,7 @@ GameObject:
   - component: {fileID: 1098949459}
   m_Layer: 0
   m_Name: Switch Facing Right
-  m_TagString: Untagged
+  m_TagString: Swtich
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10969,6 +10969,9 @@ MonoBehaviour:
   wall: {fileID: 358249513}
   switchunpressed: {fileID: 1098949461}
   switchpressed: {fileID: 155111123}
+  clonescript: {fileID: 366193125}
+  baldrscript: {fileID: 493697545}
+  lokiscript: {fileID: 1640241014}
 --- !u!61 &1098949460
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12033,7 +12036,7 @@ GameObject:
   - component: {fileID: 2000368195}
   m_Layer: 0
   m_Name: Switch Facing Left
-  m_TagString: Untagged
+  m_TagString: Swtich
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12054,6 +12057,9 @@ MonoBehaviour:
   wall: {fileID: 8608071}
   switchunpressed: {fileID: 2000368197}
   switchpressed: {fileID: 628374082}
+  clonescript: {fileID: 366193125}
+  baldrscript: {fileID: 493697545}
+  lokiscript: {fileID: 1640241014}
 --- !u!61 &2000368196
 BoxCollider2D:
   m_ObjectHideFlags: 0
