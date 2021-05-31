@@ -131,7 +131,7 @@
                 {
                     "name": "",
                     "id": "c47c6f6b-dd1c-4868-911b-dcbda2c190e8",
-                    "path": "<DualShockGamepad>/leftShoulder",
+                    "path": "<DualShockGamepad>/dpad/left",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -142,7 +142,7 @@
                 {
                     "name": "",
                     "id": "d89f3cd9-86b6-4582-9b12-58458e91c39d",
-                    "path": "<DualShockGamepad>/rightStickPress",
+                    "path": "<DualShockGamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -186,7 +186,7 @@
                 {
                     "name": "",
                     "id": "40f86f1c-58e1-4951-923d-42ad24780a03",
-                    "path": "<DualShockGamepad>/rightShoulder",
+                    "path": "<DualShockGamepad>/dpad/right",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -197,7 +197,7 @@
                 {
                     "name": "",
                     "id": "a3701bc6-4277-4b7f-ae4f-0f840bcaf1a4",
-                    "path": "<DualShockGamepad>/buttonEast",
+                    "path": "<DualShockGamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -293,6 +293,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Tether",
+                    "type": "Button",
+                    "id": "925c7dd4-56f2-41ca-b094-b764151f89ba",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -332,7 +340,7 @@
                 {
                     "name": "",
                     "id": "4b2048e2-55d4-44fd-bb41-437930035976",
-                    "path": "<DualShockGamepad>/leftShoulder",
+                    "path": "<DualShockGamepad>/dpad/left",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -343,7 +351,7 @@
                 {
                     "name": "",
                     "id": "d2f361f1-9e2b-4eb1-a71b-2a3936e37e7e",
-                    "path": "<DualShockGamepad>/rightShoulder",
+                    "path": "<DualShockGamepad>/dpad/right",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -365,7 +373,7 @@
                 {
                     "name": "",
                     "id": "cbb9bcb6-75e2-4487-b223-7a3059cb1abf",
-                    "path": "<DualShockGamepad>/buttonEast",
+                    "path": "<DualShockGamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -392,6 +400,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Slide",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5f581863-4f22-49c7-af39-8fbd81f71c2a",
+                    "path": "<DualShockGamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Tether",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

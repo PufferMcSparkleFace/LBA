@@ -144,7 +144,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""c47c6f6b-dd1c-4868-911b-dcbda2c190e8"",
-                    ""path"": ""<DualShockGamepad>/leftShoulder"",
+                    ""path"": ""<DualShockGamepad>/dpad/left"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -155,7 +155,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""d89f3cd9-86b6-4582-9b12-58458e91c39d"",
-                    ""path"": ""<DualShockGamepad>/rightStickPress"",
+                    ""path"": ""<DualShockGamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -199,7 +199,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""40f86f1c-58e1-4951-923d-42ad24780a03"",
-                    ""path"": ""<DualShockGamepad>/rightShoulder"",
+                    ""path"": ""<DualShockGamepad>/dpad/right"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -210,7 +210,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""a3701bc6-4277-4b7f-ae4f-0f840bcaf1a4"",
-                    ""path"": ""<DualShockGamepad>/buttonEast"",
+                    ""path"": ""<DualShockGamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -306,6 +306,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Tether"",
+                    ""type"": ""Button"",
+                    ""id"": ""925c7dd4-56f2-41ca-b094-b764151f89ba"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -345,7 +353,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""4b2048e2-55d4-44fd-bb41-437930035976"",
-                    ""path"": ""<DualShockGamepad>/leftShoulder"",
+                    ""path"": ""<DualShockGamepad>/dpad/left"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -356,7 +364,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""d2f361f1-9e2b-4eb1-a71b-2a3936e37e7e"",
-                    ""path"": ""<DualShockGamepad>/rightShoulder"",
+                    ""path"": ""<DualShockGamepad>/dpad/right"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -378,7 +386,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""cbb9bcb6-75e2-4487-b223-7a3059cb1abf"",
-                    ""path"": ""<DualShockGamepad>/buttonEast"",
+                    ""path"": ""<DualShockGamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -405,6 +413,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Slide"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5f581863-4f22-49c7-af39-8fbd81f71c2a"",
+                    ""path"": ""<DualShockGamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Tether"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -437,6 +456,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Baldr_Jump2 = m_Baldr.FindAction("Jump 2", throwIfNotFound: true);
         m_Baldr_AngleShield = m_Baldr.FindAction("Angle Shield", throwIfNotFound: true);
         m_Baldr_Slide = m_Baldr.FindAction("Slide", throwIfNotFound: true);
+        m_Baldr_Tether = m_Baldr.FindAction("Tether", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -608,6 +628,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Baldr_Jump2;
     private readonly InputAction m_Baldr_AngleShield;
     private readonly InputAction m_Baldr_Slide;
+    private readonly InputAction m_Baldr_Tether;
     public struct BaldrActions
     {
         private @PlayerControls m_Wrapper;
@@ -621,6 +642,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @Jump2 => m_Wrapper.m_Baldr_Jump2;
         public InputAction @AngleShield => m_Wrapper.m_Baldr_AngleShield;
         public InputAction @Slide => m_Wrapper.m_Baldr_Slide;
+        public InputAction @Tether => m_Wrapper.m_Baldr_Tether;
         public InputActionMap Get() { return m_Wrapper.m_Baldr; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -657,6 +679,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Slide.started -= m_Wrapper.m_BaldrActionsCallbackInterface.OnSlide;
                 @Slide.performed -= m_Wrapper.m_BaldrActionsCallbackInterface.OnSlide;
                 @Slide.canceled -= m_Wrapper.m_BaldrActionsCallbackInterface.OnSlide;
+                @Tether.started -= m_Wrapper.m_BaldrActionsCallbackInterface.OnTether;
+                @Tether.performed -= m_Wrapper.m_BaldrActionsCallbackInterface.OnTether;
+                @Tether.canceled -= m_Wrapper.m_BaldrActionsCallbackInterface.OnTether;
             }
             m_Wrapper.m_BaldrActionsCallbackInterface = instance;
             if (instance != null)
@@ -688,6 +713,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Slide.started += instance.OnSlide;
                 @Slide.performed += instance.OnSlide;
                 @Slide.canceled += instance.OnSlide;
+                @Tether.started += instance.OnTether;
+                @Tether.performed += instance.OnTether;
+                @Tether.canceled += instance.OnTether;
             }
         }
     }
@@ -717,5 +745,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnJump2(InputAction.CallbackContext context);
         void OnAngleShield(InputAction.CallbackContext context);
         void OnSlide(InputAction.CallbackContext context);
+        void OnTether(InputAction.CallbackContext context);
     }
 }
