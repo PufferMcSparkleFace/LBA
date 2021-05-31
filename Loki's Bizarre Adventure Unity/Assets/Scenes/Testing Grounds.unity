@@ -10809,12 +10809,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - clip: {fileID: 8300000, guid: a35ec44331d4b514cabf31e928f058b5, type: 3}
-    volume: 1
-    pitch: 1
-    name: Walking
-    source: {fileID: 0}
-    loop: 1
   - clip: {fileID: 8300000, guid: c134bf6bd85561b4b938c913b97b57c9, type: 3}
     volume: 1
     pitch: 1
@@ -10828,14 +10822,20 @@ MonoBehaviour:
     source: {fileID: 0}
     loop: 0
   - clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     name: 
     source: {fileID: 0}
     loop: 0
   - clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
+    name: 
+    source: {fileID: 0}
+    loop: 0
+  - clip: {fileID: 0}
+    volume: 1
+    pitch: 1
     name: 
     source: {fileID: 0}
     loop: 0
@@ -12796,12 +12796,12 @@ PrefabInstance:
     - target: {fileID: 5447813507063278268, guid: 96e249b31324c534c8897d4808b858ba,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.500184
+      value: 2.5001836
       objectReference: {fileID: 0}
     - target: {fileID: 5447813507063278268, guid: 96e249b31324c534c8897d4808b858ba,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.9973904
+      value: -0.9973937
       objectReference: {fileID: 0}
     - target: {fileID: 5447813507063278268, guid: 96e249b31324c534c8897d4808b858ba,
         type: 3}
