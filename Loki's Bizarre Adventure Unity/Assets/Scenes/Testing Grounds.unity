@@ -10821,24 +10821,27 @@ MonoBehaviour:
     name: Roll
     source: {fileID: 0}
     loop: 0
-  - clip: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 25eb1d2a1356fb744aed40123c0d0040, type: 3}
     volume: 1
     pitch: 1
-    name: 
+    name: Title Screen
     source: {fileID: 0}
-    loop: 0
-  - clip: {fileID: 0}
+    loop: 1
+  - clip: {fileID: 8300000, guid: 6a7ae4f452f352d4d9ded1fab89f7c70, type: 3}
     volume: 1
     pitch: 1
-    name: 
+    name: Main Game
     source: {fileID: 0}
-    loop: 0
-  - clip: {fileID: 0}
+    loop: 1
+  - clip: {fileID: 8300000, guid: b8970a9401ee1434ba4c6c136580aba2, type: 3}
     volume: 1
     pitch: 1
-    name: 
+    name: End Screen
     source: {fileID: 0}
-    loop: 0
+    loop: 1
+  titleScreen: 0
+  endScreen: 0
+  mainGame: 0
 --- !u!4 &1042896314
 Transform:
   m_ObjectHideFlags: 0
