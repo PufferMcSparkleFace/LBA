@@ -60,10 +60,11 @@ public class LokiControls : MonoBehaviour
     public Collider2D clonecollider;
     public Collider2D shieldcollider;
     public Collider2D stopcollider;
+    public bool ispressingswitch = false;
 
-  
 
-    
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -190,9 +191,20 @@ public class LokiControls : MonoBehaviour
             canmirrorbouncetimer = 0;
             clonescript.canmirrorbouncetimer = 0;
         }
+        if (collision.tag == "Swtich")
+        {
+            ispressingswitch = true;
+        }
 
     }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Swtich")
+        {
+            ispressingswitch = false;
+        }
+    }
     void Jump()
     {
         if(rb.velocity.y == 0)

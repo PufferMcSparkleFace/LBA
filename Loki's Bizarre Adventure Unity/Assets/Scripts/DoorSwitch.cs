@@ -8,6 +8,9 @@ public class DoorSwitch : MonoBehaviour
     public GameObject wall;
     public SpriteRenderer switchunpressed;
     public SpriteRenderer switchpressed;
+    public Clone clonescript;
+    public BaldrControls baldrscript;
+    public LokiControls lokiscript;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +39,10 @@ public class DoorSwitch : MonoBehaviour
         {
             if (collision.gameObject.tag == "Clone" || collision.gameObject.tag == "Loki" || collision.gameObject.tag == "Baldr")
             {
+                if(clonescript.ispressingswitch == true || lokiscript.ispressingswitch == true || baldrscript.ispressingswitch == true)
+                {
+                    return;
+                }
                 switchpressed.enabled = false;
                 switchunpressed.enabled = true;
                 wall.SetActive(true);

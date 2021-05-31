@@ -29,6 +29,7 @@ public class Clone : MonoBehaviour
     public Collision2D clonecollision;
     public bool isignoring = false;
     public Collider2D shieldcollider;
+    public bool ispressingswitch = false;
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +45,19 @@ public class Clone : MonoBehaviour
             canmirrorbounce = false;
             canmirrorbouncetimer = 0;
             lokicontrols.canmirrorbouncetimer = 0;
+        }
+        
+            if (collision.tag == "Swtich")
+            {
+                ispressingswitch = true;
+            }
+        
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Swtich")
+        {
+            ispressingswitch = false;
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)

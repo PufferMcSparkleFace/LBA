@@ -47,6 +47,7 @@ public class BaldrControls : MonoBehaviour
     public Vector2 shieldrotation;
     public float shieldangle;
     public float currentshieldangle;
+    public bool ispressingswitch = false;
 
 
     // Start is called before the first frame update
@@ -313,4 +314,19 @@ public class BaldrControls : MonoBehaviour
             lokiControls.cloneisfocus = false;
         }
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Switch")
+        {
+            ispressingswitch = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.tag == "Swtich")
+        {
+            ispressingswitch = false;
+        }
+    }
+
 }
