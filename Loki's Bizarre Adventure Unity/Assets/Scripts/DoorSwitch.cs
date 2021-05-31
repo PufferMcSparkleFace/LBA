@@ -25,16 +25,23 @@ public class DoorSwitch : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Clone" || collision.gameObject.tag == "Loki" || collision.gameObject.tag == "Baldr")
+        if (collision.gameObject.tag == "Clone" || collision.gameObject.tag == "Loki" || collision.gameObject.tag == "Baldr")
         {
             switchpressed.enabled = true;
             switchunpressed.enabled = false;
             wall.SetActive(false);
         }
-        
+        if (collision.tag == "Baldr")
+        {
+            baldrscript.ispressingswitch = true;
+        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if(collision.tag == "Baldr")
+        {
+            baldrscript.ispressingswitch = false;
+        }
         if(sticky == false)
         {
             if (collision.gameObject.tag == "Clone" || collision.gameObject.tag == "Loki" || collision.gameObject.tag == "Baldr")

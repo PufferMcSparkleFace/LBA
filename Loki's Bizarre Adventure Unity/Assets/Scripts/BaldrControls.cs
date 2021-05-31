@@ -150,22 +150,6 @@ public class BaldrControls : MonoBehaviour
         shieldangle = currentshieldangle;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Switch")
-        {
-            ispressingswitch = true;
-            Debug.Log("Baldr is pressing a switch");
-        }
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Swtich")
-        {
-            ispressingswitch = false;
-        }
-    }
-
 
 
     void Update()
