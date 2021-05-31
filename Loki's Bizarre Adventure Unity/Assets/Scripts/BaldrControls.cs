@@ -155,7 +155,7 @@ public class BaldrControls : MonoBehaviour
     void Update()
     {
         shieldangle = currentshieldangle;
-        if (shieldrotation.x >= 0.5 || shieldrotation.y >= 0.5)
+        if (shieldrotation.x >= 0.5 || shieldrotation.y >= 0.5 || shieldrotation.x <= -0.5 || shieldrotation.y <= -0.5)
         {
             shieldangle = Mathf.Atan2(shieldrotation.x, shieldrotation.y) * Mathf.Rad2Deg;
             currentshieldangle = shieldangle;
