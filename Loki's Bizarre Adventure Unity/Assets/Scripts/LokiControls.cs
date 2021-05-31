@@ -119,7 +119,9 @@ public class LokiControls : MonoBehaviour
             clonecollider.enabled = true;
             Physics2D.IgnoreCollision(shieldcollider, lokicollider, false);
             clonescript.IsSummoned();
-            
+
+            FindObjectOfType<AudioManager>().Play("Dash");
+
         }
         else if (clonescript.active == true && clonescript.tethered == true)
         {
@@ -240,6 +242,7 @@ public class LokiControls : MonoBehaviour
             rb.gravityScale = 0.0f;
             cameraShake.ShakeCamera(1f, 0.2f);
             Debug.Log("bouncybouncy");
+            FindObjectOfType<AudioManager>().Play("Dash");
         }
         if (collision.gameObject.tag == "Shield" && canmirrorbounce == true)
         {
@@ -250,7 +253,8 @@ public class LokiControls : MonoBehaviour
             isbouncing = true;
             rb.gravityScale = 0.0f;
             cameraShake.ShakeCamera(1f, 0.2f);
-            Debug.Log("bouncybouncy");
+            Debug.Log("bouncybouncy"); 
+            FindObjectOfType<AudioManager>().Play("Dash");
         }
 
     }

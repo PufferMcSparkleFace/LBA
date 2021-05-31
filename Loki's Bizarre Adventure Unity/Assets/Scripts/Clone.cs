@@ -71,6 +71,7 @@ public class Clone : MonoBehaviour
             isbouncing = true;
             rb.gravityScale = 0.0f;
             move.x = 0;
+            FindObjectOfType<AudioManager>().Play("Dash");
         }
         if (collision.gameObject.tag == "Shield" && canmirrorbounce == true)
         {
@@ -81,6 +82,7 @@ public class Clone : MonoBehaviour
             isbouncing = true;
             rb.gravityScale = 0.0f;
             move.x = 0;
+            FindObjectOfType<AudioManager>().Play("Dash");
         }
     }
 
