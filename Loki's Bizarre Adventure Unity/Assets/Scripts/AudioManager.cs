@@ -26,12 +26,17 @@ public class AudioManager : MonoBehaviour
         Sound s = Array.Find(sounds, sound => sound.name == name);
         s.source.Play();
     }
-
-    public void Update()
+    public void StopPlaying(string sound)
     {
-        if(titleScreen == true)
+        Sound s = Array.Find(sounds, item => item.name == sound);
+        if (s == null)
         {
-            Play("Title Screen");  
+            return;
         }
+
+        s.source.volume = s.volume;
+        s.source.pitch = s.pitch;
+
+        s.source.Stop();
     }
 }
