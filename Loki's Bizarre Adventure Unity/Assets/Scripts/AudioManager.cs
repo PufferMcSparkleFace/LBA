@@ -5,6 +5,9 @@ using System;
 public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;
+    public bool titleScreen = false;
+    public bool endScreen = false;
+    public bool mainGame = false;
     // Start is called before the first frame update
     void Awake()
     {
@@ -24,5 +27,11 @@ public class AudioManager : MonoBehaviour
         s.source.Play();
     }
 
-    
+    public void Update()
+    {
+        if(titleScreen == true)
+        {
+            Play("Title Screen");  
+        }
+    }
 }
