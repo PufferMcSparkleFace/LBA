@@ -50,7 +50,7 @@ public class Clone : MonoBehaviour
             if (collision.tag == "Swtich")
             {
                 ispressingswitch = true;
-            }
+        }
         
     }
     private void OnTriggerExit2D(Collider2D collision)
