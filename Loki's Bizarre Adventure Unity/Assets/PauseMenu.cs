@@ -22,4 +22,15 @@ public class PauseMenu : MonoBehaviour
             Time.timeScale = 0f;
         }
     }
+
+    public void LoadControls()
+    {
+        Debug.Log("Controls");
+    }
+
+    public void QuitGame()
+    {
+        Debug.Log("Quit");
+        Application.Quit();
+    }
 }
