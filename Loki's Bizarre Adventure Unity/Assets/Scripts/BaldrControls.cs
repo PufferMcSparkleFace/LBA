@@ -278,7 +278,12 @@ public class BaldrControls : MonoBehaviour
 
         shieldgameobject.transform.eulerAngles = new Vector3(shieldgameobject.transform.eulerAngles.x, shieldgameobject.transform.eulerAngles.y, shieldangle);
 
-
+        if (lokiControls.hasbaldr == false)
+        {
+            OnDisable();
+            move.x = 0;
+            canslide = false;
+        }
     }
 
     public void OnEnable()
