@@ -61,7 +61,6 @@ public class LokiControls : MonoBehaviour
     public Collider2D shieldcollider;
     public Collider2D stopcollider;
     public bool ispressingswitch = false;
-    public bool hasbaldr = false;
 
 
 
@@ -140,11 +139,7 @@ public class LokiControls : MonoBehaviour
     
     void SwitchPlayerLeft()
     {
-        if (cloneisfocus == false && hasbaldr == false)
-        {
-            return;
-        }
-        else if (cloneisfocus == false && hasbaldr == true)
+        if(cloneisfocus == false)
         {
             OnDisable();
             baldrControls.OnEnable();
@@ -155,7 +150,7 @@ public class LokiControls : MonoBehaviour
             baldrControls.move.x = 0;
             cloneisfocus = false;
         }
-        else if(cloneisfocus == true)
+        if(cloneisfocus == true)
         {
             CloneCam.Priority = 0;
             LokiCam.Priority = 1;
@@ -175,17 +170,14 @@ public class LokiControls : MonoBehaviour
         }
         else if(clonescript.active == false || cloneisfocus == true)
         {
-            if(hasbaldr == true)
-            {
-                OnDisable();
-                baldrControls.OnEnable();
-                LokiCam.Priority = 0;
-                BaldrCam.Priority = 1;
-                isTethered = false;
-                baldrControls.isTethered = false;
-                cloneisfocus = false;
-                baldrControls.move.x = 0;
-            }
+            OnDisable();
+            baldrControls.OnEnable();
+            LokiCam.Priority = 0;
+            BaldrCam.Priority = 1;
+            isTethered = false;
+            baldrControls.isTethered = false;
+            cloneisfocus = false;
+            baldrControls.move.x = 0;
         }
     }
 
@@ -204,10 +196,6 @@ public class LokiControls : MonoBehaviour
         if (collision.tag == "Swtich")
         {
             ispressingswitch = true;
-        }
-        if(collision.tag == "Baldr Unlocked!")
-        {
-            hasbaldr = true;
         }
 
     }
