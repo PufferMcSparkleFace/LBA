@@ -64,7 +64,7 @@ public class Clone : MonoBehaviour
     {
         if (collision.gameObject.tag == "Mirror" && canmirrorbounce == true)
         {
-            var direction = -collision.transform.up;
+            var direction = collision.contacts[0].normal;
             rb.velocity = direction * DashForce * mirrorboostamount;
             mirrorboostamount += 0.1f;
             canmirrorbouncetimer = startingcanmirrorbouncetimer;
