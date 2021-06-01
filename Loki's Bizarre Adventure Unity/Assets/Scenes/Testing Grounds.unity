@@ -189,8 +189,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -106028557
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -5385,6 +5385,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Loki Clone
       objectReference: {fileID: 0}
+    - target: {fileID: 106232278850255525, guid: 75069b6a3af9061499d232abeac41d5d,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 106232278850255525, guid: 75069b6a3af9061499d232abeac41d5d,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -8289535
+      objectReference: {fileID: 0}
     - target: {fileID: 106232278850255526, guid: 75069b6a3af9061499d232abeac41d5d,
         type: 3}
       propertyPath: lokicontrols
@@ -5538,6 +5548,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1331319862}
     m_Modifications:
+    - target: {fileID: 2630882990370421957, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2630882990370421957, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -8289535
+      objectReference: {fileID: 0}
     - target: {fileID: 2630882990370422073, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
         type: 3}
       propertyPath: m_Name
@@ -6246,6 +6266,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526327197195928550, guid: 08bbef220a509b640b073c02da272c9b,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526327197195928550, guid: 08bbef220a509b640b073c02da272c9b,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -8289535
       objectReference: {fileID: 0}
     - target: {fileID: 7526327197195928553, guid: 08bbef220a509b640b073c02da272c9b,
         type: 3}
