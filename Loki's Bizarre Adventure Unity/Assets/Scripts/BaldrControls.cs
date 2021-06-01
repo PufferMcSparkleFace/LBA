@@ -57,6 +57,7 @@ public class BaldrControls : MonoBehaviour
         Physics2D.IgnoreCollision(shield.GetComponent<BoxCollider2D>(), GetComponent<PolygonCollider2D>());
         OnDisable();
         LokiFollow = GameObject.FindGameObjectWithTag("Loki").GetComponent<Transform>();
+        OnDisable();
       
     }
 
