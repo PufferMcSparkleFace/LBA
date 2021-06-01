@@ -17,6 +17,7 @@ public class StartMenu : MonoBehaviour
         clonecam.Priority = 0;
         titlescreencam.Priority = 1;
         lokicontrols.OnDisable();
+        titlescreen.SetActive(true);
     }
 
     // Update is called once per frame
