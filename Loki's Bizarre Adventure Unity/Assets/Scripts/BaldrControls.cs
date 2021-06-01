@@ -55,9 +55,8 @@ public class BaldrControls : MonoBehaviour
     {
         GameObject shield = GameObject.FindGameObjectWithTag("Mirror");
         Physics2D.IgnoreCollision(shield.GetComponent<BoxCollider2D>(), GetComponent<PolygonCollider2D>());
-        LokiFollow = GameObject.FindGameObjectWithTag("Loki").GetComponent<Transform>();
         OnDisable();
-        
+        LokiFollow = GameObject.FindGameObjectWithTag("Loki").GetComponent<Transform>();
       
     }
 
@@ -279,6 +278,12 @@ public class BaldrControls : MonoBehaviour
 
         shieldgameobject.transform.eulerAngles = new Vector3(shieldgameobject.transform.eulerAngles.x, shieldgameobject.transform.eulerAngles.y, shieldangle);
 
+        if (lokiControls.hasbaldr == false)
+        {
+            OnDisable();
+            move.x = 0;
+            canslide = false;
+        }
     }
 
     public void OnEnable()
