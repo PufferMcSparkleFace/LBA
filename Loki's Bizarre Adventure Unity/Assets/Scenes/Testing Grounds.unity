@@ -12601,11 +12601,6 @@ PrefabInstance:
       objectReference: {fileID: 676456114}
     - target: {fileID: 2630882990381955763, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
         type: 3}
-      propertyPath: isTethered
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2630882990381955763, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
-        type: 3}
       propertyPath: cameraShake
       value: 
       objectReference: {fileID: 1358102684}
@@ -13023,16 +13018,6 @@ PrefabInstance:
       propertyPath: CloneCam
       value: 
       objectReference: {fileID: 676456114}
-    - target: {fileID: 7526327196878974822, guid: 08bbef220a509b640b073c02da272c9b,
-        type: 3}
-      propertyPath: isTethered
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7526327196878974822, guid: 08bbef220a509b640b073c02da272c9b,
-        type: 3}
-      propertyPath: jumpbuffer
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7526327196878974822, guid: 08bbef220a509b640b073c02da272c9b,
         type: 3}
       propertyPath: cameraShake
