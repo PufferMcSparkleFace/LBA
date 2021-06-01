@@ -91,7 +91,7 @@ public class BaldrControls : MonoBehaviour
         OnDisable();
         lokiControls.OnEnable();
         BaldrCam.Priority = 0;
-        if (clonescript.active)
+        if (clonescript.active == true)
         {
             LokiCam.Priority = 0;
             CloneCam.Priority = 1;
@@ -107,7 +107,7 @@ public class BaldrControls : MonoBehaviour
 
     public void Slide()
     {
-        if (canslide)
+        if (canslide == true)
         {
             if (move.x >= 0.5f || move.x <= -0.5f)
             {
@@ -131,7 +131,7 @@ public class BaldrControls : MonoBehaviour
     public void Jump()
     {
         
-        if (rb.velocity.y != 0 && isTethered)
+        if (rb.velocity.y != 0 && isTethered == true)
         {
             jumpbuffer = true;
         }
@@ -140,7 +140,7 @@ public class BaldrControls : MonoBehaviour
             rb.velocity = new Vector2(0, jumpHeight);
             jumpbuffer = false;
             
-            if (issliding)
+            if (issliding == true)
             {
                 currentslidetime = 2;
                 canslide = true;
@@ -165,7 +165,7 @@ public class BaldrControls : MonoBehaviour
             shieldangle = Mathf.Atan2(shieldrotation.x, shieldrotation.y) * Mathf.Rad2Deg;
             currentshieldangle = shieldangle;
         }
-        if (issliding)
+        if (issliding == true)
         {
             currentslidetime -= Time.deltaTime;
             BaldrAnimator.SetBool("IsSliding", true);
@@ -176,7 +176,7 @@ public class BaldrControls : MonoBehaviour
                 BaldrAnimator.SetBool("IsSliding", false);
             }
         }
-        if(isslowingdown)
+        if(isslowingdown == true)
         {
             momentum -= Time.deltaTime *2;
         }
@@ -197,11 +197,11 @@ public class BaldrControls : MonoBehaviour
             transform.Translate(m, Space.World);
         }
        
-        if(Vector2.Distance(transform.position, LokiFollow.position) >= distancetoloki && isTethered)
+        if(Vector2.Distance(transform.position, LokiFollow.position) > distancetoloki && isTethered == true)
         {
-            transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), new Vector2(LokiFollow.position.x, transform.position.y), speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), new Vector2 (LokiFollow.position.x, transform.position.y), speed * Time.deltaTime);
         }
-        if(jumpbuffer && rb.velocity.y == 0)
+        if(jumpbuffer == true && rb.velocity.y == 0)
         {
             rb.velocity = new Vector2(0, jumpHeight);
             jumpbuffer = false;
@@ -228,7 +228,7 @@ public class BaldrControls : MonoBehaviour
 
 
 
-        if (move.x > 0 && BaldrSpriteRenderer.flipX)
+        if (move.x > 0 && BaldrSpriteRenderer.flipX == true)
         {
             BaldrSpriteRenderer.flipX = false;
          
@@ -240,7 +240,7 @@ public class BaldrControls : MonoBehaviour
         }
 
 
-        if (isTethered)
+        if (isTethered == true)
         {
             move.x = lokiControls.move.x;
             if (LokiFollow.position.x > transform.position.x)
@@ -262,13 +262,13 @@ public class BaldrControls : MonoBehaviour
             shieldangle = -shieldangle;
         }
 
-        if (BaldrSpriteRenderer.flipX)
+        if (BaldrSpriteRenderer.flipX == true)
         {
             shieldgameobject.transform.eulerAngles = new Vector3(shieldgameobject.transform.eulerAngles.x, 180, shieldgameobject.transform.eulerAngles.z);
             shieldpositiongameobject.transform.position = position1.transform.position;
         }
      
-        if(issliding || rb.velocity.y != 0 || isTethered || isslowingdown)
+        if(issliding == true || rb.velocity.y != 0 || isTethered == true || isslowingdown == true)
         {
             shieldsprite.enabled = false;
         }
@@ -302,7 +302,7 @@ public class BaldrControls : MonoBehaviour
 
     void tetherManagement()
     {
-        if (isTethered)
+        if (isTethered == true)
         {
             isTethered = false;
             lokiControls.isTethered = false;
