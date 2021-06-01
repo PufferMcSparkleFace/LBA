@@ -4330,7 +4330,7 @@ GameObject:
   - component: {fileID: 924699828}
   - component: {fileID: 924699829}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Baldr Unlocked!
   m_TagString: Baldr Unlocked!
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6007,22 +6007,22 @@ PrefabInstance:
     - target: {fileID: 6893594710267805693, guid: 1e819e21862be7043b0234f6045cd117,
         type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[5].x
-      value: 5.638851
+      value: 18.715034
       objectReference: {fileID: 0}
     - target: {fileID: 6893594710267805693, guid: 1e819e21862be7043b0234f6045cd117,
         type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[5].y
-      value: -7.22789
+      value: -9.134832
       objectReference: {fileID: 0}
     - target: {fileID: 6893594710267805693, guid: 1e819e21862be7043b0234f6045cd117,
         type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[6].x
-      value: 5.6260185
+      value: 18.611393
       objectReference: {fileID: 0}
     - target: {fileID: 6893594710267805693, guid: 1e819e21862be7043b0234f6045cd117,
         type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[6].y
-      value: 9.913264
+      value: 10.548911
       objectReference: {fileID: 0}
     - target: {fileID: 6893594710267805693, guid: 1e819e21862be7043b0234f6045cd117,
         type: 3}
