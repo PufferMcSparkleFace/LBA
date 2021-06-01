@@ -6189,6 +6189,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7526327196878974822, guid: 08bbef220a509b640b073c02da272c9b,
         type: 3}
+      propertyPath: lokiFollow
+      value: 
+      objectReference: {fileID: 1640241013}
+    - target: {fileID: 7526327196878974822, guid: 08bbef220a509b640b073c02da272c9b,
+        type: 3}
       propertyPath: cameraShake
       value: 
       objectReference: {fileID: 596104080}

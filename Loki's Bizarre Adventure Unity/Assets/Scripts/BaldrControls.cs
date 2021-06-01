@@ -23,7 +23,7 @@ public class BaldrControls : MonoBehaviour
     [SerializeField]
     private CinemachineVirtualCamera BaldrCam;
     public bool isTethered = true;
-    private Transform LokiFollow;
+    public Transform lokiFollow;
     [SerializeField]
     public float distancetoloki;
     [SerializeField]
@@ -55,7 +55,7 @@ public class BaldrControls : MonoBehaviour
     {
         GameObject shield = GameObject.FindGameObjectWithTag("Mirror");
         Physics2D.IgnoreCollision(shield.GetComponent<BoxCollider2D>(), GetComponent<PolygonCollider2D>());
-        LokiFollow = GameObject.FindGameObjectWithTag("Loki").GetComponent<Transform>();
+        
       
     }
 
@@ -199,9 +199,9 @@ public class BaldrControls : MonoBehaviour
             transform.Translate(m, Space.World);
         }
        
-        if(Vector2.Distance(transform.position, LokiFollow.position) >= distancetoloki && isTethered)
+        if(Vector2.Distance(transform.position, lokiFollow.position) >= distancetoloki && isTethered)
         {
-            transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), new Vector2(LokiFollow.position.x, transform.position.y), speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), new Vector2(lokiFollow.position.x, transform.position.y), speed * Time.deltaTime);
         }
         if(jumpbuffer && rb.velocity.y == 0)
         {
@@ -245,12 +245,12 @@ public class BaldrControls : MonoBehaviour
         if (isTethered)
         {
             move.x = lokiControls.move.x;
-            if (LokiFollow.position.x > transform.position.x)
+            if (lokiFollow.position.x > transform.position.x)
             {
                 BaldrSpriteRenderer.flipX = false;
                
             }
-            else if (LokiFollow.position.x < transform.position.x)
+            else if (lokiFollow.position.x < transform.position.x)
             {
                 BaldrSpriteRenderer.flipX = true;
                 
@@ -312,7 +312,7 @@ public class BaldrControls : MonoBehaviour
             return;
         }
 
-        if (isTethered == false && Vector2.Distance(transform.position, LokiFollow.position) < 5)
+        if (isTethered == false && Vector2.Distance(transform.position, lokiFollow.position) < 5)
         {
             isTethered = true;
             lokiControls.isTethered = true;
