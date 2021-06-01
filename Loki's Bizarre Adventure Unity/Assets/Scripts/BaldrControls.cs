@@ -48,6 +48,7 @@ public class BaldrControls : MonoBehaviour
     public float shieldangle;
     public float currentshieldangle;
     public bool ispressingswitch = false;
+    public PauseMenu pauseScript;
 
 
     // Start is called before the first frame update
@@ -72,6 +73,7 @@ public class BaldrControls : MonoBehaviour
         controls.Baldr.SwitchPlayerRight.performed += ctx => SwitchPlayerRight();
         controls.Baldr.Slide.performed += ctx => Slide();
         controls.Baldr.Tether.performed += ctx => tetherManagement();
+        controls.Baldr.Pause.performed += ctx => pauseScript.Pause();
     }
 
     void SwitchPlayerRight()

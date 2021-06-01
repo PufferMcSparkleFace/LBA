@@ -5,21 +5,9 @@ using UnityEngine;
 public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
-    PlayerControls controls;
     public GameObject pauseMenuUI;
 
-    private void Awake()
-    {
-        controls = new PlayerControls();
-        controls.Pause.Pause.performed += ctx => Pause();
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    void Pause()
+    public void Pause()
     {
         if(GameIsPaused == true)
         {

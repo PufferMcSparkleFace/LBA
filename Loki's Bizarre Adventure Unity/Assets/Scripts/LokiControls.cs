@@ -62,6 +62,7 @@ public class LokiControls : MonoBehaviour
     public Collider2D stopcollider;
     public bool ispressingswitch = false;
     public bool hasbaldr = false;
+    public PauseMenu pauseScript;
 
 
 
@@ -90,6 +91,7 @@ public class LokiControls : MonoBehaviour
         controls.Loki.SwitchPlayerRight.performed += ctx => SwitchPlayerRight();
         controls.Loki.TetherBaldr.performed += ctx => tetherManagement();
         controls.Loki.SummonClone.performed += ctx => SummonClone();
+        controls.Loki.Pause.performed += ctx => pauseScript.Pause();
         
     
     }

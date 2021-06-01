@@ -5448,7 +5448,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1285204043
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5584,6 +5584,7 @@ GameObject:
   - component: {fileID: 1363485212}
   - component: {fileID: 1363485211}
   - component: {fileID: 1363485210}
+  - component: {fileID: 1363485214}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -5671,6 +5672,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1363485214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363485209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fe0278b2c062564d86d20ebf6c194aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenuUI: {fileID: 1285204042}
 --- !u!1 &1381241064
 GameObject:
   m_ObjectHideFlags: 0
@@ -6517,6 +6531,11 @@ PrefabInstance:
       objectReference: {fileID: 366193125}
     - target: {fileID: 2630882990381955763, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
         type: 3}
+      propertyPath: pauseScript
+      value: 
+      objectReference: {fileID: 1363485214}
+    - target: {fileID: 2630882990381955763, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
+        type: 3}
       propertyPath: stopcollider
       value: 
       objectReference: {fileID: 773348136}
@@ -7054,6 +7073,11 @@ PrefabInstance:
       propertyPath: clonescript
       value: 
       objectReference: {fileID: 366193125}
+    - target: {fileID: 7526327196878974822, guid: 08bbef220a509b640b073c02da272c9b,
+        type: 3}
+      propertyPath: pauseScript
+      value: 
+      objectReference: {fileID: 1363485214}
     - target: {fileID: 7526327196878974822, guid: 08bbef220a509b640b073c02da272c9b,
         type: 3}
       propertyPath: lokiControls
