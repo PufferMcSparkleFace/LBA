@@ -140,11 +140,8 @@ public class LokiControls : MonoBehaviour
     
     void SwitchPlayerLeft()
     {
-        if (cloneisfocus == false && hasbaldr == false)
-        {
-            return;
-        }
-        else if (cloneisfocus == false && hasbaldr == true)
+
+        if (cloneisfocus == false && hasbaldr == true)
         {
             OnDisable();
             baldrControls.OnEnable();
@@ -155,11 +152,18 @@ public class LokiControls : MonoBehaviour
             baldrControls.move.x = 0;
             cloneisfocus = false;
         }
-        else if(cloneisfocus == true)
+        else if (cloneisfocus == true)
         {
             CloneCam.Priority = 0;
             LokiCam.Priority = 1;
             cloneisfocus = false;
+        }
+        else if (cloneisfocus == false && hasbaldr == false)
+        {
+            LokiCam.Priority = 0;
+            BaldrCam.Priority = 0;
+            CloneCam.Priority = 1;
+            cloneisfocus = true;
         }
         
     }
@@ -185,6 +189,12 @@ public class LokiControls : MonoBehaviour
                 baldrControls.isTethered = false;
                 cloneisfocus = false;
                 baldrControls.move.x = 0;
+            }
+            if (hasbaldr == false)
+            {
+                CloneCam.Priority = 0;
+                LokiCam.Priority = 1;
+                cloneisfocus = false;
             }
         }
     }
