@@ -3969,6 +3969,7 @@ Tilemap:
     m_Data: {fileID: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   - m_RefCount: 87
 =======
   - m_RefCount: 63
@@ -3976,6 +3977,8 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: b96a50aff8c33d6459ae594e1d59f025, type: 2}
   - m_RefCount: 0
     m_Data: {fileID: 0}
+=======
+>>>>>>> parent of 043c6de (Messing around with colliders until I realise it's not worth it)
 =======
 >>>>>>> parent of 043c6de (Messing around with colliders until I realise it's not worth it)
   - m_RefCount: 0
@@ -3997,6 +4000,7 @@ Tilemap:
     m_Data: {fileID: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   - m_RefCount: 87
 =======
   - m_RefCount: 63
@@ -4004,10 +4008,13 @@ Tilemap:
     m_Data: {fileID: 21300162, guid: 1a08f9bec49c04809b03ba62a218b140, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
+=======
+>>>>>>> parent of 043c6de (Messing around with colliders until I realise it's not worth it)
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 21300016, guid: 1a08f9bec49c04809b03ba62a218b140, type: 3}
+<<<<<<< HEAD
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 0
@@ -4025,6 +4032,8 @@ Tilemap:
     m_Data: {fileID: 21300016, guid: 1a08f9bec49c04809b03ba62a218b140, type: 3}
 =======
 >>>>>>> parent of ad9ff3a (Created Test Room)
+=======
+>>>>>>> parent of 043c6de (Messing around with colliders until I realise it's not worth it)
   m_TileMatrixArray:
   - m_RefCount: 77
     m_Data:
