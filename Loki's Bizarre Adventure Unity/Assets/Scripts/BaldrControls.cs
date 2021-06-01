@@ -72,7 +72,6 @@ public class BaldrControls : MonoBehaviour
         controls.Baldr.SwitchPlayerRight.performed += ctx => SwitchPlayerRight();
         controls.Baldr.Slide.performed += ctx => Slide();
         controls.Baldr.Tether.performed += ctx => tetherManagement();
-        OnDisable();
     }
 
     void SwitchPlayerRight()
@@ -158,6 +157,10 @@ public class BaldrControls : MonoBehaviour
 
     void Update()
     {
+        if(lokiControls.hasbaldr == false)
+        {
+            OnDisable();
+        }
         shieldangle = currentshieldangle;
         if (shieldrotation.x >= 0.5 || shieldrotation.y >= 0.5 || shieldrotation.x <= -0.5 || shieldrotation.y <= -0.5)
         {
