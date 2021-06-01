@@ -234,7 +234,7 @@ public class LokiControls : MonoBehaviour
     {
         if (collision.gameObject.tag == "Mirror" && canmirrorbounce == true)
         {
-            var direction = collision.contacts[0].normal;
+            var direction = -collision.transform.up;
             rb.velocity = direction * DashForce * mirrorboostamount;
             mirrorboostamount += 0.1f;
             canmirrorbouncetimer = startingcanmirrorbouncetimer;
