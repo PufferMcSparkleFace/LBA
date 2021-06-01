@@ -358,18 +358,25 @@ public class LokiControls : MonoBehaviour
       
 void tetherManagement()
     {
-        if(isTethered == true)
+        if(hasbaldr == true)
         {
-            isTethered = false;
-            baldrControls.isTethered = false;
-            baldrControls.move.x = 0;
-            return;
-        }
+            if (isTethered == true)
+            {
+                isTethered = false;
+                baldrControls.isTethered = false;
+                baldrControls.move.x = 0;
+                return;
+            }
 
-        if (isTethered == false && Vector2.Distance(transform.position, BaldrFollow.position) < 5)
+            if (isTethered == false && Vector2.Distance(transform.position, BaldrFollow.position) < 5)
+            {
+                isTethered = true;
+                baldrControls.isTethered = true;
+            }
+        }
+        else
         {
-            isTethered = true;
-            baldrControls.isTethered = true;
+            return;
         }
     }
 
