@@ -20,7 +20,7 @@ public class DoorSwitch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(clonescript.ispressingswitch == false || lokiscript.ispressingswitch == false || baldrscript.ispressingswitch == false)
+        if(clonescript.ispressingswitch == false && lokiscript.ispressingswitch == false && baldrscript.ispressingswitch == false)
         {
             switchpressed.enabled = false;
             switchunpressed.enabled = true;
