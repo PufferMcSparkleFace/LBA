@@ -159,6 +159,13 @@ public class BaldrControls : MonoBehaviour
 
     void Update()
     {
+        if(lokiControls.hasbaldr == false)
+        {
+            move = new Vector2(0,0);
+            rb.velocity = new Vector2(0,0);
+            return;
+
+        }
         shieldangle = currentshieldangle;
         if (shieldrotation.x >= 0.5 || shieldrotation.y >= 0.5 || shieldrotation.x <= -0.5 || shieldrotation.y <= -0.5)
         {
