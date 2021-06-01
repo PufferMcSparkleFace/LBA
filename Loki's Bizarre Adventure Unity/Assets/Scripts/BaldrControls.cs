@@ -56,7 +56,6 @@ public class BaldrControls : MonoBehaviour
         GameObject shield = GameObject.FindGameObjectWithTag("Mirror");
         Physics2D.IgnoreCollision(shield.GetComponent<BoxCollider2D>(), GetComponent<PolygonCollider2D>());
         LokiFollow = GameObject.FindGameObjectWithTag("Loki").GetComponent<Transform>();
-        OnDisable();
       
     }
 
@@ -73,6 +72,7 @@ public class BaldrControls : MonoBehaviour
         controls.Baldr.SwitchPlayerRight.performed += ctx => SwitchPlayerRight();
         controls.Baldr.Slide.performed += ctx => Slide();
         controls.Baldr.Tether.performed += ctx => tetherManagement();
+        OnDisable();
     }
 
     void SwitchPlayerRight()
