@@ -63,8 +63,7 @@ public class LokiControls : MonoBehaviour
     public bool ispressingswitch = false;
     public bool hasbaldr = false;
     public PauseMenu pauseScript;
-    public bool iswalking = false;
-    public bool startedwalking = false;
+   
 
 
 
@@ -356,32 +355,7 @@ public class LokiControls : MonoBehaviour
         {
             canclonebounce = false;
         }
-        if(move.x >=0.01 || move.x <= -0.01)
-        {
-            startedwalking = true;
-            iswalking = true;
-        }
-        if(move.x <= 0.01 || move.x >= -0.01)
-        {
-            startedwalking = false;
-            iswalking = false;
-        }
-        if(rb.velocity.y != 0)
-        {
-            startedwalking = false;
-            iswalking = false;
-        }
-        if(startedwalking== true)
-        {
-            FindObjectOfType<AudioManager>().Play("Walk");
-            startedwalking = false;
-            iswalking = true;
-        }
-        if(iswalking == false)
-        {
-            FindObjectOfType<AudioManager>().StopPlaying("Walk");
-        }
-      
+        
     }
 
     
