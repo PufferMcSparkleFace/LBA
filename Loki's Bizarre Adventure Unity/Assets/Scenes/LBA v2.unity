@@ -8065,7 +8065,7 @@ MonoBehaviour:
   - clip: {fileID: 8300000, guid: 2ebf2421dddc15a45b7fc6ae8197b1c0, type: 3}
     volume: 1
     pitch: 1
-    name: Roll
+    name: Jump
     source: {fileID: 0}
     loop: 0
   - clip: {fileID: 8300000, guid: 25eb1d2a1356fb744aed40123c0d0040, type: 3}
@@ -8086,9 +8086,12 @@ MonoBehaviour:
     name: End Screen
     source: {fileID: 0}
     loop: 1
-  titleScreen: 0
-  endScreen: 0
-  mainGame: 0
+  - clip: {fileID: 8300000, guid: 87e2452fe2c754248926c9a9ab93a467, type: 3}
+    volume: 1
+    pitch: 1
+    name: Roll
+    source: {fileID: 0}
+    loop: 0
 --- !u!4 &1042896314
 Transform:
   m_ObjectHideFlags: 0

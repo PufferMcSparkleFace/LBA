@@ -138,6 +138,7 @@ public class BaldrControls : MonoBehaviour
         if (rb.velocity.y == 0)
         {
             rb.velocity = new Vector2(0, jumpHeight);
+            FindObjectOfType<AudioManager>().Play("Jump");
             jumpbuffer = false;
             
             if (issliding)
@@ -208,6 +209,7 @@ public class BaldrControls : MonoBehaviour
         if(jumpbuffer && rb.velocity.y == 0)
         {
             rb.velocity = new Vector2(0, jumpHeight);
+            FindObjectOfType<AudioManager>().Play("Jump");
             jumpbuffer = false;
         }
 
