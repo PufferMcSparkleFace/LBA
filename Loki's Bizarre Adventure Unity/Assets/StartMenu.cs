@@ -18,6 +18,7 @@ public class StartMenu : MonoBehaviour
         titlescreencam.Priority = 1;
         lokicontrols.OnDisable();
         titlescreen.SetActive(true);
+        FindObjectOfType<AudioManager>().Play("Title Screen");
     }
 
     // Update is called once per frame
@@ -32,6 +33,8 @@ public class StartMenu : MonoBehaviour
         lokicontrols.OnEnable();
         titlescreencam.Priority = 0;
         lokicam.Priority = 1;
+        FindObjectOfType<AudioManager>().StopPlaying("Title Screen");
+        FindObjectOfType<AudioManager>().Play("Main Game");
     }
     public void Controls()
     {
