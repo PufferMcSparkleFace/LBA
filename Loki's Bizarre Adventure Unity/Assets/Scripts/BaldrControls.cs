@@ -116,7 +116,7 @@ public class BaldrControls : MonoBehaviour
 
                     FindObjectOfType<AudioManager>().Play("Roll");
                     issliding = true;
-                    currentslidetime = 1;
+                    currentslidetime = 2;
                     momentum *= momentumincrease;
                     cameraShake.ShakeCamera(momentum, 0.2f);
                    
@@ -143,7 +143,7 @@ public class BaldrControls : MonoBehaviour
             
             if (issliding)
             {
-                currentslidetime = 2;
+                currentslidetime = 3;
                 canslide = true;
             }
  
