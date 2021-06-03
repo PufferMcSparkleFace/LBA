@@ -52113,7 +52113,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &2084077644
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -53315,6 +53315,11 @@ PrefabInstance:
         type: 3}
       propertyPath: isTethered
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526327196878974822, guid: 08bbef220a509b640b073c02da272c9b,
+        type: 3}
+      propertyPath: jumpHeight
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 7526327196878974822, guid: 08bbef220a509b640b073c02da272c9b,
         type: 3}
