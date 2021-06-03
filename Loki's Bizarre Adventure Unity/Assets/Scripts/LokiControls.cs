@@ -204,10 +204,12 @@ public class LokiControls : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        /*
         if (collision.tag == "Clonebounce Detector" && clonescript.tethered == false && clonescript.active == true)
         {
             canclonebounce = true;
         }
+        */
         if (collision.gameObject.tag == "Stop")
         {
             canmirrorbounce = false;
@@ -248,12 +250,14 @@ public class LokiControls : MonoBehaviour
             }
      
         }
+        /*
         if(canclonebounce == true && rb.velocity.y < 0)
         {
             CloneBounce();
             isTethered = false;
             baldrControls.isTethered = false;
         }
+        */
        
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -403,12 +407,13 @@ void tetherManagement()
         controls.Loki.Disable();
     }
 
-
+    /*
     public void CloneBounce()
     {
         rb.velocity = new Vector2(0f, clonebounceheight);
         canclonebounce = false;
     }
+    */
 
     //void IgnoreCollisions()
     //{
