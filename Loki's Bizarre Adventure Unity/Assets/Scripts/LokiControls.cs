@@ -63,6 +63,7 @@ public class LokiControls : MonoBehaviour
     public bool ispressingswitch = false;
     public bool hasbaldr = false;
     public PauseMenu pauseScript;
+    public GameObject Endscreen;
    
 
 
@@ -223,6 +224,13 @@ public class LokiControls : MonoBehaviour
         if(collision.tag == "Baldr Unlocked!")
         {
             hasbaldr = true;
+        }
+        if(collision.tag == "Finish" && hasbaldr == true && isTethered == true)
+        {
+            OnDisable();
+            Endscreen.SetActive(true);
+            FindObjectOfType<AudioManager>().Play("End Screen");
+            FindObjectOfType<AudioManager>().StopPlaying("Main Game");
         }
 
     }

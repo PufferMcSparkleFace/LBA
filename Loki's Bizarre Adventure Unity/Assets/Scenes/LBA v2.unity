@@ -53407,6 +53407,11 @@ PrefabInstance:
       objectReference: {fileID: 676456114}
     - target: {fileID: 2630882990381955763, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
         type: 3}
+      propertyPath: Endscreen
+      value: 
+      objectReference: {fileID: 264459031}
+    - target: {fileID: 2630882990381955763, guid: 4acb9815b6ee4934790c4d9f2fbbb00d,
+        type: 3}
       propertyPath: isTethered
       value: 0
       objectReference: {fileID: 0}
