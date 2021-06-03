@@ -118,7 +118,7 @@ public class BaldrControls : MonoBehaviour
                     issliding = true;
                     currentslidetime = 2;
                     momentum *= momentumincrease;
-                    cameraShake.ShakeCamera(momentum, 0.2f);
+                    //cameraShake.ShakeCamera(momentum, 0.2f);
                    
                 }
                 canslide = false;

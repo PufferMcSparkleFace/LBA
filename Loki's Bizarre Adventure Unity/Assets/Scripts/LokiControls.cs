@@ -117,7 +117,7 @@ public class LokiControls : MonoBehaviour
             clonescript.canmirrorbounce = true;
             canmirrorbouncetimer = startingcanmirrorbouncetimer;
             candash = false;
-            cameraShake.ShakeCamera(2f, 0.2f);
+            //cameraShake.ShakeCamera(2f, 0.2f);
             clonescript.canmirrorbouncetimer = clonescript.startingcanmirrorbouncetimer;
             clonecollider.enabled = true;
             Physics2D.IgnoreCollision(shieldcollider, lokicollider, false);
@@ -276,7 +276,7 @@ public class LokiControls : MonoBehaviour
             canmirrorbouncetimer = startingcanmirrorbouncetimer;
             isbouncing = true;
             rb.gravityScale = 0.0f;
-            cameraShake.ShakeCamera(1f, 0.2f);
+            //cameraShake.ShakeCamera(1f, 0.2f);
             Debug.Log("bouncybouncy");
             FindObjectOfType<AudioManager>().Play("Dash");
         }
@@ -288,7 +288,7 @@ public class LokiControls : MonoBehaviour
             canmirrorbouncetimer = startingcanmirrorbouncetimer;
             isbouncing = true;
             rb.gravityScale = 0.0f;
-            cameraShake.ShakeCamera(1f, 0.2f);
+            //cameraShake.ShakeCamera(1f, 0.2f);
             Debug.Log("bouncybouncy"); 
             FindObjectOfType<AudioManager>().Play("Dash");
         }
