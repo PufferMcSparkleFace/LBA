@@ -66,7 +66,7 @@ public class Clone : MonoBehaviour
         {
             var direction = -collision.transform.up;
             rb.velocity = direction * DashForce * mirrorboostamount;
-            mirrorboostamount += 0.1f;
+            mirrorboostamount += 0.3f;
             canmirrorbouncetimer = startingcanmirrorbouncetimer;
             isbouncing = true;
             rb.gravityScale = 0.0f;
@@ -77,7 +77,7 @@ public class Clone : MonoBehaviour
         {
             var direction = collision.transform.up;
             rb.velocity = direction * DashForce * mirrorboostamount;
-            mirrorboostamount += 0.1f;
+            mirrorboostamount += 0.3f;
             canmirrorbouncetimer = startingcanmirrorbouncetimer;
             isbouncing = true;
             rb.gravityScale = 0.0f;

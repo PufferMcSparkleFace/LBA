@@ -47,7 +47,6 @@ public class LokiControls : MonoBehaviour
     public bool candash = true;
     public float clonebounceheight;
     public bool canclonebounce = false;
-    private Transform clonebouncedetector;
     public CameraShake cameraShake;
     private Vector2 lastMove;
     public float mirrorboostamount = 1.5f;
@@ -78,7 +77,6 @@ public class LokiControls : MonoBehaviour
         BaldrFollow = GameObject.FindGameObjectWithTag("Baldr").GetComponent<Transform>();
         GameObject clone = GameObject.FindGameObjectWithTag("Clone");
         Physics2D.IgnoreCollision(clone.GetComponent<Collider2D>(), GetComponent<Collider2D>());
-        clonebouncedetector = GameObject.FindGameObjectWithTag("Clonebounce Detector").GetComponent<Transform>();
         clonecollider.enabled = false;
     }
 
@@ -274,7 +272,7 @@ public class LokiControls : MonoBehaviour
         {
             var direction = -collision.transform.up;
             rb.velocity = direction * DashForce * mirrorboostamount;
-            mirrorboostamount += 0.1f;
+            mirrorboostamount += 0.3f;
             canmirrorbouncetimer = startingcanmirrorbouncetimer;
             isbouncing = true;
             rb.gravityScale = 0.0f;
@@ -286,7 +284,7 @@ public class LokiControls : MonoBehaviour
         {
             var direction = collision.transform.up;
             rb.velocity = direction * DashForce * mirrorboostamount;
-            mirrorboostamount += 0.1f;
+            mirrorboostamount += 0.3f;
             canmirrorbouncetimer = startingcanmirrorbouncetimer;
             isbouncing = true;
             rb.gravityScale = 0.0f;

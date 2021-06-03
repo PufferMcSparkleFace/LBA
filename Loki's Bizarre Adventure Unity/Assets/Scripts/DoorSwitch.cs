@@ -44,6 +44,10 @@ public class DoorSwitch : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if(sticky == true)
+        {
+            return;
+        }
         Debug.Log("Left");
         if(collision.tag == "Baldr")
         {
