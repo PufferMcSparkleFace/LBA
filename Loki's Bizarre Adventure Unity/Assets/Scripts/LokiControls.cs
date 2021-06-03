@@ -272,7 +272,7 @@ public class LokiControls : MonoBehaviour
         {
             var direction = -collision.transform.up;
             rb.velocity = direction * DashForce * mirrorboostamount;
-            mirrorboostamount += 0.3f;
+            mirrorboostamount += 0.35f;
             canmirrorbouncetimer = startingcanmirrorbouncetimer;
             isbouncing = true;
             rb.gravityScale = 0.0f;
@@ -284,7 +284,7 @@ public class LokiControls : MonoBehaviour
         {
             var direction = collision.transform.up;
             rb.velocity = direction * DashForce * mirrorboostamount;
-            mirrorboostamount += 0.3f;
+            mirrorboostamount += 0.35f;
             canmirrorbouncetimer = startingcanmirrorbouncetimer;
             isbouncing = true;
             rb.gravityScale = 0.0f;
